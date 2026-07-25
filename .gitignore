@@ -1,0 +1,7 @@
+# Generator output. Regenerate with the blender commands in the README; the
+# publishable copies live under models/ and are committed.
+build/
+
+__pycache__/
+*.pyc
+.venv/

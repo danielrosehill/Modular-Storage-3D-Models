@@ -1,0 +1,26 @@
+{
+  "name": "Euro stacking container 600 x 400 x 230 mm",
+  "description": "A solid-walled euro stacking container on the 600 x 400 mm footprint: the standard European small load carrier module, four of which fill a 1200 x 800 mm Euro pallet layer exactly. This is the single most common industrial tote in European warehousing, order picking and factory line-side supply.\n\nExternal dimensions: length 600 mm, width 400 mm, height 230 mm.\n\n600 x 400 mm footprint: the standard euro container module, four per 1200 x 800 mm Euro pallet layer. Same grid as the VDA 4500 small load carrier family.\n\nGLB (glTF 2.0), real-world scale in metres, origin at the centre of the base. 2,964 triangles, flat PBR base colours, no textures. CC BY 4.0.",
+  "tags": [
+    "eurobox",
+    "euro-container",
+    "stacking-crate",
+    "tote",
+    "klt",
+    "small-load-carrier",
+    "warehouse",
+    "logistics",
+    "storage-bin",
+    "industrial",
+    "plastic-crate",
+    "pallet",
+    "inventory",
+    "supply-chain",
+    "lowpoly",
+    "pbr",
+    "gltf",
+    "glb"
+  ],
+  "license": "by",
+  "summary": "Euro stacking container, 600 x 400 x 230 mm - true-scale GLB of the standard European small load carrier, for warehouse, logistics and inventory visualisation."
+}

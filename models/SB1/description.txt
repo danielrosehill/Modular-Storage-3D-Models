@@ -1,0 +1,46 @@
+Boltless shelving bay 1600 x 600 x 2300 mm
+SB1
+
+A boltless (rivet) steel shelving bay of the kind used throughout warehouses,
+stockrooms, archives and workshops: four corner posts, front and back beams at
+each level, shelf decks, and diagonal bracing on the side frames. Five levels.
+
+The bay is dimensioned around the euro container module, which is what makes it
+useful as a layout asset rather than generic racking: the 600 mm depth matches the
+long side of a 600 x 400 mm euro container exactly, and the 1600 mm width takes
+four 400 mm-wide containers per level - twenty per bay across five levels. Drop
+the euro containers from this same set onto it and the fit is correct by
+construction, not by eye.
+
+Shelf pitch is a representative spacing rather than a manufacturer's figure.
+
+DIMENSIONS (external)
+  Width     1600 mm
+  Depth     600 mm
+  Height    2300 mm
+
+TYPICAL USE
+Built as a set-dressing and layout asset for warehouse, stockroom, archive,
+workshop and factory scenes: aisle and rack runs, storage capacity planning, WMS
+and inventory-system location visualisation, facility and architectural
+walkthroughs, training and simulation environments.
+
+Modelled at true real-world scale with clean low-poly topology and a single flat
+material, so a full aisle of bays stays cheap to render and instances without
+rescaling.
+
+ASSET NOTES
+  Format      GLB (glTF 2.0 binary), single file, no external textures
+  Scale       metres, real world - a 600 mm crate is 0.600 units long
+  Origin      centre of the base, +Z up
+  Geometry    924 triangles, 1,008 vertices
+  Materials   flat PBR base colours, no image maps
+  File size   30.2 KB
+
+LICENCE
+  CC Attribution 4.0 (CC BY 4.0)
+
+TAGS
+  shelving, racking, boltless shelving, rivet shelving, steel shelf, warehouse rack,
+storage rack, warehouse, stockroom, archive, industrial, logistics, inventory,
+lowpoly, pbr, gltf, glb

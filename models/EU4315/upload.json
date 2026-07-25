@@ -1,0 +1,26 @@
+{
+  "name": "Euro stacking container 400 x 300 x 150 mm",
+  "description": "A solid-walled euro stacking container on the 400 x 300 mm footprint: exactly half the 600 x 400 euro module, so eight fit a 1200 x 800 mm Euro pallet layer and two sit side by side in the footprint of a full-size crate. This is the small-parts member of the family, used for order picking, kitting and line-side supply where a full 600 x 400 crate is more than the part needs.\n\nExternal dimensions: length 400 mm, width 300 mm, height 150 mm.\n\n400 x 300 mm footprint: half the 600 x 400 module, eight per 1200 x 800 mm Euro pallet layer. 150mm is the consumer rounding of the VDA 4500 grid height of 147.5mm.\n\nGLB (glTF 2.0), real-world scale in metres, origin at the centre of the base. 2,484 triangles, flat PBR base colours, no textures. CC BY 4.0.",
+  "tags": [
+    "eurobox",
+    "euro-container",
+    "stacking-crate",
+    "tote",
+    "klt",
+    "small-load-carrier",
+    "warehouse",
+    "logistics",
+    "storage-bin",
+    "industrial",
+    "plastic-crate",
+    "pallet",
+    "inventory",
+    "supply-chain",
+    "lowpoly",
+    "pbr",
+    "gltf",
+    "glb"
+  ],
+  "license": "by",
+  "summary": "Euro stacking container, 400 x 300 x 150 mm - true-scale GLB of the half-module European small load carrier."
+}

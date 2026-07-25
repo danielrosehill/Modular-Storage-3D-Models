@@ -1,0 +1,25 @@
+{
+  "name": "Boltless shelving bay 1600 x 600 x 2300 mm",
+  "description": "A boltless (rivet) steel shelving bay of the kind used throughout warehouses, stockrooms, archives and workshops: four corner posts, front and back beams at each level, shelf decks, and diagonal bracing on the side frames. Five levels.\n\nExternal dimensions: width 1600 mm, depth 600 mm, height 2300 mm.\n\nGLB (glTF 2.0), real-world scale in metres, origin at the centre of the base. 924 triangles, flat PBR base colours, no textures. CC BY 4.0.",
+  "tags": [
+    "shelving",
+    "racking",
+    "boltless-shelving",
+    "rivet-shelving",
+    "steel-shelf",
+    "warehouse-rack",
+    "storage-rack",
+    "warehouse",
+    "stockroom",
+    "archive",
+    "industrial",
+    "logistics",
+    "inventory",
+    "lowpoly",
+    "pbr",
+    "gltf",
+    "glb"
+  ],
+  "license": "by",
+  "summary": "Boltless warehouse shelving bay, 1600 x 600 x 2300 mm - true-scale GLB of a five-level steel racking bay sized to the euro container module."
+}

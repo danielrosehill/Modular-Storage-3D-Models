@@ -1,0 +1,58 @@
+Euro stacking container 400 x 300 x 150 mm
+EU4315
+
+A solid-walled euro stacking container on the 400 x 300 mm footprint: exactly half
+the 600 x 400 euro module, so eight fit a 1200 x 800 mm Euro pallet layer and two
+sit side by side in the footprint of a full-size crate. This is the small-parts
+member of the family, used for order picking, kitting and line-side supply where a
+full 600 x 400 crate is more than the part needs.
+
+The model carries the features that define the container's silhouette and how it
+behaves in a scene: straight external walls with rounded rim and corner radii,
+hand-hole grips cut through the top rail on both long sides, a hollowed underside,
+and a recessed stacking foot that drops inside the rim of the container below, so
+a stack interlocks rather than sliding.
+
+Fine surface detail - the moulded rib columns on the walls and the waffle grid
+under the base - is deliberately left out. It is not readable at the scales this
+asset is built for, and it would multiply the triangle count for no visible gain.
+
+Open top. Lids are a separate item on the real product and are not modelled here.
+
+The 150 mm height is the commercial rounding of the 147.5 mm grid height in the
+VDA 4500 small load carrier system.
+
+DIMENSIONS (external)
+  Length    400 mm
+  Width     300 mm
+  Height    150 mm
+
+STANDARD
+  400 x 300 mm footprint: half the 600 x 400 module, eight per 1200 x 800 mm Euro pallet layer. 150mm is the consumer rounding of the VDA 4500 grid height of 147.5mm.
+
+TYPICAL USE
+Built as a set-dressing and layout asset for industrial storage, warehousing,
+logistics and manufacturing scenes: shelf and rack fills, pallet builds, WMS and
+inventory-system bin visualisation, warehouse layout planning, facility and
+architectural walkthroughs, training and simulation environments, and product
+configurators.
+
+Modelled at true real-world scale with clean low-poly topology and a single flat
+base colour, so it instances cheaply hundreds of times in a shelf or rack view and
+can be recoloured per bin type without touching the mesh.
+
+ASSET NOTES
+  Format      GLB (glTF 2.0 binary), single file, no external textures
+  Scale       metres, real world - a 600 mm crate is 0.600 units long
+  Origin      centre of the base, +Z up
+  Geometry    2,484 triangles, 3,309 vertices
+  Materials   flat PBR base colours, no image maps
+  File size   120.2 KB
+
+LICENCE
+  CC Attribution 4.0 (CC BY 4.0)
+
+TAGS
+  eurobox, euro container, stacking crate, tote, KLT, small load carrier, warehouse,
+logistics, storage bin, industrial, plastic crate, pallet, inventory, supply chain,
+lowpoly, pbr, gltf, glb

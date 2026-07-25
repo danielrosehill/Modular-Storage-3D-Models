@@ -1,0 +1,54 @@
+Attached-lid container 600 x 400 x 415 mm
+ALC6441
+
+An attached-lid container (ALC), also called a distribution tote or a swan-neck
+crate, on the standard 600 x 400 mm euro footprint - four per 1200 x 800 mm Euro
+pallet layer. ALCs are the workhorse of retail distribution, returnable transit
+packaging and internal transfer, because the lid travels with the box and cannot
+be lost.
+
+The geometry differs from a straight-wall euro crate in ways that matter:
+
+- An integral two-part hinged lid that meets on the centre line, with
+  interlocking tabs along the join and hasp tabs at the front edge for a security
+  seal.
+- A tapered body with horizontal rib bands, which is what lets these nest inside
+  one another when empty with the lid open, and stack squarely when closed and
+  loaded. That taper means an ALC is not a scaled-up euro crate.
+
+The lid is modelled closed and fused to the body.
+
+DIMENSIONS (external)
+  Length    600 mm
+  Width     400 mm
+  Height    415 mm
+
+STANDARD
+  600 x 400 mm footprint: the standard euro container module, four per 1200 x 800 mm Euro pallet layer.
+
+TYPICAL USE
+Built as a set-dressing and layout asset for industrial storage, warehousing,
+logistics and distribution scenes: pallet and roll-cage builds, returnable
+packaging flows, WMS and inventory-system visualisation, warehouse layout
+planning, facility and architectural walkthroughs, training and simulation
+environments, and product configurators.
+
+Modelled at true real-world scale with clean low-poly topology and a single flat
+base colour, so it instances cheaply across a pallet or aisle view and can be
+recoloured without touching the mesh.
+
+ASSET NOTES
+  Format      GLB (glTF 2.0 binary), single file, no external textures
+  Scale       metres, real world - a 600 mm crate is 0.600 units long
+  Origin      centre of the base, +Z up
+  Geometry    2,548 triangles, 2,773 vertices
+  Materials   flat PBR base colours, no image maps
+  File size   103.8 KB
+
+LICENCE
+  CC Attribution 4.0 (CC BY 4.0)
+
+TAGS
+  attached lid container, ALC, distribution tote, euro container, returnable
+packaging, crate, warehouse, logistics, storage bin, industrial, plastic crate,
+pallet, inventory, supply chain, lowpoly, pbr, gltf, glb

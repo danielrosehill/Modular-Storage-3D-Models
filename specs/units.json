@@ -1,0 +1,212 @@
+{
+  "$comment": "Model targets for the generators in scripts/. All dimensions in mm; the builders convert to metres on export.",
+  "verified": "2026-07-25",
+  "colours": {
+    "$comment": "Working values. Real mouldings vary batch to batch and exact colour matching is not a requirement. glTF baseColorFactor is linear, so use the linear figures, not the sRGB hex.",
+    "eurobox_blue": {
+      "sampled_srgb_hex": [
+        "#0E4CCC",
+        "#1662DF"
+      ],
+      "gltf_base_color_factor_linear": [
+        0.008,
+        0.122,
+        0.738
+      ]
+    },
+    "alc_blue": {
+      "sampled_srgb_hex": [
+        "#06549C",
+        "#11A4F1",
+        "#34CAFD"
+      ],
+      "note": "Shares the eurobox blue. The three sampled hex values are the same plastic under different lighting, so they set a range rather than a value; exact match is not required for these models.",
+      "gltf_base_color_factor_linear": [
+        0.008,
+        0.122,
+        0.738
+      ]
+    },
+    "picking_bin_blue": {
+      "sampled_srgb_hex": [
+        "#0099DA",
+        "#039AE1"
+      ],
+      "gltf_base_color_factor_linear": [
+        0.0,
+        0.319,
+        0.701
+      ]
+    },
+    "steel_grey": {
+      "gltf_base_color_factor_linear": [
+        0.52,
+        0.54,
+        0.56
+      ],
+      "note": "generic galvanised/powder-coated grey"
+    }
+  },
+  "units": [
+    {
+      "id": "eurobox-600x400x230",
+      "code": "EU6423",
+      "name": "Euro stacking container 600 x 400 x 230 mm",
+      "family": "euro_stacking_container",
+      "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips",
+      "outer_mm": {
+        "length": 600,
+        "width": 400,
+        "height": 230
+      },
+      "colour_ref": "eurobox_blue",
+      "material": "PP",
+      "walls": "solid",
+      "lid": "not included; lids are a separate item for this family",
+      "standard_context": "600 x 400 mm footprint: the standard euro container module, four per 1200 x 800 mm Euro pallet layer. Same grid as the VDA 4500 small load carrier family.",
+      "dimension_confidence": "confirmed",
+      "generic_spec": "../eurobox-standard/specs/eurobox-600x400x230.json",
+      "label": "EU6423"
+    },
+    {
+      "id": "eurobox-400x300x150",
+      "code": "EU4315",
+      "name": "Euro stacking container 400 x 300 x 150 mm",
+      "family": "euro_stacking_container",
+      "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips",
+      "outer_mm": {
+        "length": 400,
+        "width": 300,
+        "height": 150
+      },
+      "colour_ref": "eurobox_blue",
+      "material": "PP",
+      "walls": "solid",
+      "lid": "not included; lids are a separate item for this family",
+      "standard_context": "400 x 300 mm footprint: half the 600 x 400 module, eight per 1200 x 800 mm Euro pallet layer. 150mm is the consumer rounding of the VDA 4500 grid height of 147.5mm.",
+      "dimension_confidence": "confirmed",
+      "label": "EU4315"
+    },
+    {
+      "id": "eurobox-600x400x340",
+      "code": "EU6434",
+      "name": "Euro stacking container 600 x 400 x 340 mm",
+      "family": "euro_stacking_container",
+      "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips",
+      "outer_mm": {
+        "length": 600,
+        "width": 400,
+        "height": 340
+      },
+      "colour_ref": "eurobox_blue",
+      "material": "PP",
+      "walls": "solid",
+      "lid": "not included; lids are a separate item for this family",
+      "standard_context": "600 x 400 mm footprint: the standard euro container module, four per 1200 x 800 mm Euro pallet layer. Same grid as the VDA 4500 small load carrier family.",
+      "dimension_confidence": "confirmed",
+      "label": "EU6434"
+    },
+    {
+      "id": "alc-600x400x415",
+      "code": "ALC6441",
+      "name": "Attached-lid container 600 x 400 x 415 mm",
+      "family": "attached_lid_container",
+      "geometry": "tapered body with horizontal rib bands; nests when the lid is open, stacks when closed",
+      "outer_mm": {
+        "length": 600,
+        "width": 400,
+        "height": 415
+      },
+      "colour_ref": "alc_blue",
+      "material": "PP",
+      "walls": "solid",
+      "lid": "integral, hinged, two-part meeting on the centre line, with front hasp tabs for a seal",
+      "standard_context": "600 x 400 mm footprint: the standard euro container module, four per 1200 x 800 mm Euro pallet layer.",
+      "dimension_confidence": "confirmed; height is 415mm, an earlier 410mm figure was wrong",
+      "label": "ALC6441"
+    },
+    {
+      "id": "picking-bin-1",
+      "code": "PB1",
+      "name": "Open-front picking bin 450 x 300 x 210 mm",
+      "family": "open_front_picking_bin",
+      "geometry": "open front, tapered nesting body, rolled front lip",
+      "outer_mm": {
+        "depth": 450,
+        "width": 300,
+        "height": 210
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
+      "dimension_confidence": "confirmed",
+      "label": "PICKING BOX 1"
+    },
+    {
+      "id": "picking-bin-2",
+      "code": "PB2",
+      "name": "Open-front picking bin 295 x 205 x 160 mm",
+      "family": "open_front_picking_bin",
+      "geometry": "open front, tapered nesting body, rolled front lip",
+      "outer_mm": {
+        "depth": 295,
+        "width": 205,
+        "height": 160
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
+      "dimension_confidence": "confirmed",
+      "label": "PICKING BOX 2"
+    },
+    {
+      "id": "picking-bin-3",
+      "code": "PB3",
+      "name": "Open-front picking bin 200 x 145 x 130 mm",
+      "family": "open_front_picking_bin",
+      "geometry": "open front, tapered nesting body, rolled front lip",
+      "outer_mm": {
+        "depth": 200,
+        "width": 145,
+        "height": 130
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
+      "dimension_confidence": "confirmed",
+      "label": "PICKING BOX 3"
+    },
+    {
+      "id": "shelving-1600x600x2300",
+      "code": "SB1",
+      "name": "Boltless shelving bay 1600 x 600 x 2300 mm",
+      "family": "shelving",
+      "geometry": "four corner posts, shelf decks, front/back beams per level, diagonal side bracing",
+      "outer_mm": {
+        "width": 1600,
+        "depth": 600,
+        "height": 2300
+      },
+      "levels": 5,
+      "material": "powder-coated steel, boltless self-assembly",
+      "colour_ref": "steel_grey",
+      "dimension_confidence": "Width/height assignment inferred: 1600 takes exactly four 400mm euro containers per level where 2300 divides into nothing sensible, and 2300 is a standard bay height. Shelf count and spacing are estimated, not from a spec sheet.",
+      "modularity": "600mm depth matches the euro container long side exactly; 1600mm width takes four 400mm-wide containers per level, so 20 per bay across five levels"
+    }
+  ],
+  "reference_photos": "docs/reference-photos.md",
+  "label_convention": {
+    "format": "EU<long side dm><short side dm><height cm>",
+    "note": "Long side first, so the 600x400x230 is EU6423. This is an internal label convention for our own inventory, not an industry code.",
+    "confirmed": [
+      "EU6423",
+      "EU6434"
+    ],
+    "inferred": [
+      "EU4315 - derived from the convention, not specified"
+    ],
+    "alc": "ALC<long side dm><short side dm><height cm>, so ALC6441 for the 600x400x415. Inferred to match the EU convention.",
+    "picking_bins": "Plain english, 'PICKING BOX n'.",
+    "shelving": "SB<n>; the bay carries no moulded label."
+  }
+}
