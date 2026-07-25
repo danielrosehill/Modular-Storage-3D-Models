@@ -19,33 +19,42 @@ Solid-walled (Hebrew: *אטום*), straight-wall stacking crates on the VDA 4500
 600×400 module. Lids are a separate purchase and are **not** part of the base
 product.
 
-| Unit | External L×W×H (mm) | Supplier / SKU | Price | Dimension source |
-|---|---|---|---|---|
-| Eurobox 60×40×23 | 600 × 400 × 230 | Yosibox — `G-4623`, מק״ט `G47015` | ₪112 inc. VAT (₪95 ex.) | Supplier product page, verified 2026-07-25 |
-| Eurobox 40×30×15 | 400 × 300 × 150 | TBD — try `G-4315` / `G-3415` (see below) | — | Not yet sourced |
-| Eurobox 60×40×31 | 600 × 400 × 310 | TBD — try `G-4631` (see below) | — | Not yet sourced |
-| ~~Eurobox 40×30×23~~ | 400 × 300 × 230 | — | — | **Superseded?** Given early on, then replaced by the 40×30×15 above. Confirm whether both sizes are wanted or only the 15. |
+All three are Yosibox items, all confirmed from their product pages on 2026-07-25.
 
-Of the 400×300 heights, **150 mm is the standard one**: VDA 4500 sets a height
-grid of 147.5 / 213 / 280 mm, and 150 is the usual consumer rounding of 147.5.
-230 is not on the grid, which is a mild point in favour of the 40×30×15 having
-replaced it rather than joined it.
+| Unit | External L×W×H (mm) | Yosibox SKU | Price (inc. VAT) | Product page |
+|---|---|---|---|---|
+| Eurobox 40×30×15 | 400 × 300 × 150 | `G-3415` | ₪94 | [item 8456001](https://www.yosibox.com/items/8456001-ארגז-תעשייתי-G-3415-40-30-15-) |
+| Eurobox 60×40×23 | 600 × 400 × 230 | `G-4623` (מק״ט `G47015`) | ₪112 (₪95 ex.) | [item 8458664](https://www.yosibox.com/items/8458664-ארגז-תעשייתי-G-4623-60-40-23) |
+| Eurobox 60×40×34 | 600 × 400 × 340 | `G-4634` | ₪153 | [item 8488075](https://www.yosibox.com/items/8488075-ארגז-תעשייתי-G-4634-60-40-34) |
+
+Two earlier entries are now resolved and dropped: a **40×30×23** (superseded by
+the 40×30×15) and a **60×40×31** (Yosibox stock the 340 mm height, not 310).
 
 Generic dimensional data for the 600×400×230 and 600×400×310 sizes already
 exists in [`eurobox-standard/specs/`](../eurobox-standard/specs/), alongside the
 VDA 4500 source document and a parametric OpenSCAD skeleton.
 
-**Yosibox SKU pattern (inferred, not confirmed).** `G-4623` is the 60×40×23 and
-`T-4641` is the 60×40×41.5, which reads as `<letter>-<40/60 footprint><height in
-cm>`. If that holds, the 60×40×31 should be near `G-4631`. Worth trying before
-searching the catalogue by hand — but it is a pattern extrapolated from two data
-points, so treat it as a lead, not a fact.
+**Yosibox SKU pattern (confirmed across four products).** The code reads as
+`<family letter>-<short side dm><long side dm><height cm>`:
+
+| SKU | Decodes as | Actual product |
+|---|---|---|
+| `G-3415` | 30 × 40, 15 cm | 400 × 300 × 150 |
+| `G-4623` | 40 × 60, 23 cm | 600 × 400 × 230 |
+| `G-4634` | 40 × 60, 34 cm | 600 × 400 × 340 |
+| `T-4641` | 40 × 60, 41 cm | 600 × 400 × 415 |
+
+`G` is the open crate family, `T` the attached-lid family. Note the footprint
+digits are **short side first**, so a 600×400 is `46`, not `64`. The height
+digits are truncated, not rounded — `41` for a 41.5 cm container — so the SKU
+alone is not a safe source of dimensions. Useful for finding products in the
+catalogue; not a substitute for reading the product page.
 
 ### Attached-lid container (ALC)
 
 | Unit | External L×W×H (mm) | Supplier / SKU | Price | Dimension source |
 |---|---|---|---|---|
-| ALC 60×40×41.5 | 600 × 400 × **415** | Yosibox — `T-4641`, מק״ט `T04` | ₪155 inc. VAT (₪131 ex.) | Supplier product page, verified 2026-07-25 |
+| ALC 60×40×41.5 | 600 × 400 × **415** | Yosibox — `T-4641`, מק״ט `T04` | ₪155 inc. VAT (₪131 ex.) | [item 8388110](https://www.yosibox.com/items/8388110-ארגז-פלסטיק-תעשייתי-T-4641-60-40-41-5), verified 2026-07-25 |
 
 Confirmed geometry from the product photography, and it differs from the
 euroboxes in ways that matter for modelling:
@@ -163,8 +172,9 @@ ribs cost geometry and read as noise. Revisit if the website wants close-ups.
 ## Open questions
 
 1. **Actual colour references** from both suppliers — see the colour section.
-2. **Sources for the two unsourced euroboxes** (40×30×23 and 60×40×31); the SKU
-   pattern above is a starting point for the latter.
+2. **Picking bin supplier** — the three bins have confirmed dimensions and
+   prices but no recorded supplier or product URL, unlike the four Yosibox
+   items. Worth capturing so the data can be re-verified later.
 3. **Do the eurobox lids need modelling?** They are a separate SKU. The ALC's is
    integral, and if the WMS ever shows open vs closed it wants to be a separate
    mesh with a hinge origin — two hinge origins, in the ALC's case.

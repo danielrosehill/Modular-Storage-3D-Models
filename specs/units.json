@@ -3,12 +3,26 @@
   "verified": "2026-07-25",
   "colours": {
     "$comment": "Sampled sRGB ranges only. Do not author glTF materials from these without a supplier RAL/Pantone reference or a grey-card photograph. glTF baseColorFactor is linear; convert before use.",
-    "eurobox_blue": { "sampled_srgb_hex": ["#0E4CCC", "#1662DF"] },
+    "eurobox_blue": {
+      "sampled_srgb_hex": [
+        "#0E4CCC",
+        "#1662DF"
+      ]
+    },
     "alc_blue": {
-      "sampled_srgb_hex": ["#06549C", "#11A4F1", "#34CAFD"],
+      "sampled_srgb_hex": [
+        "#06549C",
+        "#11A4F1",
+        "#34CAFD"
+      ],
       "note": "all three are the same plastic under different lighting: shadowed face, lit face, lid top"
     },
-    "picking_bin_blue": { "sampled_srgb_hex": ["#0099DA", "#039AE1"] }
+    "picking_bin_blue": {
+      "sampled_srgb_hex": [
+        "#0099DA",
+        "#039AE1"
+      ]
+    }
   },
   "units": [
     {
@@ -16,74 +30,109 @@
       "name": "Eurobox 60x40x23",
       "family": "euro_stacking_container",
       "geometry": "straight-wall, solid, stacking lip and foot",
-      "outer_mm": { "length": 600, "width": 400, "height": 230 },
+      "outer_mm": {
+        "length": 600,
+        "width": 400,
+        "height": 230
+      },
       "colour_ref": "eurobox_blue",
       "material": "PP",
       "walls": "solid (Hebrew: atum / אטום)",
       "lid": "not included; separate SKU",
-      "supplier": { "name": "Yosibox", "sku": "G-4623", "internal_ref": "G47015" },
-      "price_ils": { "inc_vat": 112, "ex_vat": 95 },
+      "supplier": {
+        "name": "Yosibox",
+        "sku": "G-4623",
+        "internal_ref": "G47015"
+      },
+      "price_ils": {
+        "inc_vat": 112,
+        "ex_vat": 95
+      },
       "dimension_confidence": "confirmed from supplier product page",
-      "generic_spec": "../eurobox-standard/specs/eurobox-600x400x230.json"
+      "generic_spec": "../eurobox-standard/specs/eurobox-600x400x230.json",
+      "product_page": "https://www.yosibox.com/items/8458664"
     },
     {
       "id": "eurobox-400x300x150",
       "name": "Eurobox 40x30x15",
       "family": "euro_stacking_container",
       "geometry": "straight-wall, solid, stacking lip and foot",
-      "outer_mm": { "length": 400, "width": 300, "height": 150 },
+      "outer_mm": {
+        "length": 400,
+        "width": 300,
+        "height": 150
+      },
       "colour_ref": "eurobox_blue",
       "material": "PP",
-      "supplier": null,
+      "supplier": {
+        "name": "Yosibox",
+        "sku": "G-3415"
+      },
       "standard_context": "150mm is the consumer rounding of the VDA 4500 grid height of 147.5mm",
-      "dimension_confidence": "nominal size only; not yet sourced from a supplier"
+      "dimension_confidence": "confirmed from supplier product page",
+      "price_ils": {
+        "inc_vat": 94
+      },
+      "product_page": "https://www.yosibox.com/items/8456001"
     },
     {
-      "id": "eurobox-400x300x230",
-      "name": "Eurobox 40x30x23",
-      "family": "euro_stacking_container",
-      "status": "SUPERSEDED? given early on, then replaced by eurobox-400x300x150. Confirm whether both 400x300 heights are wanted or only the 150.",
-      "geometry": "straight-wall, solid, stacking lip and foot",
-      "outer_mm": { "length": 400, "width": 300, "height": 230 },
-      "colour_ref": "eurobox_blue",
-      "material": "PP",
-      "supplier": null,
-      "standard_context": "230mm is not on the VDA 4500 height grid (147.5/213/280)",
-      "dimension_confidence": "nominal size only; not yet sourced from a supplier"
-    },
-    {
-      "id": "eurobox-600x400x310",
-      "name": "Eurobox 60x40x31",
+      "id": "eurobox-600x400x340",
+      "name": "Eurobox 60x40x34",
       "family": "euro_stacking_container",
       "geometry": "straight-wall, solid, stacking lip and foot",
-      "outer_mm": { "length": 600, "width": 400, "height": 310 },
+      "outer_mm": {
+        "length": 600,
+        "width": 400,
+        "height": 340
+      },
       "colour_ref": "eurobox_blue",
       "material": "PP",
-      "supplier": null,
-      "supplier_lead": "Yosibox SKU pattern suggests G-4631 - inferred from G-4623 and T-4641, unconfirmed",
-      "dimension_confidence": "nominal size only; not yet sourced from a supplier",
-      "generic_spec": "../eurobox-standard/specs/eurobox-600x400x310.json"
+      "supplier": {
+        "name": "Yosibox",
+        "sku": "G-4634"
+      },
+      "dimension_confidence": "confirmed from supplier product page; replaces an earlier 310mm figure - Yosibox stock 340, not 310",
+      "price_ils": {
+        "inc_vat": 153
+      },
+      "product_page": "https://www.yosibox.com/items/8488075"
     },
     {
       "id": "alc-600x400x415",
       "name": "Attached-lid container 60x40x41.5",
       "family": "attached_lid_container",
       "geometry": "tapered body with horizontal rib bands; nests when lid open, stacks when closed",
-      "outer_mm": { "length": 600, "width": 400, "height": 415 },
+      "outer_mm": {
+        "length": 600,
+        "width": 400,
+        "height": 415
+      },
       "colour_ref": "alc_blue",
       "material": "PP",
       "walls": "solid (Hebrew: atum / אטום)",
       "lid": "integral, hinged, two-part meeting on the centre line, with front hasp tabs for a seal",
-      "supplier": { "name": "Yosibox", "sku": "T-4641", "internal_ref": "T04" },
-      "price_ils": { "inc_vat": 155, "ex_vat": 131 },
-      "dimension_confidence": "confirmed from supplier product page; height is 415mm, an earlier 410mm figure was wrong"
+      "supplier": {
+        "name": "Yosibox",
+        "sku": "T-4641",
+        "internal_ref": "T04"
+      },
+      "price_ils": {
+        "inc_vat": 155,
+        "ex_vat": 131
+      },
+      "dimension_confidence": "confirmed from supplier product page; height is 415mm, an earlier 410mm figure was wrong",
+      "product_page": "https://www.yosibox.com/items/8388110"
     },
     {
       "id": "picking-bin-1",
       "name": "Picking bin no. 1 (achsonit/arkalit 1)",
       "family": "open_front_picking_bin",
       "geometry": "open front, tapered nesting body, rolled front lip",
-      "outer_mm": { "depth": 450, "width": 300, "height": 210 },
+      "outer_mm": {
+        "depth": 450,
+        "width": 300,
+        "height": 210
+      },
       "colour_ref": "picking_bin_blue",
       "material": "PP",
       "price_ils": 57,
@@ -95,7 +144,11 @@
       "name": "Picking bin no. 2 (achsonit/arkalit 2)",
       "family": "open_front_picking_bin",
       "geometry": "open front, tapered nesting body, rolled front lip",
-      "outer_mm": { "depth": 295, "width": 205, "height": 160 },
+      "outer_mm": {
+        "depth": 295,
+        "width": 205,
+        "height": 160
+      },
       "colour_ref": "picking_bin_blue",
       "material": "PP",
       "price_ils": 36,
@@ -107,12 +160,29 @@
       "name": "Picking bin no. 3 (achsonit/arkalit 3)",
       "family": "open_front_picking_bin",
       "geometry": "open front, tapered nesting body, rolled front lip",
-      "outer_mm": { "depth": 200, "width": 145, "height": 130 },
+      "outer_mm": {
+        "depth": 200,
+        "width": 145,
+        "height": 130
+      },
       "colour_ref": "picking_bin_blue",
       "material": "PP",
       "price_ils": 17,
       "min_order_qty": 10,
       "dimension_confidence": "confirmed from supplier catalogue page"
     }
-  ]
+  ],
+  "sku_pattern": {
+    "format": "<family letter>-<short side dm><long side dm><height cm>",
+    "families": {
+      "G": "open crate, lid sold separately",
+      "T": "attached-lid container"
+    },
+    "caveats": [
+      "footprint digits are short side first: 600x400 is 46, not 64",
+      "height digits are truncated not rounded: T-4641 is 415mm",
+      "confirmed across G-3415, G-4623, G-4634, T-4641"
+    ]
+  },
+  "reference_photos": "docs/reference-photos.md"
 }
