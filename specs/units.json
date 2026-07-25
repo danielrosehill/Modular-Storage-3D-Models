@@ -22,6 +22,14 @@
         "#0099DA",
         "#039AE1"
       ]
+    },
+    "steel_grey": {
+      "gltf_base_color_factor_linear": [
+        0.52,
+        0.54,
+        0.56
+      ],
+      "note": "generic galvanised/powder-coated grey, not sampled from the product"
     }
   },
   "units": [
@@ -50,7 +58,8 @@
       },
       "dimension_confidence": "confirmed from supplier product page",
       "generic_spec": "../eurobox-standard/specs/eurobox-600x400x230.json",
-      "product_page": "https://www.yosibox.com/items/8458664"
+      "product_page": "https://www.yosibox.com/items/8458664",
+      "label": "EU6423"
     },
     {
       "id": "eurobox-400x300x150",
@@ -73,7 +82,8 @@
       "price_ils": {
         "inc_vat": 94
       },
-      "product_page": "https://www.yosibox.com/items/8456001"
+      "product_page": "https://www.yosibox.com/items/8456001",
+      "label": "EU4315"
     },
     {
       "id": "eurobox-600x400x340",
@@ -95,7 +105,8 @@
       "price_ils": {
         "inc_vat": 153
       },
-      "product_page": "https://www.yosibox.com/items/8488075"
+      "product_page": "https://www.yosibox.com/items/8488075",
+      "label": "EU6434"
     },
     {
       "id": "alc-600x400x415",
@@ -170,6 +181,30 @@
       "price_ils": 17,
       "min_order_qty": 10,
       "dimension_confidence": "confirmed from supplier catalogue page"
+    },
+    {
+      "id": "shelving-1600x600x2300",
+      "name": "Warehouse shelving bay 160x60x230",
+      "family": "shelving",
+      "geometry": "four corner posts, four shelf decks, front/back beams per level, diagonal side bracing",
+      "outer_mm": {
+        "width": 1600,
+        "depth": 600,
+        "height": 2300
+      },
+      "levels": 5,
+      "material": "powder-coated steel, boltless self-assembly",
+      "colour_ref": "steel_grey",
+      "supplier": {
+        "name": "Madafim Online (מדפים אונליין)",
+        "note": "the linked 200/60/200 unit is the same product family in a different size"
+      },
+      "price_ils": {
+        "inc_vat": 599,
+        "list": 999
+      },
+      "dimension_confidence": "Daniel gave 230 x 160 x 60cm. Depth 60 was stated. Width/height assignment inferred: 1600 takes exactly four 400mm euroboxes per level where 2300 divides into nothing sensible, and 2300 is a standard bay height. Shelf count and spacing are estimated from the product photo, not a spec sheet.",
+      "modularity": "600mm depth matches the eurobox long side exactly; 1600mm width takes four 400mm-wide euroboxes per level, so 20 per bay across five levels"
     }
   ],
   "sku_pattern": {
@@ -184,5 +219,16 @@
       "confirmed across G-3415, G-4623, G-4634, T-4641"
     ]
   },
-  "reference_photos": "docs/reference-photos.md"
+  "reference_photos": "docs/reference-photos.md",
+  "label_convention": {
+    "format": "EU<long side dm><short side dm><height cm>",
+    "note": "long side first, which is the opposite order to the Yosibox SKU digits (G-4634 is the same crate as EU6434)",
+    "confirmed": [
+      "EU6423",
+      "EU6434"
+    ],
+    "inferred": [
+      "EU4315 - derived from the convention, not specified by Daniel"
+    ]
+  }
 }

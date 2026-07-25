@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+  Local preview harness for the generated GLBs.
+
+  Open directly:  google-chrome preview/index.html
+  Or serve it:    python3 -m http.server -d . 8000   ->  localhost:8000/preview/
+
+  Uses Google's <model-viewer>, which is the same renderer path the website will
+  take, so this previews the assets in the target runtime rather than in an
+  approximation of it. Loads the component from a CDN, so it needs network on
+  first load; vendor model-viewer.min.js next to this file if that becomes a
+  problem.
+-->
+<meta charset="utf-8">
+<title>Storage unit GLB preview</title>
+<script type="module"
+  src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+<style>
+  body { margin: 0; font: 14px/1.5 system-ui, sans-serif; background: #14161a; color: #e6e8eb; }
+  header { padding: 18px 24px 4px; }
+  h1 { font-size: 17px; margin: 0 0 4px; font-weight: 600; }
+  p  { margin: 0; color: #98a0aa; }
+  .grid { display: grid; gap: 18px; padding: 18px 24px 32px;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  figure { margin: 0; background: #1c1f25; border: 1px solid #2a2f37; border-radius: 8px;
+           overflow: hidden; }
+  model-viewer { width: 100%; height: 320px; background: #21252c; --poster-color: transparent; }
+  figcaption { padding: 10px 14px; border-top: 1px solid #2a2f37; }
+  b { color: #fff; } code { color: #8fb8ff; }
+</style>
+
+<header>
+  <h1>Storage unit GLB preview</h1>
+  <p>Drag to orbit, scroll to zoom. Models are in metres at real-world scale.</p>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<script type="module">
+const units = [
+  { file: 'eurobox-400x300x150.glb', name: 'Eurobox 40×30×15', sku: 'G-3415 · EU4315' },
+  { file: 'eurobox-600x400x230.glb', name: 'Eurobox 60×40×23', sku: 'G-4623 · EU6423' },
+  { file: 'eurobox-600x400x340.glb', name: 'Eurobox 60×40×34', sku: 'G-4634 · EU6434' },
+  { file: 'picking-bin-1.glb', name: 'Picking bin 1 — 450×300×210', sku: 'bin 1' },
+  { file: 'picking-bin-2.glb', name: 'Picking bin 2 — 295×205×160', sku: 'bin 2' },
+  { file: 'picking-bin-3.glb', name: 'Picking bin 3 — 200×145×130', sku: 'bin 3' },
+];
+
+const grid = document.getElementById('grid');
+for (const u of units) {
+  const fig = document.createElement('figure');
+  fig.innerHTML = `
+    <model-viewer src="../build/${u.file}"
+      camera-controls touch-action="pan-y" auto-rotate
+      shadow-intensity="1" exposure="0.9"
+      environment-image="neutral" alt="${u.name}"></model-viewer>
+    <figcaption><b>${u.name}</b> — <code>${u.sku}</code></figcaption>`;
+  grid.appendChild(fig);
+}
+</script>

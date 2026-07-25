@@ -9,7 +9,9 @@ The models are destined for two consumers:
 - a **website**, and
 - the **WMS app** (bin/location visualisation).
 
-Status: **planning.** Dimensions and suppliers are documented; no models built yet.
+Status: **seven of eight units built.** The three euroboxes, three picking bins
+and the shelving bay generate as GLBs from `specs/units.json`; the attached-lid
+container is still to do. See [Generated models](#generated-models).
 
 ## Units to model
 
@@ -91,6 +93,57 @@ which is **not** the L×W×H order used for the euroboxes above — a trap when
 transcribing.
 
 Machine-readable versions of all of the above: [`specs/units.json`](specs/units.json).
+
+## Generated models
+
+Seven of the eight units build today. Everything is generated from
+`specs/units.json` — no hand-modelling, so a dimension correction is a spec edit
+and a rebuild.
+
+```bash
+blender --background --python scripts/build_euroboxes.py    -- --out build
+blender --background --python scripts/build_picking_bins.py -- --out build
+blender --background --python scripts/build_shelving.py     -- --out build
+
+# renders for review; an export can succeed with broken geometry
+blender --background --python scripts/render_previews.py    -- --in build --out build/previews
+```
+
+| | | |
+|---|---|---|
+| <img src="build/previews/eurobox-400x300x150.jpg" width="215"><br>**40×30×15** · `EU4315` | <img src="build/previews/eurobox-600x400x230.jpg" width="215"><br>**60×40×23** · `EU6423` | <img src="build/previews/eurobox-600x400x340.jpg" width="215"><br>**60×40×34** · `EU6434` |
+| <img src="build/previews/picking-bin-1.jpg" width="215"><br>**Picking bin 1** | <img src="build/previews/picking-bin-2.jpg" width="215"><br>**Picking bin 2** | <img src="build/previews/picking-bin-3.jpg" width="215"><br>**Picking bin 3** |
+| <img src="build/previews/shelving-1600x600x2300.jpg" width="215"><br>**Shelving bay 160×60×230** | | |
+
+For an interactive view, [`preview/index.html`](preview/index.html) loads them all
+in `<model-viewer>` — the same renderer the website will use, so it previews the
+assets in the target runtime rather than an approximation:
+
+```bash
+python3 -m http.server 8731        # then open localhost:8731/preview/
+```
+
+### Labels
+
+The euroboxes carry raised text on all four walls, from the `label` field in the
+spec: `EU<long side dm><short side dm><height cm>`. Note this runs **long side
+first**, the opposite order to the Yosibox SKU — `G-4634` and `EU6434` are the
+same crate.
+
+Labels are geometry, not a texture, which keeps each asset a single
+self-contained GLB with no image payload. The cost is real but manageable: they
+take a crate from 676 triangles to ~2,900. Most of that was avoidable — Blender
+tessellates font curves at `resolution_u = 12` by default, which alone made the
+files 350 KB. Dropping to 3 gives ~130 KB with no visible difference at the sizes
+either consumer renders.
+
+### What is not modelled
+
+Deliberately, per the fidelity target below: fine external ribbing on the crates,
+and on the picking bins the recessed side grid panels, front label recess, notched
+rear flange and side mounting hole. All are surface detail that costs geometry and
+reads as noise at thumbnail and shelf-view scale. The shelf pitch on the bay is an
+estimate — the supplier gives the bay size but not the shelf count.
 
 ## Reference imagery
 
