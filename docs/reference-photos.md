@@ -82,15 +82,20 @@ crates:
 None of this is in the fidelity target (see the main README) but it is what a
 higher-detail pass would need to add.
 
-## Picking bins — gap
+## Picking bins
 
-The three picking bins have confirmed dimensions and prices but **no archived
-reference image and no supplier URL**. The catalogue screenshots the dimensions
-were read from were not retained. `reference/picking-bin-type-illustrative.jpg`
-shows the general type but is a **different moulding** from the specced units —
-smoother body with an embossed grid panel and a manufacturer logo, where the
-specced bins have angular bodies with external vertical ribs. Do not model from
-it. Capturing the supplier product URLs would close this.
+- `16570497` / `5c80c77ca747a0d2cfe8f94599f578c8.png` — 1080×1080, clean studio
+  three-quarter view. Committed as `reference/picking-bin.jpg`.
+
+All three sizes are the same moulding, so this single image covers the family.
+Served from the same CloudFront distribution as the Yosibox items, though the
+dimensions and prices originally came from a different Hebrew catalogue site —
+the CDN is likely shared by the underlying e-commerce platform rather than
+implying a common seller. Not worth chasing, but worth not assuming.
+
+**Still missing: a supplier or product URL for the bins.** Their dimensions and
+prices were read from catalogue screenshots that were not retained, so unlike the
+four Yosibox items those rows cannot be independently re-verified.
 
 ## On vendoring the images
 

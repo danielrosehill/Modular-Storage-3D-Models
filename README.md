@@ -132,15 +132,25 @@ sizes are nearly free once `T-4641` is built — worth knowing if the estate gro
 
 ### Picking bins
 
-<img src="reference/picking-bin-type-illustrative.jpg" width="330">
+<img src="reference/picking-bin.jpg" width="420">
 
-**This one is illustrative of the type, not the product.** It is a different
-moulding from the supplier's catalogue photos — smoother body, embossed grid
-panel, manufacturer logo — whereas the units actually specced have angular
-bodies with external vertical ribs. The three catalogue screenshots the
-dimensions were read from were not retained, so the bins currently have
-**confirmed dimensions but no archived reference image and no supplier URL**.
-That gap is open question 2 below.
+All three bins are the same moulding in three sizes, so one reference serves the
+whole family — the generator is parametric over depth/width/height. Features to
+carry into the model:
+
+- **Open front.** The front wall stands at roughly 40% of the back wall's height;
+  the side walls sweep down between the two on a curve, not a straight chamfer.
+- **Recessed grid panel** on both side walls — two rows by three columns of
+  shallow recessed rectangles, framed by raised ribs.
+- **Recessed label area** on the front face, below the opening.
+- **Inset base plinth**, narrower than the body, so a bin stacks into the one
+  below rather than sitting flat on it.
+- **Rear top flange** with notches, for stacking registration or rail hanging.
+- **Small circular mounting hole** low on the side wall.
+
+The bins still have **no recorded supplier or product URL** — the dimensions and
+prices came from catalogue screenshots that were not retained, so unlike the four
+Yosibox items these rows can't be independently re-verified. See open question 2.
 
 ## Colour
 
