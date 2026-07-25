@@ -1,9 +1,12 @@
 # Reference photography
 
 Source URLs for the Yosibox product photography used as geometry reference when
-modelling. Links only — the images themselves are Yosibox's commercial product
-photography and are **not** vendored into this public repo. See the note at the
-bottom.
+modelling.
+
+A curated **one image per unit** is committed under [`reference/`](../reference/)
+and shown in the main README; this file is the full index of what exists on each
+product page, so any of it can be re-fetched without re-scraping. See the note at
+the bottom on why only a subset is vendored.
 
 All URLs verified 2026-07-25. They are served from Yosibox's CloudFront
 distribution and follow the pattern:
@@ -58,7 +61,11 @@ from the title.
 - `17800785` / `0e73c1cb663ea9affc72b8fc1bc41197.png` — 1414×2000
 - `17800786` / `ed74ee71fd7142fa76876b0cce2c3495.png` — 1414×2000
 - `17906748` / `553c7c1e261261f4969824a45adac3a9.png` — 1376×1574 (primary)
-- `18249286` / `ce857f1e7baa2bfdad008954f5d50d0f.png` — 3780×1890
+- `18249286` / `ce857f1e7baa2bfdad008954f5d50d0f.png` — 3780×1890 — **T-family size
+  chart**: `T-3423` 40×30×24, `T-4627` 60×40×27, `T-4631` 60×40×31.5, `T-4636`
+  60×40×36.5, `T-4641` 60×40×41.5, `T-4646` 60×40×46.5. Worth noting that
+  `T-3423` and `T-4631` are near-matches for the two "ghost" sizes that appeared
+  early in scoping (40×30×23 and 60×40×31) and were assumed to be euroboxes.
 
 ## Geometry read off these photos
 
@@ -75,11 +82,26 @@ crates:
 None of this is in the fidelity target (see the main README) but it is what a
 higher-detail pass would need to add.
 
+## Picking bins — gap
+
+The three picking bins have confirmed dimensions and prices but **no archived
+reference image and no supplier URL**. The catalogue screenshots the dimensions
+were read from were not retained. `reference/picking-bin-type-illustrative.jpg`
+shows the general type but is a **different moulding** from the specced units —
+smoother body with an embossed grid panel and a manufacturer logo, where the
+specced bins have angular bodies with external vertical ribs. Do not model from
+it. Capturing the supplier product URLs would close this.
+
 ## On vendoring the images
 
-These are Yosibox's copyrighted commercial product photographs. This repo is
-public, so they are referenced by URL rather than committed. If they are ever
-copied in, do it deliberately: attribute Yosibox, note that they are used as
-dimensional reference under fair-dealing-style reasoning, and keep them to a
-curated handful rather than whole galleries. Photographs taken of our own
-purchased units carry none of this friction and are the better long-term answer.
+These are supplier product photographs, and this repo is public, so only a
+curated one-per-unit subset is committed under `reference/` — downscaled to
+≤1400 px and re-encoded as JPEG, ~50–80 KB each, 436 KB in total. The rest are
+referenced by URL above. They appear to be generic factory catalogue photography
+reused across resellers rather than Yosibox originals, which lowers the concern
+but does not eliminate it; they are here as dimensional reference, attributed to
+Yosibox as the source we took them from.
+
+Photographs taken of our own purchased units carry none of this friction, settle
+the colour question that supplier photos cannot (see the main README), and are
+the better long-term answer.

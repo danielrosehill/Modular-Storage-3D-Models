@@ -30,6 +30,12 @@ All three are Yosibox items, all confirmed from their product pages on 2026-07-2
 Two earlier entries are now resolved and dropped: a **40×30×23** (superseded by
 the 40×30×15) and a **60×40×31** (Yosibox stock the 340 mm height, not 310).
 
+Both of those "ghost" sizes probably came from the *attached-lid* catalogue
+rather than the crate catalogue — the T-family chart below lists a **T-3423 at
+40×30×24** and a **T-4631 at 60×40×31.5**, which are near-exact matches. Nothing
+to action, but it explains the confusion and is a reason to quote SKUs rather
+than dimensions when ordering.
+
 Generic dimensional data for the 600×400×230 and 600×400×310 sizes already
 exists in [`eurobox-standard/specs/`](../eurobox-standard/specs/), alongside the
 VDA 4500 source document and a parametric OpenSCAD skeleton.
@@ -85,6 +91,56 @@ which is **not** the L×W×H order used for the euroboxes above — a trap when
 transcribing.
 
 Machine-readable versions of all of the above: [`specs/units.json`](specs/units.json).
+
+## Reference imagery
+
+One representative image per unit — what the models are being based on. Full
+source URLs and the rest of each gallery: [`docs/reference-photos.md`](docs/reference-photos.md).
+
+| | |
+|---|---|
+| **Eurobox `G-3415`** — 400×300×150<br><img src="reference/eurobox-G-3415.jpg" width="330"> | **Eurobox `G-4623`** — 600×400×230<br><img src="reference/eurobox-G-4623.jpg" width="330"> |
+| **Eurobox `G-4634`** — 600×400×340<br><img src="reference/eurobox-G-4634.jpg" width="330"> | **ALC `T-4641`** — 600×400×415<br><img src="reference/alc-T-4641.jpg" width="330"> |
+
+The single most useful reference is the **`G-4634` front elevation**, which is
+close enough to orthographic to measure feature proportions against the known
+overall dimensions:
+
+<img src="reference/eurobox-G-4634-front-elevation.jpg" width="680">
+
+It shows the features shared across the G-family crates: oval **handle cutouts**
+through the top rim, a **rib grid** on the upper wall band, **vertical rib
+columns** at the corners and intervals, and a smooth **recessed centre panel** on
+the lower half — the natural label location.
+
+The ALC gallery also contains a **T-family size chart**, which is where the
+sibling sizes below come from:
+
+<img src="reference/alc-T-family-size-chart.jpg" width="680">
+
+| SKU | Size (cm) |
+|---|---|
+| `T-3423` | 40×30×24 |
+| `T-4627` | 60×40×27 |
+| `T-4631` | 60×40×31.5 |
+| `T-4636` | 60×40×36.5 |
+| **`T-4641`** | **60×40×41.5** ← the one in scope |
+| `T-4646` | 60×40×46.5 |
+
+Since the ALC generator has to be parametric over height anyway, the other five
+sizes are nearly free once `T-4641` is built — worth knowing if the estate grows.
+
+### Picking bins
+
+<img src="reference/picking-bin-type-illustrative.jpg" width="330">
+
+**This one is illustrative of the type, not the product.** It is a different
+moulding from the supplier's catalogue photos — smoother body, embossed grid
+panel, manufacturer logo — whereas the units actually specced have angular
+bodies with external vertical ribs. The three catalogue screenshots the
+dimensions were read from were not retained, so the bins currently have
+**confirmed dimensions but no archived reference image and no supplier URL**.
+That gap is open question 2 below.
 
 ## Colour
 
