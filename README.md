@@ -22,8 +22,14 @@ product.
 | Unit | External L×W×H (mm) | Supplier / SKU | Price | Dimension source |
 |---|---|---|---|---|
 | Eurobox 60×40×23 | 600 × 400 × 230 | Yosibox — `G-4623`, מק״ט `G47015` | ₪112 inc. VAT (₪95 ex.) | Supplier product page, verified 2026-07-25 |
-| Eurobox 40×30×23 | 400 × 300 × 230 | TBD | — | Not yet sourced |
+| Eurobox 40×30×15 | 400 × 300 × 150 | TBD — try `G-4315` / `G-3415` (see below) | — | Not yet sourced |
 | Eurobox 60×40×31 | 600 × 400 × 310 | TBD — try `G-4631` (see below) | — | Not yet sourced |
+| ~~Eurobox 40×30×23~~ | 400 × 300 × 230 | — | — | **Superseded?** Given early on, then replaced by the 40×30×15 above. Confirm whether both sizes are wanted or only the 15. |
+
+Of the 400×300 heights, **150 mm is the standard one**: VDA 4500 sets a height
+grid of 147.5 / 213 / 280 mm, and 150 is the usual consumer rounding of 147.5.
+230 is not on the grid, which is a mild point in favour of the 40×30×15 having
+replaced it rather than joined it.
 
 Generic dimensional data for the 600×400×230 and 600×400×310 sizes already
 exists in [`eurobox-standard/specs/`](../eurobox-standard/specs/), alongside the

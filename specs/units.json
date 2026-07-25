@@ -27,14 +27,28 @@
       "generic_spec": "../eurobox-standard/specs/eurobox-600x400x230.json"
     },
     {
+      "id": "eurobox-400x300x150",
+      "name": "Eurobox 40x30x15",
+      "family": "euro_stacking_container",
+      "geometry": "straight-wall, solid, stacking lip and foot",
+      "outer_mm": { "length": 400, "width": 300, "height": 150 },
+      "colour_ref": "eurobox_blue",
+      "material": "PP",
+      "supplier": null,
+      "standard_context": "150mm is the consumer rounding of the VDA 4500 grid height of 147.5mm",
+      "dimension_confidence": "nominal size only; not yet sourced from a supplier"
+    },
+    {
       "id": "eurobox-400x300x230",
       "name": "Eurobox 40x30x23",
       "family": "euro_stacking_container",
+      "status": "SUPERSEDED? given early on, then replaced by eurobox-400x300x150. Confirm whether both 400x300 heights are wanted or only the 150.",
       "geometry": "straight-wall, solid, stacking lip and foot",
       "outer_mm": { "length": 400, "width": 300, "height": 230 },
       "colour_ref": "eurobox_blue",
       "material": "PP",
       "supplier": null,
+      "standard_context": "230mm is not on the VDA 4500 height grid (147.5/213/280)",
       "dimension_confidence": "nominal size only; not yet sourced from a supplier"
     },
     {
