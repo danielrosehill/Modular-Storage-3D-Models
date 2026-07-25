@@ -9,7 +9,7 @@ The models are destined for two consumers:
 - a **website**, and
 - the **WMS app** (bin/location visualisation).
 
-Status: **planning.** Dimensions and colours are documented; no models built yet.
+Status: **planning.** Dimensions and suppliers are documented; no models built yet.
 
 ## Units to model
 
@@ -23,12 +23,34 @@ product.
 |---|---|---|---|---|
 | Eurobox 60×40×23 | 600 × 400 × 230 | Yosibox — `G-4623`, מק״ט `G47015` | ₪112 inc. VAT (₪95 ex.) | Supplier product page, verified 2026-07-25 |
 | Eurobox 40×30×23 | 400 × 300 × 230 | TBD | — | Not yet sourced |
-| Eurobox 60×40×31 | 600 × 400 × 310 | TBD | — | Not yet sourced |
-| Attached-lid container (ALC) | 600 × 400 × 410 *(footprint inferred)* | TBD | — | Height confirmed; footprint **assumed** |
+| Eurobox 60×40×31 | 600 × 400 × 310 | TBD — try `G-4631` (see below) | — | Not yet sourced |
 
 Generic dimensional data for the 600×400×230 and 600×400×310 sizes already
 exists in [`eurobox-standard/specs/`](../eurobox-standard/specs/), alongside the
 VDA 4500 source document and a parametric OpenSCAD skeleton.
+
+**Yosibox SKU pattern (inferred, not confirmed).** `G-4623` is the 60×40×23 and
+`T-4641` is the 60×40×41.5, which reads as `<letter>-<40/60 footprint><height in
+cm>`. If that holds, the 60×40×31 should be near `G-4631`. Worth trying before
+searching the catalogue by hand — but it is a pattern extrapolated from two data
+points, so treat it as a lead, not a fact.
+
+### Attached-lid container (ALC)
+
+| Unit | External L×W×H (mm) | Supplier / SKU | Price | Dimension source |
+|---|---|---|---|---|
+| ALC 60×40×41.5 | 600 × 400 × **415** | Yosibox — `T-4641`, מק״ט `T04` | ₪155 inc. VAT (₪131 ex.) | Supplier product page, verified 2026-07-25 |
+
+Confirmed geometry from the product photography, and it differs from the
+euroboxes in ways that matter for modelling:
+
+- **Integral two-part hinged lid** (*עם מכסה*) that meets along the centre line,
+  with interlocking tabs — not a separate SKU as with the euroboxes.
+- **Front hasp tabs** on the lid edge for a security seal.
+- **Tapered body** with horizontal rib bands, so the containers **nest** when the
+  lid is open and **stack** when it is closed. The taper means this is not a
+  scaled-up eurobox and cannot share the straight-wall parametric model.
+- Height is **415 mm**, not the 410 mm originally assumed.
 
 ### Open-front picking bins
 
@@ -51,25 +73,38 @@ Machine-readable versions of all of the above: [`specs/units.json`](specs/units.
 
 ## Colour
 
-"The boxes are blue" turns out to be two distinct blues, sampled from the
-supplier product photography on 2026-07-25:
+All units are blue. Beyond that, **the supplier photography cannot tell us how
+blue**, and this is worth stating clearly because it is easy to be fooled by it.
 
-| Family | Sampled sRGB | glTF `baseColorFactor` (linear) |
-|---|---|---|
-| Euro stacking containers | `#1662DF` – `#0E4CCC` (royal / ultramarine) | `[0.008, 0.122, 0.738]` |
-| Picking bins | `#0099DA` – `#039AE1` (bright, cyan-leaning) | `[0.000, 0.319, 0.701]` |
+Sampled values, all from supplier product photos on 2026-07-25:
 
-Two things to carry forward:
+| Family | Sampled sRGB range |
+|---|---|
+| Euro stacking containers | `#0E4CCC` – `#1662DF` |
+| ALC | `#06549C` (shadowed face) – `#11A4F1` (lit face) – `#34CAFD` (lid top) |
+| Picking bins | `#0099DA` – `#039AE1` |
 
-1. **These are photographic samples, not the plastic's true colour.** Studio
-   lighting and JPEG-ish web compression push saturation up. If exactness
-   matters, photograph a real box next to a grey card, or ask the suppliers for
-   the RAL/Pantone reference.
-2. **glTF `baseColorFactor` is linear, not sRGB.** Pasting the hex values
-   straight in produces visibly washed-out boxes. The linear column above is
-   already converted (`c ≤ 0.04045 ? c/12.92 : ((c+0.055)/1.055)^2.4`).
-   Base-colour *textures*, by contrast, are sRGB-encoded and must not be
-   pre-converted — only the factor is linear.
+The ALC row is the tell. Those three samples are **the same piece of blue
+polypropylene** under different lighting, and they span a wider range than the
+gap between any two families in the table. So the apparent differences between
+families are within the noise floor of the method, and my earlier read that the
+euroboxes and picking bins are two distinctly different blues was overstated —
+the photos do not support that conclusion either way.
+
+The same applies to the ALC lid, which looks like a brighter cyan than its body
+in every photo. That is exactly what an upward-facing surface does under overhead
+studio lighting, so it is most likely one colour, not a two-tone moulding.
+
+Practical consequences:
+
+1. **Do not author materials from these hex values.** Get the RAL or Pantone
+   reference from Yosibox and the bin supplier, or photograph a real unit beside
+   a grey card. Until then, model with a single shared blue and treat per-family
+   colour as an open question.
+2. **glTF `baseColorFactor` is linear, not sRGB.** Whatever value is settled on,
+   pasting the hex straight in produces visibly washed-out boxes; convert first
+   (`c ≤ 0.04045 ? c/12.92 : ((c+0.055)/1.055)^2.4`). Base-colour *textures*, by
+   contrast, are sRGB-encoded and must not be pre-converted — only the factor is.
 
 ## Approach
 
@@ -83,7 +118,9 @@ wrong tool here, for reasons specific to these two consumers:
   mesh plus a texture atlas, realistically 5–30 MB. On a website that difference
   is the whole page budget; in a WMS view showing many bins at once it is fatal.
 - **Baked lighting.** Scans bake shadows and highlights into the texture, so the
-  boxes look wrong under the app's own lighting and cannot be recoloured.
+  boxes look wrong under the app's own lighting and cannot be recoloured — and,
+  per the colour section above, the baked-in lighting is severe enough to make
+  the plastic look like three different blues.
 - **Clean topology** makes it trivial to swap colour per bin type, or to
   instance one mesh hundreds of times in a shelf view.
 
@@ -99,6 +136,11 @@ path would still need materials reapplied downstream. That makes Blender the
 shorter route despite the existing SCAD work, which remains useful as a
 dimensional cross-check.
 
+**Three geometry families, not one generator.** The straight-wall euroboxes
+share a parametric model driven by L/W/H. The ALC needs its own (taper, hinged
+lid, hasp tabs). The picking bins need a third (open front, tapered nesting
+body, front lip). Budget the work accordingly.
+
 **Fidelity target.** Correct external dimensions, wall thickness, rounded rim
 and corner radii, and the stacking lip/foot — but not the fine external ribbing
 visible in the product photos. At the on-screen sizes both consumers will use,
@@ -108,18 +150,18 @@ ribs cost geometry and read as noise. Revisit if the website wants close-ups.
 
 - [`eurobox-standard`](../eurobox-standard/) — VDA 4500 source PDF, summary,
   dimension specs, parametric OpenSCAD skeleton.
-- [`Yosi-Box-Catalogue`](../Yosi-Box-Catalogue/) / [`yosibox-catalogue`](../yosibox-catalogue/) — Yosibox supplier catalogue; source for the eurobox SKUs.
+- [`Yosi-Box-Catalogue`](../Yosi-Box-Catalogue/) / [`yosibox-catalogue`](../yosibox-catalogue/) — Yosibox supplier catalogue; source for the eurobox and ALC SKUs.
 - [`Israel-Parts-Bins-Research`](../Israel-Parts-Bins-Research/) — picking bin sourcing.
 - [`Wheres-My-Stuff-Deployment`](../Wheres-My-Stuff-Deployment/) — the WMS.
 
 ## Open questions
 
-1. **ALC footprint** — 600×400 assumed against a confirmed 410 mm height.
-2. **Sources for the three unsourced euroboxes** (40×30×23, 60×40×31, ALC), and
-   whether they are Yosibox items too, since that would make the blue consistent.
-3. **Do lids need modelling?** They are a separate SKU on the euroboxes but
-   integral to the ALC. If the WMS ever shows a box as open vs closed, lids want
-   to be separate meshes with a hinge origin.
+1. **Actual colour references** from both suppliers — see the colour section.
+2. **Sources for the two unsourced euroboxes** (40×30×23 and 60×40×31); the SKU
+   pattern above is a starting point for the latter.
+3. **Do the eurobox lids need modelling?** They are a separate SKU. The ALC's is
+   integral, and if the WMS ever shows open vs closed it wants to be a separate
+   mesh with a hinge origin — two hinge origins, in the ALC's case.
 4. **Where do the built GLBs live** — committed here, or published to R2/MinIO
    for the website and WMS to fetch?
 5. **Does the WMS need a "fill level" representation** (contents visible inside
@@ -128,6 +170,6 @@ ribs cost geometry and read as noise. Revisit if the website wants close-ups.
 
 ## Next step
 
-Confirm the ALC footprint and decide on lids, then write the Blender generator
-script driven by `specs/units.json`, starting with the Yosibox 60×40×23 as the
-reference build.
+Write the Blender generator for the straight-wall eurobox family first, driven by
+`specs/units.json`, using the Yosibox 60×40×23 as the reference build. The ALC
+and picking bin generators follow as separate pieces of work.

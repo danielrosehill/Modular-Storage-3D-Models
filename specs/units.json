@@ -1,23 +1,21 @@
 {
-  "$comment": "Planned GLB model targets. Dimensions in mm. Colours sampled from supplier product photography on 2026-07-25; see README.md for the sRGB-vs-linear caveat.",
+  "$comment": "Planned GLB model targets. Dimensions in mm. Colour values are sampled from supplier product photography and are NOT authoritative - see README.md, the within-object lighting range exceeds the between-family differences.",
   "verified": "2026-07-25",
   "colours": {
-    "eurobox_blue": {
-      "sampled_srgb_hex": ["#1662DF", "#0E4CCC"],
-      "gltf_base_color_factor_linear": [0.008, 0.122, 0.738],
-      "confidence": "sampled from studio product photos, not from a physical box"
+    "$comment": "Sampled sRGB ranges only. Do not author glTF materials from these without a supplier RAL/Pantone reference or a grey-card photograph. glTF baseColorFactor is linear; convert before use.",
+    "eurobox_blue": { "sampled_srgb_hex": ["#0E4CCC", "#1662DF"] },
+    "alc_blue": {
+      "sampled_srgb_hex": ["#06549C", "#11A4F1", "#34CAFD"],
+      "note": "all three are the same plastic under different lighting: shadowed face, lit face, lid top"
     },
-    "picking_bin_blue": {
-      "sampled_srgb_hex": ["#0099DA", "#039AE1"],
-      "gltf_base_color_factor_linear": [0.0, 0.319, 0.701],
-      "confidence": "sampled from studio product photos, not from a physical box"
-    }
+    "picking_bin_blue": { "sampled_srgb_hex": ["#0099DA", "#039AE1"] }
   },
   "units": [
     {
       "id": "eurobox-600x400x230",
       "name": "Eurobox 60x40x23",
       "family": "euro_stacking_container",
+      "geometry": "straight-wall, solid, stacking lip and foot",
       "outer_mm": { "length": 600, "width": 400, "height": 230 },
       "colour_ref": "eurobox_blue",
       "material": "PP",
@@ -32,6 +30,7 @@
       "id": "eurobox-400x300x230",
       "name": "Eurobox 40x30x23",
       "family": "euro_stacking_container",
+      "geometry": "straight-wall, solid, stacking lip and foot",
       "outer_mm": { "length": 400, "width": 300, "height": 230 },
       "colour_ref": "eurobox_blue",
       "material": "PP",
@@ -42,27 +41,34 @@
       "id": "eurobox-600x400x310",
       "name": "Eurobox 60x40x31",
       "family": "euro_stacking_container",
+      "geometry": "straight-wall, solid, stacking lip and foot",
       "outer_mm": { "length": 600, "width": 400, "height": 310 },
       "colour_ref": "eurobox_blue",
       "material": "PP",
       "supplier": null,
+      "supplier_lead": "Yosibox SKU pattern suggests G-4631 - inferred from G-4623 and T-4641, unconfirmed",
       "dimension_confidence": "nominal size only; not yet sourced from a supplier",
       "generic_spec": "../eurobox-standard/specs/eurobox-600x400x310.json"
     },
     {
-      "id": "alc-600x400x410",
-      "name": "Attached-lid container 60x40x41",
+      "id": "alc-600x400x415",
+      "name": "Attached-lid container 60x40x41.5",
       "family": "attached_lid_container",
-      "outer_mm": { "length": 600, "width": 400, "height": 410 },
-      "colour_ref": "eurobox_blue",
-      "lid": "integral, hinged two-part",
-      "supplier": null,
-      "dimension_confidence": "height confirmed by Daniel; 600x400 footprint INFERRED and needs confirming"
+      "geometry": "tapered body with horizontal rib bands; nests when lid open, stacks when closed",
+      "outer_mm": { "length": 600, "width": 400, "height": 415 },
+      "colour_ref": "alc_blue",
+      "material": "PP",
+      "walls": "solid (Hebrew: atum / אטום)",
+      "lid": "integral, hinged, two-part meeting on the centre line, with front hasp tabs for a seal",
+      "supplier": { "name": "Yosibox", "sku": "T-4641", "internal_ref": "T04" },
+      "price_ils": { "inc_vat": 155, "ex_vat": 131 },
+      "dimension_confidence": "confirmed from supplier product page; height is 415mm, an earlier 410mm figure was wrong"
     },
     {
       "id": "picking-bin-1",
       "name": "Picking bin no. 1 (achsonit/arkalit 1)",
       "family": "open_front_picking_bin",
+      "geometry": "open front, tapered nesting body, rolled front lip",
       "outer_mm": { "depth": 450, "width": 300, "height": 210 },
       "colour_ref": "picking_bin_blue",
       "material": "PP",
@@ -74,6 +80,7 @@
       "id": "picking-bin-2",
       "name": "Picking bin no. 2 (achsonit/arkalit 2)",
       "family": "open_front_picking_bin",
+      "geometry": "open front, tapered nesting body, rolled front lip",
       "outer_mm": { "depth": 295, "width": 205, "height": 160 },
       "colour_ref": "picking_bin_blue",
       "material": "PP",
@@ -85,6 +92,7 @@
       "id": "picking-bin-3",
       "name": "Picking bin no. 3 (achsonit/arkalit 3)",
       "family": "open_front_picking_bin",
+      "geometry": "open front, tapered nesting body, rolled front lip",
       "outer_mm": { "depth": 200, "width": 145, "height": 130 },
       "colour_ref": "picking_bin_blue",
       "material": "PP",
