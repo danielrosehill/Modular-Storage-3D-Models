@@ -2,11 +2,16 @@
   "$comment": "Planned GLB model targets. Dimensions in mm. Colour values are sampled from supplier product photography and are NOT authoritative - see README.md, the within-object lighting range exceeds the between-family differences.",
   "verified": "2026-07-25",
   "colours": {
-    "$comment": "Sampled sRGB ranges only. Do not author glTF materials from these without a supplier RAL/Pantone reference or a grey-card photograph. glTF baseColorFactor is linear; convert before use.",
+    "$comment": "Working values, accepted as good enough. Real boxes vary batch to batch and exact colour matching is not a requirement. glTF baseColorFactor is linear, so use the linear figures, not the sampled sRGB hex.",
     "eurobox_blue": {
       "sampled_srgb_hex": [
         "#0E4CCC",
         "#1662DF"
+      ],
+      "gltf_base_color_factor_linear": [
+        0.008,
+        0.122,
+        0.738
       ]
     },
     "alc_blue": {
@@ -15,12 +20,22 @@
         "#11A4F1",
         "#34CAFD"
       ],
-      "note": "all three are the same plastic under different lighting: shadowed face, lit face, lid top"
+      "note": "Shares the eurobox blue. The three sampled hex values are the same plastic under different lighting, so they set a range rather than a value; exact match is not required for these models.",
+      "gltf_base_color_factor_linear": [
+        0.008,
+        0.122,
+        0.738
+      ]
     },
     "picking_bin_blue": {
       "sampled_srgb_hex": [
         "#0099DA",
         "#039AE1"
+      ],
+      "gltf_base_color_factor_linear": [
+        0.0,
+        0.319,
+        0.701
       ]
     },
     "steel_grey": {

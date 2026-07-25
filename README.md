@@ -2,16 +2,16 @@
 
 Planning and reference repo for producing **GLB** (glTF binary) 3D models of the
 industrial storage units in use across our inventory estate — euro stacking
-containers, an attached-lid container, and open-front picking bins.
+containers, an attached-lid container, open-front picking bins and the shelving
+they sit on.
 
 The models are destined for two consumers:
 
 - a **website**, and
 - the **WMS app** (bin/location visualisation).
 
-Status: **seven of eight units built.** The three euroboxes, three picking bins
-and the shelving bay generate as GLBs from `specs/units.json`; the attached-lid
-container is still to do. See [Generated models](#generated-models).
+Status: **all eight units built.** Every unit generates as a GLB from
+`specs/units.json`. See [Generated models](#generated-models).
 
 ## Units to model
 
@@ -92,18 +92,35 @@ Hebrew dimension labels map as: *עומק* = depth (front-to-back), *רוחב* =
 which is **not** the L×W×H order used for the euroboxes above — a trap when
 transcribing.
 
+### Shelving
+
+| Unit | W × D × H (mm) | Levels | Supplier | Price |
+|---|---|---|---|---|
+| Shelving bay 160×60×230 | 1600 × 600 × 2300 | 5 *(estimated)* | Madafim Online (מדפים אונליין) | ₪599 (list ₪999) |
+
+Boltless modular steel bay. The size given was "230 × 160 × 60 deep", which
+leaves which of 230 and 160 is the height ambiguous. Taken as **1600 wide ×
+2300 high**, because 1600 divides into exactly four 400 mm eurobox widths where
+2300 divides into nothing useful, and 2300 is a standard bay height. Worth
+confirming against the real unit.
+
+The modularity is worth knowing for the WMS view: **600 mm depth matches the
+eurobox long side exactly**, and 1600 mm width takes four 400 mm-wide crates per
+level — twenty per bay across five levels. The shelf count is an estimate; the
+supplier quotes the bay size but not the number of levels.
+
 Machine-readable versions of all of the above: [`specs/units.json`](specs/units.json).
 
 ## Generated models
 
-Seven of the eight units build today. Everything is generated from
-`specs/units.json` — no hand-modelling, so a dimension correction is a spec edit
-and a rebuild.
+All eight units build. Everything is generated from `specs/units.json` — no
+hand-modelling, so a dimension correction is a spec edit and a rebuild.
 
 ```bash
 blender --background --python scripts/build_euroboxes.py    -- --out build
 blender --background --python scripts/build_picking_bins.py -- --out build
 blender --background --python scripts/build_shelving.py     -- --out build
+blender --background --python scripts/build_alc.py          -- --out build
 
 # renders for review; an export can succeed with broken geometry
 blender --background --python scripts/render_previews.py    -- --in build --out build/previews
@@ -113,7 +130,7 @@ blender --background --python scripts/render_previews.py    -- --in build --out 
 |---|---|---|
 | <img src="build/previews/eurobox-400x300x150.jpg" width="215"><br>**40×30×15** · `EU4315` | <img src="build/previews/eurobox-600x400x230.jpg" width="215"><br>**60×40×23** · `EU6423` | <img src="build/previews/eurobox-600x400x340.jpg" width="215"><br>**60×40×34** · `EU6434` |
 | <img src="build/previews/picking-bin-1.jpg" width="215"><br>**Picking bin 1** | <img src="build/previews/picking-bin-2.jpg" width="215"><br>**Picking bin 2** | <img src="build/previews/picking-bin-3.jpg" width="215"><br>**Picking bin 3** |
-| <img src="build/previews/shelving-1600x600x2300.jpg" width="215"><br>**Shelving bay 160×60×230** | | |
+| <img src="build/previews/alc-600x400x415.jpg" width="215"><br>**ALC 60×40×41.5** · `T-4641` | <img src="build/previews/shelving-1600x600x2300.jpg" width="215"><br>**Shelving bay 160×60×230** | |
 
 For an interactive view, [`preview/index.html`](preview/index.html) loads them all
 in `<model-viewer>` — the same renderer the website will use, so it previews the
@@ -140,10 +157,13 @@ either consumer renders.
 ### What is not modelled
 
 Deliberately, per the fidelity target below: fine external ribbing on the crates,
-and on the picking bins the recessed side grid panels, front label recess, notched
-rear flange and side mounting hole. All are surface detail that costs geometry and
+the horizontal rib bands on the ALC walls, and on the picking bins the recessed
+side grid panels, front label recess, notched rear flange and side mounting hole.
+All are surface detail that costs geometry and
 reads as noise at thumbnail and shelf-view scale. The shelf pitch on the bay is an
-estimate — the supplier gives the bay size but not the shelf count.
+estimate — the supplier gives the bay size but not the shelf count. The ALC lid
+is modelled closed and fused; if the WMS ever needs to show it open, the two
+leaves want separating with a hinge origin on each long edge.
 
 ## Reference imagery
 
@@ -207,8 +227,22 @@ Yosibox items these rows can't be independently re-verified. See open question 2
 
 ## Colour
 
-All units are blue. Beyond that, **the supplier photography cannot tell us how
-blue**, and this is worth stating clearly because it is easy to be fooled by it.
+**Settled: the working values are good enough and exact matching is not a
+requirement.** Real boxes vary batch to batch, and both consumers show these at
+sizes where a few percent of hue makes no difference. In use:
+
+| Family | glTF `baseColorFactor` (linear) |
+|---|---|
+| Euroboxes and ALC | `[0.008, 0.122, 0.738]` |
+| Picking bins | `[0.000, 0.319, 0.701]` |
+
+One technical point still matters: **glTF `baseColorFactor` is linear, not
+sRGB.** Pasting a hex value straight in produces visibly washed-out boxes, so use
+the linear figures above rather than converting by eye. Base-colour *textures*
+are the opposite — sRGB-encoded, and must not be pre-converted.
+
+The rest of this section is kept for the record, because it explains why the
+sampled hex values below are not the ones used.
 
 Sampled values, all from supplier product photos on 2026-07-25:
 
@@ -229,16 +263,11 @@ The same applies to the ALC lid, which looks like a brighter cyan than its body
 in every photo. That is exactly what an upward-facing surface does under overhead
 studio lighting, so it is most likely one colour, not a two-tone moulding.
 
-Practical consequences:
-
-1. **Do not author materials from these hex values.** Get the RAL or Pantone
-   reference from Yosibox and the bin supplier, or photograph a real unit beside
-   a grey card. Until then, model with a single shared blue and treat per-family
-   colour as an open question.
-2. **glTF `baseColorFactor` is linear, not sRGB.** Whatever value is settled on,
-   pasting the hex straight in produces visibly washed-out boxes; convert first
-   (`c ≤ 0.04045 ? c/12.92 : ((c+0.055)/1.055)^2.4`). Base-colour *textures*, by
-   contrast, are sRGB-encoded and must not be pre-converted — only the factor is.
+So the sampled hex values set a plausible range rather than a value, which is why
+the models use one shared blue for the euroboxes and ALC rather than a
+per-family match. If an exact reference is ever wanted, it has to come from a
+supplier RAL/Pantone code or a photograph of a real unit beside a grey card —
+not from more studio photography.
 
 ## Approach
 
@@ -290,21 +319,20 @@ ribs cost geometry and read as noise. Revisit if the website wants close-ups.
 
 ## Open questions
 
-1. **Actual colour references** from both suppliers — see the colour section.
-2. **Picking bin supplier** — the three bins have confirmed dimensions and
+1. **Picking bin supplier** — the three bins have confirmed dimensions and
    prices but no recorded supplier or product URL, unlike the four Yosibox
    items. Worth capturing so the data can be re-verified later.
-3. **Do the eurobox lids need modelling?** They are a separate SKU. The ALC's is
-   integral, and if the WMS ever shows open vs closed it wants to be a separate
-   mesh with a hinge origin — two hinge origins, in the ALC's case.
-4. **Where do the built GLBs live** — committed here, or published to R2/MinIO
+2. **Do the eurobox lids need modelling?** They are a separate SKU, and unlike
+   the ALC's they are not modelled at all.
+3. **Where do the built GLBs live** — committed here, or published to R2/MinIO
    for the website and WMS to fetch?
-5. **Does the WMS need a "fill level" representation** (contents visible inside
+4. **Does the WMS need a "fill level" representation** (contents visible inside
    an open box)? That decision drives whether interiors are modelled properly or
    the boxes stay as closed shells.
 
 ## Next step
 
-Write the Blender generator for the straight-wall eurobox family first, driven by
-`specs/units.json`, using the Yosibox 60×40×23 as the reference build. The ALC
-and picking bin generators follow as separate pieces of work.
+All eight units are modelled and released. The open questions above are the
+remaining work, none of it blocking: capture the picking bin supplier URL, decide
+where the built GLBs should be served from, and settle whether the WMS needs open
+lids or a fill-level representation.
