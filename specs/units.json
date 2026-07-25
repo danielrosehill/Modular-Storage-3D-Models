@@ -147,7 +147,8 @@
         "ex_vat": 131
       },
       "dimension_confidence": "confirmed from supplier product page; height is 415mm, an earlier 410mm figure was wrong",
-      "product_page": "https://www.yosibox.com/items/8388110"
+      "product_page": "https://www.yosibox.com/items/8388110",
+      "label": "ALC6441"
     },
     {
       "id": "picking-bin-1",
@@ -163,7 +164,8 @@
       "material": "PP",
       "price_ils": 57,
       "min_order_qty": 10,
-      "dimension_confidence": "confirmed from supplier catalogue page"
+      "dimension_confidence": "confirmed from supplier catalogue page",
+      "label": "PICKING BOX 1"
     },
     {
       "id": "picking-bin-2",
@@ -179,7 +181,8 @@
       "material": "PP",
       "price_ils": 36,
       "min_order_qty": 10,
-      "dimension_confidence": "confirmed from supplier catalogue page"
+      "dimension_confidence": "confirmed from supplier catalogue page",
+      "label": "PICKING BOX 2"
     },
     {
       "id": "picking-bin-3",
@@ -195,7 +198,8 @@
       "material": "PP",
       "price_ils": 17,
       "min_order_qty": 10,
-      "dimension_confidence": "confirmed from supplier catalogue page"
+      "dimension_confidence": "confirmed from supplier catalogue page",
+      "label": "PICKING BOX 3"
     },
     {
       "id": "shelving-1600x600x2300",
@@ -244,6 +248,8 @@
     ],
     "inferred": [
       "EU4315 - derived from the convention, not specified by Daniel"
-    ]
+    ],
+    "alc": "ALC<long side dm><short side dm><height cm>, so ALC6441 for the 600x400x415. Inferred to match the EU convention; not specified.",
+    "picking_bins": "Plain english, 'PICKING BOX n', as requested - not the Hebrew achsonit/arkalit."
   }
 }

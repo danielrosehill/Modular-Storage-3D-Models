@@ -103,6 +103,93 @@ def make_material(name, linear_rgb, roughness=0.42, metallic=0.0):
     return mat
 
 
+def wall_placements(length, width, body_h, z, proud, bottom_scale=1.0,
+                    faces=("-y", "+y", "-x", "+x")):
+    """Where to put a label on each wall, accounting for draft angle.
+
+    Returns one dict per face with a location, a rotation and the usable face
+    width. On a tapered body the walls lean outward as they rise, so a label
+    laid flat and vertical would sink into the wall at one end and float off it
+    at the other - the rotation returned here leans the text to match.
+
+    The lean is folded into the X euler rather than applied afterwards: rotating
+    about X by 90 deg points the text at -Y, and by 90+a it also pitches the
+    normal down by a, which is exactly what an outward-leaning wall wants.
+    """
+    t = z / body_h
+    scale = bottom_scale + (1.0 - bottom_scale) * t
+    sx = (length / 2) * scale
+    sy = (width / 2) * scale
+    # how far each wall leans, per axis
+    ax = math.atan((length / 2) * (1.0 - bottom_scale) / body_h)
+    ay = math.atan((width / 2) * (1.0 - bottom_scale) / body_h)
+    r90 = math.radians(90)
+
+    table = {
+        "-y": ((0, -(sy + proud), z), (r90 + ay, 0.0, 0.0), 2 * sx),
+        "+y": ((0, (sy + proud), z), (r90 + ay, 0.0, math.radians(180)), 2 * sx),
+        "-x": ((-(sx + proud), 0, z), (r90 + ax, 0.0, math.radians(-90)), 2 * sy),
+        "+x": (((sx + proud), 0, z), (r90 + ax, 0.0, math.radians(90)), 2 * sy),
+    }
+    return [{"loc": table[f][0], "rot": table[f][1], "face_w": table[f][2]}
+            for f in faces]
+
+
+def fit_size(text, face_w, max_size):
+    """Largest type size that keeps `text` inside `face_w`, capped at max_size.
+
+    0.62 is an eyeballed average advance width for Blender's default font as a
+    fraction of the type size. Good enough to stop long labels running off the
+    end of a small bin; not a substitute for measuring the rendered result.
+    """
+    if not text:
+        return max_size
+    return min(max_size, (face_w * 0.82) / (0.62 * len(text)))
+
+
+def add_labels(body, text, placements, material, size,
+               extrude=0.7, curve_res=3):
+    """Raised text on the given walls, joined into `body`.
+
+    Geometry rather than a texture, so each asset stays a single self-contained
+    GLB with no image payload.
+
+    curve_res matters more than it looks: Blender tessellates font curves at
+    resolution_u = 12 by default, which took a labelled crate from 676 to 8000
+    triangles and its GLB from 35 KB to 350 KB. At 3 the difference is invisible
+    at the sizes these render.
+    """
+    made = []
+    for i, place in enumerate(placements):
+        curve = bpy.data.curves.new(f"lbl{i}", type="FONT")
+        curve.body = text
+        curve.align_x = "CENTER"
+        curve.align_y = "CENTER"
+        curve.size = size * MM
+        curve.extrude = extrude * MM
+        curve.resolution_u = curve_res
+        obj = bpy.data.objects.new(f"lbl{i}", curve)
+        bpy.context.collection.objects.link(obj)
+        obj.location = tuple(c * MM for c in place["loc"])
+        obj.rotation_euler = place["rot"]
+
+        bpy.ops.object.select_all(action="DESELECT")
+        obj.select_set(True)
+        bpy.context.view_layer.objects.active = obj
+        bpy.ops.object.convert(target="MESH")
+        obj.data.materials.append(material)
+        made.append(obj)
+
+    # join after the body already has its own material, so the slots merge into
+    # [body colour, label colour] rather than the other way round
+    bpy.ops.object.select_all(action="DESELECT")
+    for obj in made:
+        obj.select_set(True)
+    body.select_set(True)
+    bpy.context.view_layer.objects.active = body
+    bpy.ops.object.join()
+
+
 def join_parts(parts):
     """Join a list of objects into the first one and return it."""
     bpy.ops.object.select_all(action="DESELECT")

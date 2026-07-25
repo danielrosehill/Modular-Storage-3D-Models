@@ -33,7 +33,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from boxlib import (clear_scene, cuboid, tapered_box, boolean, bevel_and_smooth,
                     make_material, export_glb, print_summary, load_spec,
-                    join_parts)
+                    join_parts, add_labels, wall_placements, fit_size)
 
 # --- parameters, millimetres ------------------------------------------------
 WALL = 3.0
@@ -48,6 +48,11 @@ LID_OVERHANG = 4.0    # lid proud of the body on every side
 TAB_W = 55.0          # hasp tab across the short face
 TAB_D = 14.0          # how far it stands proud
 TAB_DROP = 38.0       # how far it hangs below the lid
+
+LABEL_PROUD = 0.4
+LABEL_Z_FRAC = 0.46   # up the body, clear of the lid and the base
+LABEL_MAX_SIZE = 52.0
+LABEL_RGB = (0.82, 0.84, 0.86)
 
 
 def build_alc(name, length, width, height):
@@ -105,6 +110,17 @@ def main():
         d = unit["outer_mm"]
         obj = build_alc(unit["id"], d["length"], d["width"], d["height"])
         obj.data.materials.append(make_material("alc_blue", blue))
+
+        label = unit.get("label")
+        if label:
+            body_h = d["height"] - LID_T
+            places = wall_placements(d["length"], d["width"], body_h,
+                                     body_h * LABEL_Z_FRAC, LABEL_PROUD,
+                                     bottom_scale=TAPER)
+            size = min(fit_size(label, min(p["face_w"] for p in places),
+                                LABEL_MAX_SIZE), LABEL_MAX_SIZE)
+            add_labels(obj, label, places,
+                       make_material("label_white", LABEL_RGB, 0.5), size=size)
         results.append((unit["id"], *export_glb(obj, out_dir / f"{unit['id']}.glb")))
 
     print_summary(results)

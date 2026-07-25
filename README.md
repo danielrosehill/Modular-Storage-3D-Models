@@ -1,5 +1,7 @@
 # Industrial Storage Unit 3D Models (GLB)
 
+<img src="docs/model-gallery.jpg" width="100%" alt="All eight generated models in the browser preview">
+
 Planning and reference repo for producing **GLB** (glTF binary) 3D models of the
 industrial storage units in use across our inventory estate — euro stacking
 containers, an attached-lid container, open-front picking bins and the shelving
@@ -142,10 +144,27 @@ python3 -m http.server 8731        # then open localhost:8731/preview/
 
 ### Labels
 
-The euroboxes carry raised text on all four walls, from the `label` field in the
-spec: `EU<long side dm><short side dm><height cm>`. Note this runs **long side
-first**, the opposite order to the Yosibox SKU — `G-4634` and `EU6434` are the
-same crate.
+Every unit except the shelving carries raised text, from the `label` field in the
+spec:
+
+| Family | Label | Faces |
+|---|---|---|
+| Euroboxes | `EU6423`, `EU6434`, `EU4315` | all four walls |
+| ALC | `ALC6441` | all four walls |
+| Picking bins | `PICKING BOX 1` … `3` | back and both sides |
+
+The `EU`/`ALC` codes run `<long side dm><short side dm><height cm>` — **long side
+first**, the opposite order to the Yosibox SKU, so `G-4634` and `EU6434` are the
+same crate. `ALC6441` follows the same convention but was inferred rather than
+specified. The bins use plain English rather than the Hebrew *achsonit/arkalit*.
+
+Two things the tapered units needed that the crates did not. The bins and the ALC
+have sloping walls, so text laid out flat and vertical sinks into the wall at one
+end and floats off it at the other — `wall_placements()` returns a rotation that
+leans each label to match its wall's draft angle. And the bins' fronts are cut
+away, so their labels go on the back and sides; what remains of the front is too
+low to carry text. Type size on the bins is auto-fitted to the narrowest face, so
+`PICKING BOX 3` still fits a 145 mm-wide bin.
 
 Labels are geometry, not a texture, which keeps each asset a single
 self-contained GLB with no image payload. The cost is real but manageable: they

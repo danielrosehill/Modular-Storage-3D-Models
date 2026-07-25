@@ -31,8 +31,9 @@ import math
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from boxlib import (MM, clear_scene, cuboid, boolean, bevel_and_smooth,
-                    make_material, export_glb, print_summary, load_spec)
+from boxlib import (clear_scene, cuboid, boolean, bevel_and_smooth,
+                    make_material, export_glb, print_summary, load_spec,
+                    add_labels, wall_placements)
 
 # --- parameters, millimetres ------------------------------------------------
 WALL = 2.5          # side wall thickness
@@ -52,7 +53,8 @@ LABEL_PROUD = 0.3         # standoff from the wall face
 LABEL_EXTRUDE = 0.7       # relief depth
 LABEL_MAX_SIZE = 55.0     # cap so tall crates do not get absurd type
 LABEL_Z_FRAC = 0.42       # up the wall; clears the handle cutouts near the rim
-LABEL_CURVE_RES = 3       # font curve tessellation; see the note in add_labels
+LABEL_CURVE_RES = 3       # font curve tessellation; see the note in boxlib.add_labels
+LABEL_RGB = (0.82, 0.84, 0.86)
 
 
 def build_crate(name, length, width, height, handles=True):
@@ -98,52 +100,6 @@ def build_crate(name, length, width, height, handles=True):
     return body
 
 
-def add_labels(body, text, length, width, height, material):
-    """Raised text on all four walls, facing outward."""
-    size = min(height * 0.22, LABEL_MAX_SIZE)
-    z = height * LABEL_Z_FRAC
-    placements = [
-        ((0, -(width / 2 + LABEL_PROUD), z), (90, 0, 0)),
-        ((0, (width / 2 + LABEL_PROUD), z), (90, 0, 180)),
-        ((-(length / 2 + LABEL_PROUD), 0, z), (90, 0, -90)),
-        (((length / 2 + LABEL_PROUD), 0, z), (90, 0, 90)),
-    ]
-
-    made = []
-    for i, (loc, rot) in enumerate(placements):
-        curve = bpy.data.curves.new(f"lbl{i}", type="FONT")
-        curve.body = text
-        curve.align_x = "CENTER"
-        curve.align_y = "CENTER"
-        curve.size = size * MM
-        curve.extrude = LABEL_EXTRUDE * MM
-        # Font curves tessellate at resolution_u = 12 by default, which turned a
-        # 676-triangle crate into an 8000-triangle one and took the GLB from
-        # 35 KB to 350 KB. At the sizes both consumers render these, 3 is
-        # indistinguishable from 12 and costs a fraction of the geometry.
-        curve.resolution_u = LABEL_CURVE_RES
-        obj = bpy.data.objects.new(f"lbl{i}", curve)
-        bpy.context.collection.objects.link(obj)
-        obj.location = tuple(c * MM for c in loc)
-        obj.rotation_euler = tuple(math.radians(a) for a in rot)
-
-        bpy.ops.object.select_all(action="DESELECT")
-        obj.select_set(True)
-        bpy.context.view_layer.objects.active = obj
-        bpy.ops.object.convert(target="MESH")
-        obj.data.materials.append(material)
-        made.append(obj)
-
-    # join after the body already has its own material, so the slots merge
-    # cleanly into [body colour, label colour] rather than the other way round
-    bpy.ops.object.select_all(action="DESELECT")
-    for obj in made:
-        obj.select_set(True)
-    body.select_set(True)
-    bpy.context.view_layer.objects.active = body
-    bpy.ops.object.join()
-
-
 def main():
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
     out = Path(argv[argv.index("--out") + 1]) if "--out" in argv else Path("build")
@@ -167,8 +123,13 @@ def main():
 
         label = unit.get("label")
         if label:
-            add_labels(obj, label, d["length"], d["width"], d["height"],
-                       make_material("label_white", (0.82, 0.84, 0.86), 0.5))
+            h = d["height"]
+            places = wall_placements(d["length"], d["width"], h,
+                                     h * LABEL_Z_FRAC, LABEL_PROUD)
+            add_labels(obj, label, places,
+                       make_material("label_white", LABEL_RGB, 0.5),
+                       size=min(h * 0.22, LABEL_MAX_SIZE),
+                       extrude=LABEL_EXTRUDE, curve_res=LABEL_CURVE_RES)
 
         results.append((unit["id"], *export_glb(obj, out_dir / f"{unit['id']}.glb")))
 

@@ -31,7 +31,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from boxlib import (clear_scene, cuboid, tapered_box, boolean, bevel_and_smooth,
-                    make_material, export_glb, print_summary, load_spec)
+                    make_material, export_glb, print_summary, load_spec,
+                    add_labels, wall_placements, fit_size)
 
 # --- parameters, millimetres ------------------------------------------------
 WALL = 3.0            # wall thickness; these mouldings are chunkier than a crate
@@ -41,6 +42,14 @@ BEVEL = 2.0           # edge radius
 
 FRONT_H_FRAC = 0.42   # front wall height as a fraction of the back wall
 SLOPE_END_FRAC = 0.55 # how far back the side edge reaches full height
+
+# Labels go on the back and both sides. The front is cut away, and what is left
+# of it is too low to carry text.
+LABEL_FACES = ("+x", "-y", "+y")
+LABEL_PROUD = 0.4
+LABEL_Z_FRAC = 0.30   # low enough to sit under the sloping side edge
+LABEL_MAX_SIZE = 34.0
+LABEL_RGB = (0.90, 0.92, 0.94)
 
 
 def build_bin(name, depth, width, height):
@@ -96,6 +105,17 @@ def main():
         d = unit["outer_mm"]
         obj = build_bin(unit["id"], d["depth"], d["width"], d["height"])
         obj.data.materials.append(make_material("picking_bin_blue", blue))
+
+        label = unit.get("label")
+        if label:
+            h = d["height"]
+            places = wall_placements(d["depth"], d["width"], h,
+                                     h * LABEL_Z_FRAC, LABEL_PROUD,
+                                     bottom_scale=TAPER, faces=LABEL_FACES)
+            size = fit_size(label, min(p["face_w"] for p in places),
+                            LABEL_MAX_SIZE)
+            add_labels(obj, label, places,
+                       make_material("label_white", LABEL_RGB, 0.5), size=size)
         results.append((unit["id"], *export_glb(obj, out_dir / f"{unit['id']}.glb")))
 
     print_summary(results)
