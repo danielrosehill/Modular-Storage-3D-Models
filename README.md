@@ -138,7 +138,7 @@ collection. See the table above.
 - **Assets:** `https://blog.danielrosehill.com/models/storage-boxes/<id>.glb` (and
   `.jpg` for the preview), served with `Access-Control-Allow-Origin: *` so they can
   be loaded cross-origin.
-- **In use:** the [Eurobox logistics calculator](https://github.com/danielrosehill/eurobox-calculator)
+- **In use:** the [Eurobox logistics calculator](https://github.com/danielrosehill/storage-container-calculator)
   renders these in its "3D models" section and can load a unit's dimensions
   straight into a calculation.
 
