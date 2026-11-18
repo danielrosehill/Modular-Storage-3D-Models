@@ -53,6 +53,15 @@
         0.4,
         0.43
       ]
+    },
+    "tilt_acrylic": {
+      "note": "clear acrylic/PS bins, faint blue tint; glTF alphaMode BLEND",
+      "gltf_base_color_factor_linear": [
+        0.82,
+        0.9,
+        0.95
+      ],
+      "alpha": 0.28
     }
   },
   "units": [
@@ -228,14 +237,14 @@
       "name": "Tilt-out bin unit, 9 bins, 600 mm wide",
       "family": "tilt_bin_unit",
       "cells": 9,
-      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "geometry": "fixed open-front housing; clear wedge-shaped bins pivot forward on the bottom front edge; modelled closed",
       "outer_mm": {
         "depth": 62,
         "width": 600,
         "height": 77
       },
       "colour_ref": "picking_bin_blue",
-      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
       "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
       "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
       "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
@@ -244,19 +253,42 @@
       "corroboration": "madafim.co.il 'רב תא 9 תאים' (fetched 2026-11-18): W 601 x H 76.5 x D 64.5 mm, within ~2 mm of the carton figures"
     },
     {
+      "id": "tilt-bin-unit-600-9-open",
+      "code": "TB609O",
+      "name": "Tilt-out bin unit, 9 bins, 600 mm, open",
+      "family": "tilt_bin_unit",
+      "cells": 9,
+      "geometry": "as TB609, every bin tilted open 35 degrees",
+      "outer_mm": {
+        "depth": 62,
+        "width": 600,
+        "height": 77
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB609O",
+      "us_equivalent": "Akro-Mils TiltView 06709; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "corroboration": "madafim.co.il 'רב תא 9 תאים' (fetched 2026-11-18): W 601 x H 76.5 x D 64.5 mm, within ~2 mm of the carton figures",
+      "open_deg": 35,
+      "open_deg_confidence": "assumed, not measured: 35 degrees is a typical tilt-out stop; set open_deg and rebuild once measured"
+    },
+    {
       "id": "tilt-bin-unit-600-6",
       "code": "TB606",
       "name": "Tilt-out bin unit, 6 bins, 600 mm wide",
       "family": "tilt_bin_unit",
       "cells": 6,
-      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "geometry": "fixed open-front housing; clear wedge-shaped bins pivot forward on the bottom front edge; modelled closed",
       "outer_mm": {
         "depth": 91,
         "width": 600,
         "height": 113
       },
       "colour_ref": "picking_bin_blue",
-      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
       "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
       "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
       "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
@@ -265,19 +297,42 @@
       "corroboration": "madafim.co.il 'רב תא 6 תאים' (fetched 2026-11-18): W 601 x H 112.5 x D 94 mm, within ~2 mm of the carton figures"
     },
     {
+      "id": "tilt-bin-unit-600-6-open",
+      "code": "TB606O",
+      "name": "Tilt-out bin unit, 6 bins, 600 mm, open",
+      "family": "tilt_bin_unit",
+      "cells": 6,
+      "geometry": "as TB606, every bin tilted open 35 degrees",
+      "outer_mm": {
+        "depth": 91,
+        "width": 600,
+        "height": 113
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB606O",
+      "us_equivalent": "Akro-Mils TiltView 06706; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "corroboration": "madafim.co.il 'רב תא 6 תאים' (fetched 2026-11-18): W 601 x H 112.5 x D 94 mm, within ~2 mm of the carton figures",
+      "open_deg": 35,
+      "open_deg_confidence": "assumed, not measured: 35 degrees is a typical tilt-out stop; set open_deg and rebuild once measured"
+    },
+    {
       "id": "tilt-bin-unit-600-5",
       "code": "TB605",
       "name": "Tilt-out bin unit, 5 bins, 600 mm wide",
       "family": "tilt_bin_unit",
       "cells": 5,
-      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "geometry": "fixed open-front housing; clear wedge-shaped bins pivot forward on the bottom front edge; modelled closed",
       "outer_mm": {
         "depth": 133,
         "width": 600,
         "height": 164
       },
       "colour_ref": "picking_bin_blue",
-      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
       "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
       "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
       "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
@@ -286,19 +341,42 @@
       "corroboration": "madafim.co.il 'רב תא 5 תאים' (fetched 2026-11-18): W 601 x H 163 x D 136 mm, within ~2 mm of the carton figures"
     },
     {
+      "id": "tilt-bin-unit-600-5-open",
+      "code": "TB605O",
+      "name": "Tilt-out bin unit, 5 bins, 600 mm, open",
+      "family": "tilt_bin_unit",
+      "cells": 5,
+      "geometry": "as TB605, every bin tilted open 35 degrees",
+      "outer_mm": {
+        "depth": 133,
+        "width": 600,
+        "height": 164
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB605O",
+      "us_equivalent": "Akro-Mils TiltView 06705; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "corroboration": "madafim.co.il 'רב תא 5 תאים' (fetched 2026-11-18): W 601 x H 163 x D 136 mm, within ~2 mm of the carton figures",
+      "open_deg": 35,
+      "open_deg_confidence": "assumed, not measured: 35 degrees is a typical tilt-out stop; set open_deg and rebuild once measured"
+    },
+    {
       "id": "tilt-bin-unit-600-4",
       "code": "TB604",
       "name": "Tilt-out bin unit, 4 bins, 600 mm wide",
       "family": "tilt_bin_unit",
       "cells": 4,
-      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "geometry": "fixed open-front housing; clear wedge-shaped bins pivot forward on the bottom front edge; modelled closed",
       "outer_mm": {
         "depth": 168,
         "width": 600,
         "height": 207
       },
       "colour_ref": "picking_bin_blue",
-      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
       "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
       "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
       "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
@@ -307,19 +385,42 @@
       "corroboration": "madafim.co.il 'רב תא 4 תאים' (fetched 2026-11-18): W 601 x H 206 x D 171.5 mm, within ~2 mm of the carton figures"
     },
     {
+      "id": "tilt-bin-unit-600-4-open",
+      "code": "TB604O",
+      "name": "Tilt-out bin unit, 4 bins, 600 mm, open",
+      "family": "tilt_bin_unit",
+      "cells": 4,
+      "geometry": "as TB604, every bin tilted open 35 degrees",
+      "outer_mm": {
+        "depth": 168,
+        "width": 600,
+        "height": 207
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB604O",
+      "us_equivalent": "Akro-Mils TiltView 06704; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "corroboration": "madafim.co.il 'רב תא 4 תאים' (fetched 2026-11-18): W 601 x H 206 x D 171.5 mm, within ~2 mm of the carton figures",
+      "open_deg": 35,
+      "open_deg_confidence": "assumed, not measured: 35 degrees is a typical tilt-out stop; set open_deg and rebuild once measured"
+    },
+    {
       "id": "tilt-bin-unit-600-3",
       "code": "TB603",
       "name": "Tilt-out bin unit, 3 bins, 600 mm wide",
       "family": "tilt_bin_unit",
       "cells": 3,
-      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "geometry": "fixed open-front housing; clear wedge-shaped bins pivot forward on the bottom front edge; modelled closed",
       "outer_mm": {
         "depth": 197,
         "width": 600,
         "height": 240
       },
       "colour_ref": "picking_bin_blue",
-      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
       "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
       "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
       "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
@@ -328,24 +429,69 @@
       "corroboration": "madafim.co.il 'רב תא 3 תאים' (fetched 2026-11-18): W 601 x H 238 x D 198 mm, within ~2 mm of the carton figures"
     },
     {
+      "id": "tilt-bin-unit-600-3-open",
+      "code": "TB603O",
+      "name": "Tilt-out bin unit, 3 bins, 600 mm, open",
+      "family": "tilt_bin_unit",
+      "cells": 3,
+      "geometry": "as TB603, every bin tilted open 35 degrees",
+      "outer_mm": {
+        "depth": 197,
+        "width": 600,
+        "height": 240
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB603O",
+      "us_equivalent": "Akro-Mils TiltView 06703; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "corroboration": "madafim.co.il 'רב תא 3 תאים' (fetched 2026-11-18): W 601 x H 238 x D 198 mm, within ~2 mm of the carton figures",
+      "open_deg": 35,
+      "open_deg_confidence": "assumed, not measured: 35 degrees is a typical tilt-out stop; set open_deg and rebuild once measured"
+    },
+    {
       "id": "tilt-bin-unit-600-2",
       "code": "TB602",
       "name": "Tilt-out bin unit, 2 bins, 600 mm wide",
       "family": "tilt_bin_unit",
       "cells": 2,
-      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "geometry": "fixed open-front housing; clear wedge-shaped bins pivot forward on the bottom front edge; modelled closed",
       "outer_mm": {
         "depth": 322,
         "width": 600,
         "height": 353
       },
       "colour_ref": "picking_bin_blue",
-      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
       "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
       "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
       "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
       "label": "TB602",
       "us_equivalent": "Akro-Mils TiltView 06702; Uline tip-out bins 24 in wide (rounded 23 5/8)"
+    },
+    {
+      "id": "tilt-bin-unit-600-2-open",
+      "code": "TB602O",
+      "name": "Tilt-out bin unit, 2 bins, 600 mm, open",
+      "family": "tilt_bin_unit",
+      "cells": 2,
+      "geometry": "as TB602, every bin tilted open 35 degrees",
+      "outer_mm": {
+        "depth": 322,
+        "width": 600,
+        "height": 353
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "housing: plastic (grey); bins: clear transparent acrylic",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB602O",
+      "us_equivalent": "Akro-Mils TiltView 06702; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "open_deg": 35,
+      "open_deg_confidence": "assumed, not measured: 35 degrees is a typical tilt-out stop; set open_deg and rebuild once measured"
     },
     {
       "id": "us-straight-wall-603x400x210",

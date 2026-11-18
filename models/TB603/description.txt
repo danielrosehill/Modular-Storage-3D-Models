@@ -1,6 +1,8 @@
 Tilt-out bin unit, 3 bins, 600 mm wide
 TB603
 
+The bins are clear, transparent acrylic (modelled as a blended transparent material) in a grey housing, and each bin is wedge-shaped so it can swing open inside its cell; an open variant is published as TB603O.
+
 A tilt-out bin unit (Hebrew: רב-תא, "multi-cell") with 3 bins side by side: a
 fixed open-front housing in which each bin pivots forward on its bottom edge, so
 small parts can be seen and reached without removing anything. This is the 3-bin
@@ -36,9 +38,9 @@ ASSET NOTES
   Format      GLB (glTF 2.0 binary), single file, no external textures
   Scale       metres, real world - a 600 mm crate is 0.600 units long
   Origin      centre of the base, +Z up
-  Geometry    1,456 triangles, 1,328 vertices
+  Geometry    1,132 triangles, 1,694 vertices
   Materials   flat PBR base colours, no image maps
-  File size   41.6 KB
+  File size   48.3 KB
 
 LICENCE
   CC Attribution 4.0 (CC BY 4.0)

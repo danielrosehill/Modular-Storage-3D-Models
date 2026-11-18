@@ -142,7 +142,16 @@ Hebrew **רב-תא** ("multi-cell"). A fixed open-front housing with N bins side
 side, each pivoting forward on its bottom edge. Every unit in the range is the
 same **600 mm (23⅝ in) width**, so different bin counts stack into one wall; only
 height and depth change. Generator: `scripts/build_tilt_bins.py` (family
-`tilt_bin_unit`, `cells` = bin count). Bins are modelled closed.
+`tilt_bin_unit`, `cells` = bin count).
+
+The bins are **clear acrylic**, exported as a transparent glTF material
+(`alphaMode: BLEND`, colour `tilt_acrylic` in the spec), so contents and capacity
+read through them. Each bin is wedge-shaped: front face, sloped open top and a back
+wall that is an arc centred on the bottom-front pivot, so it swings open without
+hitting the housing, as the real mouldings do. Every unit also has an **open**
+variant, code suffix `O` (`TB603O` ...), with all bins tilted forward by
+`open_deg` = **35°: assumed, not measured**. Measure one and change `open_deg` in
+the spec to correct it.
 
 | Code | Bins | Depth × Width × Height (mm) | US equivalent |
 |---|---|---|---|

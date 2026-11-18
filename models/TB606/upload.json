@@ -1,6 +1,6 @@
 {
   "name": "Tilt-out bin unit, 6 bins, 600 mm wide",
-  "description": "A tilt-out bin unit (Hebrew: \u05e8\u05d1-\u05ea\u05d0, \"multi-cell\") with 6 bins side by side: a fixed open-front housing in which each bin pivots forward on its bottom edge, so small parts can be seen and reached without removing anything. This is the 6-bin member of a range that shares one 600 mm (23 5/8 in) width, so units of different bin counts stack into a single wall; only height and depth change.\n\nExternal dimensions: depth 91 mm, width 600 mm, height 113 mm.\n\nNo formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.\n\nGLB (glTF 2.0), real-world scale in metres, origin at the centre of the base. 2,800 triangles, flat PBR base colours, no textures. CC BY 4.0.",
+  "description": "The bins are clear, transparent acrylic (modelled as a blended transparent material) in a grey housing, and each bin is wedge-shaped so it can swing open inside its cell; an open variant is published as TB606O.\n\nExternal dimensions: depth 91 mm, width 600 mm, height 113 mm.\n\nNo formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.\n\nGLB (glTF 2.0), real-world scale in metres, origin at the centre of the base. 2,152 triangles, flat PBR base colours, no textures. CC BY 4.0.",
   "tags": [
     "tilt-bin",
     "tilt-out-bin",

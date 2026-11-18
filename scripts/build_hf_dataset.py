@@ -66,6 +66,7 @@ def main():
             "outer_mm": u["outer_mm"],
             "outer_in": u.get("outer_in"),
             "cells": u.get("cells"),
+            "open_deg": u.get("open_deg"),
             "reference_product": u.get("reference_product"),
             "glb": f"models/{code}/{code}.glb",
             "sketchfab_url": ledger.get(code, {}).get("url"),

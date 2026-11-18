@@ -28,10 +28,13 @@ import sys
 import math
 from pathlib import Path
 
+import bpy
+import bmesh
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from boxlib import (clear_scene, cuboid, boolean, bevel_and_smooth,
                     make_material, export_glb, print_summary, load_spec,
-                    join_parts)
+                    join_parts, MM)
 
 # --- parameters, millimetres ------------------------------------------------
 SHELL = 3.0           # housing side/top/bottom wall
@@ -46,6 +49,9 @@ SLOT_W_FRAC = 0.62    # label slot width as a fraction of the bin width
 SLOT_H_FRAC = 0.22    # label slot height as a fraction of the bin height
 SLOT_DEPTH = 1.0
 BEVEL = 1.2
+BIN_WALL = 2.0        # acrylic bin wall
+OPEN_TOP_DEG = 38.0   # open top meets the back arc this far back from vertical
+ARC_STEPS = 8
 
 HOUSING_RGB = (0.38, 0.40, 0.43)   # mid grey, typical housing moulding
 
@@ -66,42 +72,107 @@ def build_housing(name, depth, width, height, cells):
     return join_parts(parts), cell_w
 
 
-def build_bin(name, depth, cell_w, inner_h, y):
-    """One closed bin. Its front face slopes: the top edge sits FRONT_PROUD
-    forward of the housing face and the bottom edge is set back by the lean,
-    the shape of a bin already tipped a few degrees on its pivot."""
+def _prism(name, poly_xz, y0, y1):
+    """Mesh prism: a 2D polygon in the XZ plane (mm) extruded from y0 to y1."""
+    n = len(poly_xz)
+    verts = [(x * MM, y0 * MM, z * MM) for x, z in poly_xz] + \
+            [(x * MM, y1 * MM, z * MM) for x, z in poly_xz]
+    faces = [tuple(range(n))[::-1], tuple(range(n, 2 * n))]
+    faces += [(i, (i + 1) % n, n + (i + 1) % n, n + i) for i in range(n)]
+    mesh = bpy.data.meshes.new(name)
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    bm.to_mesh(mesh)
+    bm.free()
+    obj = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(obj)
+    return obj
+
+
+def bin_profile(depth_in, h, run):
+    """Side profile of one bin in its own frame: pivot (bottom front edge) at the
+    origin, +x into the housing, +z up. Returns (polygon, index of the opening edge).
+
+    Shape: a sloped front face, a sloped open top, and a back wall that is an arc
+    centred on the pivot. Every point inside the housing lies within radius h of
+    the pivot, so the bin can swing open without hitting the housing top - the
+    same constraint that makes real tilt bins wedge-shaped.
+    """
+    R = h - GAP
+    reach = min(depth_in, R * 0.999)
+    alpha = math.radians(OPEN_TOP_DEG)               # where the open top meets the arc
+    alpha = min(alpha, math.asin(reach / R))
+    poly = [(0.0, 0.0), (-run, h)]                   # pivot, front top
+    a_end = math.asin(reach / R)                     # arc runs from alpha down to here,
+    steps = ARC_STEPS                                # then straight down to the floor
+    for i in range(steps + 1):
+        a = alpha + (a_end - alpha) * i / steps
+        poly.append((R * math.sin(a), R * math.cos(a)))
+    if poly[-1][1] > 0.5:
+        poly.append((reach, 0.0))
+    return poly, 1                                   # edge 1 -> 2 is the open top
+
+
+def build_bin(name, depth, cell_w, inner_h, y, open_deg):
     w = cell_w - 2 * GAP
     h = inner_h - 2 * GAP
-    z_bot = SHELL + GAP
-    z_top = z_bot + h
-    x_front = -depth / 2 - FRONT_PROUD          # top front edge
-    x_back = depth / 2 - BACK - GAP
-    body = cuboid(name, (x_back - x_front, w, h),
-                  ((x_front + x_back) / 2, y, z_bot + h / 2))
-
     lean = math.radians(FRONT_LEAN_DEG)
     run = h * math.tan(lean)
-    L = math.hypot(run, h)
-    nx, nz = -h / L, -run / L                    # outward normal of the face
-    big = 4 * max(h, depth)
-    px, pz = x_front + run, z_bot                # bottom front edge
-    cut = cuboid(f"{name}_lean", (big, 3 * w, 3 * big),
-                 (px + nx * big / 2, y, pz + nz * big / 2),
-                 rotation=(0.0, -lean, 0.0))
-    boolean(body, cut, "DIFFERENCE")
+    x_pivot = -depth / 2 - FRONT_PROUD + run         # bottom front edge
+    z_pivot = SHELL + GAP
+    depth_in = depth / 2 - BACK - GAP - x_pivot
+    poly, open_edge = bin_profile(depth_in, h, run)
 
-    # recessed label slot on the upper part of the face
-    sw, sh = SLOT_W_FRAC * w, SLOT_H_FRAC * h
-    z_slot = z_bot + 0.72 * h
-    x_face = x_front + run * (z_top - z_slot) / h
-    slot = cuboid(f"{name}_slot", (2 * SLOT_DEPTH, sw, sh), (x_face, y, z_slot),
-                  rotation=(0.0, -lean, 0.0))
-    boolean(body, slot, "DIFFERENCE")
+    # skin: one thin plate per profile edge except the open top, plus two sides
+    parts = []
+    n = len(poly)
+    cx = sum(p[0] for p in poly) / n
+    cz = sum(p[1] for p in poly) / n
+    for i in range(n):
+        if i == open_edge:
+            continue
+        (x0, z0), (x1, z1) = poly[i], poly[(i + 1) % n]
+        L = math.hypot(x1 - x0, z1 - z0) or 1.0
+        nx, nz = -(z1 - z0) / L, (x1 - x0) / L       # a normal; flip it inward
+        mx, mz = (x0 + x1) / 2, (z0 + z1) / 2
+        if (cx - mx) * nx + (cz - mz) * nz < 0:
+            nx, nz = -nx, -nz
+        quad = [(x0, z0), (x1, z1), (x1 + nx * BIN_WALL, z1 + nz * BIN_WALL),
+                (x0 + nx * BIN_WALL, z0 + nz * BIN_WALL)]
+        parts.append(_prism(f"{name}_e{i}", quad, -w / 2, w / 2))
+    parts.append(_prism(f"{name}_sL", poly, -w / 2, -w / 2 + BIN_WALL))
+    parts.append(_prism(f"{name}_sR", poly, w / 2 - BIN_WALL, w / 2))
+    # finger lip along the front top edge
+    lip = [(-run - LIP_OUT, h - LIP_H), (-run + 1, h - LIP_H), (-run + 1, h), (-run - LIP_OUT, h)]
+    parts.append(_prism(f"{name}_lip", lip, -w / 2, w / 2))
 
-    # finger lip along the top edge, overhanging the face
-    lip = cuboid(f"{name}_lip", (LIP_OUT + 4, w, LIP_H),
-                 (x_front - LIP_OUT / 2 + 2, y, z_top - LIP_H / 2))
-    return join_parts([body, lip])
+    obj = join_parts(parts)
+    # place: rotate about the pivot (top swings toward -X, the user), then move
+    th = math.radians(open_deg)
+    c, s_ = math.cos(th), math.sin(th)
+    for v in obj.data.vertices:
+        x, yy, z = v.co.x / MM, v.co.y / MM, v.co.z / MM
+        xr, zr = x * c - z * s_, x * s_ + z * c
+        v.co = ((xr + x_pivot) * MM, (yy + y) * MM, (zr + z_pivot) * MM)
+    obj.data.update()
+    return obj
+
+
+def acrylic_material(rgb, alpha):
+    mat = make_material("acrylic_clear", rgb, roughness=0.05)
+    bsdf = mat.node_tree.nodes["Principled BSDF"]
+    bsdf.inputs["Alpha"].default_value = alpha
+    if hasattr(mat, "surface_render_method"):
+        mat.surface_render_method = "BLENDED"
+    if hasattr(mat, "blend_method"):
+        try:
+            mat.blend_method = "BLEND"
+        except (AttributeError, TypeError):
+            pass
+    return mat
 
 
 def main():
@@ -113,7 +184,9 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     spec = load_spec(repo)
-    bin_rgb = tuple(spec["colours"]["picking_bin_blue"]["gltf_base_color_factor_linear"])
+    acr = spec["colours"].get("tilt_acrylic", {})
+    acr_rgb = tuple(acr.get("gltf_base_color_factor_linear", (0.82, 0.9, 0.95)))
+    acr_alpha = acr.get("alpha", 0.28)
 
     results = []
     for unit in spec["units"]:
@@ -123,22 +196,21 @@ def main():
         d = unit["outer_mm"]
         depth, width, height = d["depth"], d["width"], d["height"]
         cells = unit["cells"]
+        open_deg = unit.get("open_deg", 0.0)
         housing, cell_w = build_housing(unit["id"], depth, width, height, cells)
         bevel_and_smooth(housing, BEVEL)
         housing.data.materials.append(make_material("housing_grey", HOUSING_RGB))
 
         inner_w = width - 2 * SHELL
+        bin_mat = acrylic_material(acr_rgb, acr_alpha)
         bins = []
         for i in range(cells):
             y = -inner_w / 2 + cell_w / 2 + i * (cell_w + DIVIDER)
             b = build_bin(f"{unit['id']}_bin{i}", depth, cell_w,
-                          height - 2 * SHELL, y)
-            bevel_and_smooth(b, BEVEL * 0.6)
-            bins.append(b)
-        bin_mat = make_material("bin_blue", bin_rgb)
-        for b in bins:
+                          height - 2 * SHELL, y, open_deg)
             b.data.materials.clear()
             b.data.materials.append(bin_mat)
+            bins.append(b)
         obj = join_parts([housing] + bins)
         obj.name = unit["id"]
         obj.data.name = unit["id"]
