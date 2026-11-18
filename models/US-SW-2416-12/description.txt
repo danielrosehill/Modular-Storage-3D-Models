@@ -1,0 +1,49 @@
+US straight-wall tote 23.75 x 15.75 x 12.25 in
+US-SW-2416-12
+
+A US straight-wall stacking container, 23.75 x 15.75 x 12.25 in (603 x 400 x 311
+mm), modelled on the Akro-Mils 37682 solid-wall tote from the Akro-Mils straight-
+wall catalogue. Nominal 24 x 16 in, which in practice is the 600 x 400 mm euro
+module, so it sits on the same pallet pattern as a euro crate.
+
+It shares the straight-wall builder with the euro containers: straight external
+walls, rounded rim and corner radii, hand-hole grips through the top rail on the
+long sides, a hollowed underside and a recessed stacking foot that drops inside
+the rim of the container below. Inch dimensions are confirmed from the
+manufacturer's listing and converted to mm.
+
+Open top. Lids are a separate item on the real product and are not modelled here.
+
+DIMENSIONS (external)
+  Length    603 mm
+  Width     400 mm
+  Height    311 mm
+
+STANDARD
+  US catalogue equivalent of the 600 x 400 euro module: nominal 24 x 16 in (and its 16 x 12 half), which is 600 x 400 mm in practice.
+
+TYPICAL USE
+Built as a set-dressing and layout asset for US-style storage, warehousing,
+logistics and manufacturing: shelf and rack fills, pallet builds, WMS and
+inventory-system visualisation, facility and architectural walkthroughs, training
+and simulation environments, and product configurators.
+
+Modelled at true real-world scale with clean low-poly topology and a single flat
+base colour, so it instances cheaply hundreds of times in a shelf or rack view and
+can be recoloured without touching the mesh.
+
+ASSET NOTES
+  Format      GLB (glTF 2.0 binary), single file, no external textures
+  Scale       metres, real world - a 600 mm crate is 0.600 units long
+  Origin      centre of the base, +Z up
+  Geometry    4,016 triangles, 4,991 vertices
+  Materials   flat PBR base colours, no image maps
+  File size   181.7 KB
+
+LICENCE
+  CC Attribution 4.0 (CC BY 4.0)
+
+TAGS
+  straight wall container, US tote, Akro-Mils, 37682, stacking container, solid wall
+tote, storage tote, 24x16 container, plastic tote, warehouse, logistics, storage
+bin, industrial, inventory, supply chain, lowpoly, pbr, gltf, glb

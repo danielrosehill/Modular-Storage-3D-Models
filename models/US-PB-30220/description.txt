@@ -1,0 +1,51 @@
+US open-front picking bin 7.375 x 4.125 x 3 in
+US-PB-30220
+
+A US open-front picking bin, 7.375 x 4.125 x 3 in depth x width x height (187 x
+105 x 76 mm), modelled on the Akro-Mils AkroBin 30220 from Akro-Mils sheet AKM505.
+The AkroBin part-number ladder is the de facto US reference for this family, and
+Quantum QUS and Uline sizes match it. The front wall stands at roughly 40% of the
+back wall's height with the side walls sweeping down between them on a curve, so
+an operator can reach in and pick without lifting the bin off the shelf.
+
+The body is tapered, which lets empty bins nest into one another, and the base
+sits on an inset plinth so a loaded bin stacks squarely on the one below. A rolled
+lip runs around the front opening.
+
+No dimensional standard governs this family, so sizes are manufacturer-specific.
+Note the axis order is depth x width x height, not the length x width x height
+used for the crates.
+
+DIMENSIONS (external)
+  Depth     187 mm
+  Width     105 mm
+  Height    76 mm
+
+STANDARD
+  No formal standard; the Akro-Mils AkroBin part-number ladder is the de facto US reference, matched by Quantum QUS and Uline.
+
+TYPICAL USE
+Built as a set-dressing and layout asset for warehouses, stockrooms, workshops and
+factory scenes: pick-face and shelf fills, small-parts storage walls, WMS and
+inventory-system visualisation, facility and architectural walkthroughs, training
+and simulation environments, and product configurators.
+
+Modelled at true real-world scale with clean low-poly topology and a single flat
+base colour, so it instances cheaply in a wall of several hundred bins and can be
+recoloured without touching the mesh.
+
+ASSET NOTES
+  Format      GLB (glTF 2.0 binary), single file, no external textures
+  Scale       metres, real world - a 600 mm crate is 0.600 units long
+  Origin      centre of the base, +Z up
+  Geometry    1,876 triangles, 2,235 vertices
+  Materials   flat PBR base colours, no image maps
+  File size   83.0 KB
+
+LICENCE
+  CC Attribution 4.0 (CC BY 4.0)
+
+TAGS
+  picking bin, parts bin, AkroBin, Akro-Mils, 30220, US parts bin, shelf bin,
+storage bin, open front bin, warehouse, workshop, small parts, industrial, plastic
+bin, inventory, lowpoly, pbr, gltf, glb

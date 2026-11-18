@@ -85,6 +85,7 @@ def upload_one(token, code, payload, glb):
     uid = resp.json().get("uid")
     if not uid:
         raise RuntimeError(f"{code}: 201 but no uid in response: {resp.text[:400]}")
+
     return uid
 
 
@@ -101,14 +102,41 @@ def wait_processed(token, uid):
     return "TIMEOUT"
 
 
+def make_downloadable(token, code, uid):
+    """Downloadable is the point of a free CC BY asset, and on a Basic plan a model
+    published NON-downloadable spends one of the 10 monthly upload credits.
+
+    Verified 2026-11-18: the upload POST ignores isDownloadable, and a PATCH sent
+    straight after the 201 is lost for some models (9 of 21 reverted to False) -
+    processing overwrites it. So PATCH only once processing has finished, and read
+    it back with an AUTHENTICATED GET; the anonymous GET is cached and lags.
+    """
+    for _ in range(3):
+        requests.patch(f"{API}/models/{uid}", headers=auth_headers(token),
+                       json={"isDownloadable": True}, timeout=60)
+        time.sleep(2)
+        got = requests.get(f"{API}/models/{uid}", headers=auth_headers(token),
+                           timeout=60).json().get("isDownloadable")
+        if got:
+            return True
+    print(f"  {code}: still not downloadable after 3 PATCHes")
+    return False
+
+
+COLLECTION_BATCH = 24   # API rejects more per request (HTTP 400, 2026-11-18)
+
+
 def add_to_collection(token, uids):
-    resp = requests.post(
-        f"{API}/collections/{COLLECTION_UID}/models",
-        headers={**auth_headers(token), "Content-Type": "application/json"},
-        data=json.dumps({"models": uids}),
-        timeout=60,
-    )
-    return resp.status_code, resp.text[:300]
+    results = []
+    for i in range(0, len(uids), COLLECTION_BATCH):
+        resp = requests.post(
+            f"{API}/collections/{COLLECTION_UID}/models",
+            headers={**auth_headers(token), "Content-Type": "application/json"},
+            data=json.dumps({"models": uids[i:i + COLLECTION_BATCH]}),
+            timeout=60,
+        )
+        results.append(f"{resp.status_code} {resp.text[:200]}")
+    return "; ".join(results)
 
 
 def refresh_ledger(token):
@@ -190,6 +218,7 @@ def main():
 
         uid = upload_one(token, code, payload, glb)
         status = wait_processed(token, uid)
+        make_downloadable(token, code, uid)
         url = f"https://sketchfab.com/3d-models/{uid}"
         ledger[code] = {
             "uid": uid,
@@ -206,8 +235,7 @@ def main():
         return
 
     uids = [v["uid"] for v in ledger.values()]
-    code_, body = add_to_collection(token, uids)
-    print(f"\ncollection add: HTTP {code_} {body if code_ >= 300 else ''}")
+    print(f"\ncollection add: {add_to_collection(token, uids)}")
     print(f"ledger written to {LEDGER.relative_to(REPO)}")
 
 

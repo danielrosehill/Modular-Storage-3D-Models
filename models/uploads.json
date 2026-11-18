@@ -55,6 +55,13 @@
     "uid": "4d78a650b86843f3b21288e10aca14aa",
     "url": "https://sketchfab.com/3d-models/open-front-picking-bin-200-x-145-x-130-mm-4d78a650b86843f3b21288e10aca14aa"
   },
+  "PB4": {
+    "embed": "https://sketchfab.com/models/8cb05f6d9c6a4089b2ef184b02715c7a/embed",
+    "name": "Open-front picking bin 145 x 100 x 80 mm",
+    "status": "SUCCEEDED",
+    "uid": "8cb05f6d9c6a4089b2ef184b02715c7a",
+    "url": "https://sketchfab.com/3d-models/8cb05f6d9c6a4089b2ef184b02715c7a"
+  },
   "SB1": {
     "embed": "https://sketchfab.com/models/c4032636399c43f39146660be9a90c4b/embed",
     "name": "Boltless shelving bay 1600 x 600 x 2300 mm",
@@ -62,5 +69,159 @@
     "thumbnail": "https://media.sketchfab.com/models/c4032636399c43f39146660be9a90c4b/thumbnails/a0a484aaccb34d4595bebdb0966f7cac/652c534364284489bc5310de41c5bdb1.jpeg",
     "uid": "c4032636399c43f39146660be9a90c4b",
     "url": "https://sketchfab.com/3d-models/boltless-shelving-bay-1600-x-600-x-2300-mm-c4032636399c43f39146660be9a90c4b"
+  },
+  "TB602": {
+    "embed": "https://sketchfab.com/models/6eccbc7d1c32405babea07d91916dd30/embed",
+    "name": "Tilt-out bin unit, 2 bins, 600 mm wide",
+    "status": "SUCCEEDED",
+    "uid": "6eccbc7d1c32405babea07d91916dd30",
+    "url": "https://sketchfab.com/3d-models/6eccbc7d1c32405babea07d91916dd30"
+  },
+  "TB603": {
+    "embed": "https://sketchfab.com/models/858cdd682d0d49c1ace25a7a8604410a/embed",
+    "name": "Tilt-out bin unit, 3 bins, 600 mm wide",
+    "status": "SUCCEEDED",
+    "uid": "858cdd682d0d49c1ace25a7a8604410a",
+    "url": "https://sketchfab.com/3d-models/858cdd682d0d49c1ace25a7a8604410a"
+  },
+  "TB604": {
+    "embed": "https://sketchfab.com/models/cc25efd1c1874d818da45c22846c44a6/embed",
+    "name": "Tilt-out bin unit, 4 bins, 600 mm wide",
+    "status": "SUCCEEDED",
+    "uid": "cc25efd1c1874d818da45c22846c44a6",
+    "url": "https://sketchfab.com/3d-models/cc25efd1c1874d818da45c22846c44a6"
+  },
+  "TB605": {
+    "embed": "https://sketchfab.com/models/863e7ad63df44a90a54286105d11a517/embed",
+    "name": "Tilt-out bin unit, 5 bins, 600 mm wide",
+    "status": "SUCCEEDED",
+    "uid": "863e7ad63df44a90a54286105d11a517",
+    "url": "https://sketchfab.com/3d-models/863e7ad63df44a90a54286105d11a517"
+  },
+  "TB606": {
+    "embed": "https://sketchfab.com/models/292bfadded684fe1b265dc98f987bcb6/embed",
+    "name": "Tilt-out bin unit, 6 bins, 600 mm wide",
+    "status": "SUCCEEDED",
+    "uid": "292bfadded684fe1b265dc98f987bcb6",
+    "url": "https://sketchfab.com/3d-models/292bfadded684fe1b265dc98f987bcb6"
+  },
+  "TB609": {
+    "embed": "https://sketchfab.com/models/499d6da6dc014f49b996556db6af1b33/embed",
+    "name": "Tilt-out bin unit, 9 bins, 600 mm wide",
+    "status": "SUCCEEDED",
+    "uid": "499d6da6dc014f49b996556db6af1b33",
+    "url": "https://sketchfab.com/3d-models/499d6da6dc014f49b996556db6af1b33"
+  },
+  "US-ALC-2215-09": {
+    "embed": "https://sketchfab.com/models/4f34a0007f174fd2a52dd34462b39e03/embed",
+    "name": "US attached-lid container 21.5 x 15.25 x 9 in",
+    "status": "SUCCEEDED",
+    "uid": "4f34a0007f174fd2a52dd34462b39e03",
+    "url": "https://sketchfab.com/3d-models/4f34a0007f174fd2a52dd34462b39e03"
+  },
+  "US-ALC-2215-12": {
+    "embed": "https://sketchfab.com/models/7e1da8187e244494ac65303c3361d1f1/embed",
+    "name": "US attached-lid container 21.5 x 15.25 x 12.5 in",
+    "status": "SUCCEEDED",
+    "uid": "7e1da8187e244494ac65303c3361d1f1",
+    "url": "https://sketchfab.com/3d-models/7e1da8187e244494ac65303c3361d1f1"
+  },
+  "US-ALC-2215-17": {
+    "embed": "https://sketchfab.com/models/08e2282753f848a381f4af4f36787a7e/embed",
+    "name": "US attached-lid container 21.5 x 15.25 x 17 in",
+    "status": "SUCCEEDED",
+    "uid": "08e2282753f848a381f4af4f36787a7e",
+    "url": "https://sketchfab.com/3d-models/08e2282753f848a381f4af4f36787a7e"
+  },
+  "US-ALC-2717-12": {
+    "embed": "https://sketchfab.com/models/25120759fc014136bf4b211963da7a4f/embed",
+    "name": "US attached-lid container 27 x 17 x 12.5 in",
+    "status": "SUCCEEDED",
+    "uid": "25120759fc014136bf4b211963da7a4f",
+    "url": "https://sketchfab.com/3d-models/25120759fc014136bf4b211963da7a4f"
+  },
+  "US-PB-30210": {
+    "embed": "https://sketchfab.com/models/1a3fb8520fba4d52a2dd81c2cf5ec974/embed",
+    "name": "US open-front picking bin 5.375 x 4.125 x 3 in",
+    "status": "SUCCEEDED",
+    "uid": "1a3fb8520fba4d52a2dd81c2cf5ec974",
+    "url": "https://sketchfab.com/3d-models/1a3fb8520fba4d52a2dd81c2cf5ec974"
+  },
+  "US-PB-30220": {
+    "embed": "https://sketchfab.com/models/610dedad3e524f2b94abcae604e3bd06/embed",
+    "name": "US open-front picking bin 7.375 x 4.125 x 3 in",
+    "status": "SUCCEEDED",
+    "uid": "610dedad3e524f2b94abcae604e3bd06",
+    "url": "https://sketchfab.com/3d-models/610dedad3e524f2b94abcae604e3bd06"
+  },
+  "US-PB-30230": {
+    "embed": "https://sketchfab.com/models/3d1711c59def4433ac502034d8351e6b/embed",
+    "name": "US open-front picking bin 10.875 x 5.5 x 5 in",
+    "status": "SUCCEEDED",
+    "uid": "3d1711c59def4433ac502034d8351e6b",
+    "url": "https://sketchfab.com/3d-models/3d1711c59def4433ac502034d8351e6b"
+  },
+  "US-PB-30235": {
+    "embed": "https://sketchfab.com/models/9e4acb72b4944b44ab2f33be3082ceb2/embed",
+    "name": "US open-front picking bin 10.875 x 11 x 5 in",
+    "status": "SUCCEEDED",
+    "uid": "9e4acb72b4944b44ab2f33be3082ceb2",
+    "url": "https://sketchfab.com/3d-models/9e4acb72b4944b44ab2f33be3082ceb2"
+  },
+  "US-PB-30240": {
+    "embed": "https://sketchfab.com/models/2016696a526b4ed980f6aeab0672c111/embed",
+    "name": "US open-front picking bin 14.75 x 8.25 x 7 in",
+    "status": "SUCCEEDED",
+    "uid": "2016696a526b4ed980f6aeab0672c111",
+    "url": "https://sketchfab.com/3d-models/2016696a526b4ed980f6aeab0672c111"
+  },
+  "US-PB-30250": {
+    "embed": "https://sketchfab.com/models/2e1821196fbb4ff2868123e60d3e1d32/embed",
+    "name": "US open-front picking bin 14.75 x 16.5 x 7 in",
+    "status": "SUCCEEDED",
+    "uid": "2e1821196fbb4ff2868123e60d3e1d32",
+    "url": "https://sketchfab.com/3d-models/2e1821196fbb4ff2868123e60d3e1d32"
+  },
+  "US-PB-30260": {
+    "embed": "https://sketchfab.com/models/e73e5b24b7ea4bff8091e4bed4a79cbb/embed",
+    "name": "US open-front picking bin 18 x 11 x 10 in",
+    "status": "SUCCEEDED",
+    "uid": "e73e5b24b7ea4bff8091e4bed4a79cbb",
+    "url": "https://sketchfab.com/3d-models/e73e5b24b7ea4bff8091e4bed4a79cbb"
+  },
+  "US-PB-30270": {
+    "embed": "https://sketchfab.com/models/89aadfaeaf2a44ae8c183530c890adf1/embed",
+    "name": "US open-front picking bin 18 x 16.5 x 11 in",
+    "status": "SUCCEEDED",
+    "uid": "89aadfaeaf2a44ae8c183530c890adf1",
+    "url": "https://sketchfab.com/3d-models/89aadfaeaf2a44ae8c183530c890adf1"
+  },
+  "US-SW-1612-08": {
+    "embed": "https://sketchfab.com/models/33460de08523450991a54ede64ea7162/embed",
+    "name": "US straight-wall tote 15.75 x 11.75 x 8.25 in",
+    "status": "SUCCEEDED",
+    "uid": "33460de08523450991a54ede64ea7162",
+    "url": "https://sketchfab.com/3d-models/33460de08523450991a54ede64ea7162"
+  },
+  "US-SW-2416-08": {
+    "embed": "https://sketchfab.com/models/51882e0bbeab418584897832b6cc576e/embed",
+    "name": "US straight-wall tote 23.75 x 15.75 x 8.25 in",
+    "status": "SUCCEEDED",
+    "uid": "51882e0bbeab418584897832b6cc576e",
+    "url": "https://sketchfab.com/3d-models/51882e0bbeab418584897832b6cc576e"
+  },
+  "US-SW-2416-12": {
+    "embed": "https://sketchfab.com/models/729a73c461ac43469e45b9bfba08037a/embed",
+    "name": "US straight-wall tote 23.75 x 15.75 x 12.25 in",
+    "status": "SUCCEEDED",
+    "uid": "729a73c461ac43469e45b9bfba08037a",
+    "url": "https://sketchfab.com/3d-models/729a73c461ac43469e45b9bfba08037a"
+  },
+  "US-SW-2416-16": {
+    "embed": "https://sketchfab.com/models/9935cd1860fe4168b646c0ce0f285420/embed",
+    "name": "US straight-wall tote 23.75 x 15.75 x 16.125 in",
+    "status": "SUCCEEDED",
+    "uid": "9935cd1860fe4168b646c0ce0f285420",
+    "url": "https://sketchfab.com/3d-models/9935cd1860fe4168b646c0ce0f285420"
   }
 }

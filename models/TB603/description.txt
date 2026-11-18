@@ -1,0 +1,49 @@
+Tilt-out bin unit, 3 bins, 600 mm wide
+TB603
+
+A tilt-out bin unit (Hebrew: רב-תא, "multi-cell") with 3 bins side by side: a
+fixed open-front housing in which each bin pivots forward on its bottom edge, so
+small parts can be seen and reached without removing anything. This is the 3-bin
+member of a range that shares one 600 mm (23 5/8 in) width, so units of different
+bin counts stack into a single wall; only height and depth change.
+
+The same moulding is sold in the US as Akro-Mils TiltView 06703, with identical
+inch figures, so there is no separate US model. Dimensions are confirmed from the
+manufacturer's carton and cross-checked against madafim.co.il, within about 2 mm.
+
+All 3 bins are modelled closed.
+
+DIMENSIONS (external)
+  Depth     197 mm
+  Width     600 mm
+  Height    240 mm
+
+STANDARD
+  No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.
+
+TYPICAL USE
+Built as a set-dressing and layout asset for workshops, stockrooms, maintenance
+stores and electronics or hardware storage scenes: wall-mounted and shelf-top bin
+walls, small-parts and fastener storage, WMS and inventory-system visualisation,
+facility and architectural walkthroughs, training and simulation environments, and
+product configurators.
+
+Modelled at true real-world scale with clean low-poly topology and a single flat
+base colour, so it instances cheaply across a wall of several units and can be
+recoloured without touching the mesh.
+
+ASSET NOTES
+  Format      GLB (glTF 2.0 binary), single file, no external textures
+  Scale       metres, real world - a 600 mm crate is 0.600 units long
+  Origin      centre of the base, +Z up
+  Geometry    1,456 triangles, 1,328 vertices
+  Materials   flat PBR base colours, no image maps
+  File size   41.6 KB
+
+LICENCE
+  CC Attribution 4.0 (CC BY 4.0)
+
+TAGS
+  tilt bin, tilt-out bin, tip-out bin, multi-cell, 3 bin, parts bin, small parts
+storage, shelf bin, TiltView, storage bin, workshop, stockroom, industrial,
+plastic bin, inventory, lowpoly, pbr, gltf, glb

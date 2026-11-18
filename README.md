@@ -195,7 +195,18 @@ python3 -m http.server 8731        # then open localhost:8731/preview/
 
 ## Where these are published
 
-**Sketchfab** — all eight, CC BY 4.0, in the
+**Hugging Face (canonical download)** — all units as a public dataset,
+[`danielrosehill/Modular-Storage-3D-Models`](https://huggingface.co/datasets/danielrosehill/Modular-Storage-3D-Models)
+(in the [3D Assets](https://huggingface.co/collections/danielrosehill/3d-assets-6afdbb70ba252f1519600d41)
+collection): `models/<CODE>/<CODE>.glb` + preview + description, `metadata.jsonl`
+(the viewer shows previews with specs as columns) and `units.json`. Rebuild and push:
+
+```bash
+python3 scripts/build_hf_dataset.py      # -> hf-dataset/ (gitignored)
+hf upload danielrosehill/Modular-Storage-3D-Models hf-dataset . --repo-type dataset
+```
+
+**Sketchfab** — all units, CC BY 4.0, in the
 [Industrial Storage](https://sketchfab.com/danielrosehill/collections/industrial-storage)
 collection. See the table above.
 
@@ -221,6 +232,18 @@ ids, while Sketchfab is published from `models/` and short codes. Both ultimatel
 derive from `specs/units.json`.
 
 ## Publishing tooling
+
+Sketchfab API behaviour found on 2026-11-18 (also in `scripts/upload_sketchfab.py`):
+
+- The upload POST ignores `isDownloadable`; models default to **not downloadable**,
+  which on a Basic plan spends one of the 10 monthly upload credits. The script
+  PATCHes `isDownloadable` after processing and reads it back with an
+  authenticated GET (the anonymous GET is cached).
+- Three models (`TB606`, `US-PB-30235`, `US-PB-30260`) would not take the flag even
+  after a file re-upload; they are public and viewable but not downloadable there.
+  All models processed that day carry a Sketchfab-side `localStorage is not defined`
+  processing error; it does not block viewing. Hugging Face has every GLB.
+- Adding to a collection is capped at 24 models per request; the script batches.
 
 ```bash
 python3 scripts/stage_models.py                    # build/ + specs/ -> models/

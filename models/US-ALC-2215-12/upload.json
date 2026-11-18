@@ -1,0 +1,27 @@
+{
+  "name": "US attached-lid container 21.5 x 15.25 x 12.5 in",
+  "description": "A US attached-lid container (ALC), also called a distribution tote, 21.5 x 15.25 x 12.5 in (546 x 387 x 318 mm), modelled on Akro-Mils 39120 from Akro-Mils sell sheet AKM809. The lid travels with the box and cannot be lost, which is why ALCs are the workhorse of retail distribution, returnable transit packaging and internal transfer in the US.\n\nExternal dimensions: length 546 mm, width 387 mm, height 318 mm.\n\nNo formal standard. The 21.5 x 15.25 in footprint is the common US distribution-container size (Uline Round Trip Totes are 21.8 x 15.2 in, Quantum and Hudson Exchange similar).\n\nGLB (glTF 2.0), real-world scale in metres, origin at the centre of the base. 4,196 triangles, flat PBR base colours, no textures. CC BY 4.0.",
+  "tags": [
+    "attached-lid-container",
+    "alc",
+    "us-tote",
+    "akro-mils",
+    "39120",
+    "distribution-tote",
+    "returnable-packaging",
+    "hinged-lid-tote",
+    "crate",
+    "warehouse",
+    "logistics",
+    "storage-bin",
+    "industrial",
+    "inventory",
+    "supply-chain",
+    "lowpoly",
+    "pbr",
+    "gltf",
+    "glb"
+  ],
+  "license": "by",
+  "summary": "US attached-lid container, 21.5 x 15.25 x 12.5 in (546 x 387 x 318 mm) - true-scale GLB of the Akro-Mils 39120 distribution tote with integral hinged lid."
+}

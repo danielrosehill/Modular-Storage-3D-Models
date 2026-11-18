@@ -1,0 +1,27 @@
+{
+  "name": "US open-front picking bin 10.875 x 5.5 x 5 in",
+  "description": "A US open-front picking bin, 10.875 x 5.5 x 5 in depth x width x height (276 x 140 x 127 mm), modelled on the Akro-Mils AkroBin 30230 from Akro-Mils sheet AKM505. The AkroBin part-number ladder is the de facto US reference for this family, and Quantum QUS and Uline sizes match it. The front wall stands at roughly 40% of the back wall's height with the side walls sweeping down between them on a curve, so an operator can reach in and pick without lifting the bin off the shelf.\n\nExternal dimensions: depth 276 mm, width 140 mm, height 127 mm.\n\nNo formal standard; the Akro-Mils AkroBin part-number ladder is the de facto US reference, matched by Quantum QUS and Uline.\n\nGLB (glTF 2.0), real-world scale in metres, origin at the centre of the base. 2,032 triangles, flat PBR base colours, no textures. CC BY 4.0.",
+  "tags": [
+    "picking-bin",
+    "parts-bin",
+    "akrobin",
+    "akro-mils",
+    "30230",
+    "us-parts-bin",
+    "shelf-bin",
+    "storage-bin",
+    "open-front-bin",
+    "warehouse",
+    "workshop",
+    "small-parts",
+    "industrial",
+    "plastic-bin",
+    "inventory",
+    "lowpoly",
+    "pbr",
+    "gltf",
+    "glb"
+  ],
+  "license": "by",
+  "summary": "US open-front picking bin, 10.875 x 5.5 x 5 in (276 x 140 x 127 mm) - true-scale GLB of the Akro-Mils AkroBin 30230 shelf bin."
+}

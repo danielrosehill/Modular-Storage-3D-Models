@@ -1,0 +1,27 @@
+{
+  "name": "US straight-wall tote 23.75 x 15.75 x 16.125 in",
+  "description": "A US straight-wall stacking container, 23.75 x 15.75 x 16.125 in (603 x 400 x 410 mm), modelled on the Akro-Mils 37686 solid-wall tote from the Akro-Mils straight- wall catalogue. Nominal 24 x 16 in, which in practice is the 600 x 400 mm euro module, so it sits on the same pallet pattern as a euro crate.\n\nExternal dimensions: length 603 mm, width 400 mm, height 410 mm.\n\nUS catalogue equivalent of the 600 x 400 euro module: nominal 24 x 16 in (and its 16 x 12 half), which is 600 x 400 mm in practice.\n\nGLB (glTF 2.0), real-world scale in metres, origin at the centre of the base. 4,112 triangles, flat PBR base colours, no textures. CC BY 4.0.",
+  "tags": [
+    "straight-wall-container",
+    "us-tote",
+    "akro-mils",
+    "37686",
+    "stacking-container",
+    "solid-wall-tote",
+    "storage-tote",
+    "24x16-container",
+    "plastic-tote",
+    "warehouse",
+    "logistics",
+    "storage-bin",
+    "industrial",
+    "inventory",
+    "supply-chain",
+    "lowpoly",
+    "pbr",
+    "gltf",
+    "glb"
+  ],
+  "license": "by",
+  "summary": "US straight-wall tote, 23.75 x 15.75 x 16.125 in (603 x 400 x 410 mm) - true-scale GLB of the Akro-Mils 37686 solid-wall stacking container."
+}

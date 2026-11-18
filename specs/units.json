@@ -350,7 +350,7 @@
     {
       "id": "us-straight-wall-603x400x210",
       "code": "US-SW-2416-08",
-      "name": "US straight-wall container 23.75 x 15.75 x 8.25 in",
+      "name": "US straight-wall tote 23.75 x 15.75 x 8.25 in",
       "family": "straight_wall_container",
       "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips (same builder as the euro containers)",
       "outer_mm": {
@@ -375,7 +375,7 @@
     {
       "id": "us-straight-wall-603x400x311",
       "code": "US-SW-2416-12",
-      "name": "US straight-wall container 23.75 x 15.75 x 12.25 in",
+      "name": "US straight-wall tote 23.75 x 15.75 x 12.25 in",
       "family": "straight_wall_container",
       "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips (same builder as the euro containers)",
       "outer_mm": {
@@ -400,7 +400,7 @@
     {
       "id": "us-straight-wall-603x400x410",
       "code": "US-SW-2416-16",
-      "name": "US straight-wall container 23.75 x 15.75 x 16.125 in",
+      "name": "US straight-wall tote 23.75 x 15.75 x 16.125 in",
       "family": "straight_wall_container",
       "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips (same builder as the euro containers)",
       "outer_mm": {
@@ -425,7 +425,7 @@
     {
       "id": "us-straight-wall-400x298x210",
       "code": "US-SW-1612-08",
-      "name": "US straight-wall container 15.75 x 11.75 x 8.25 in",
+      "name": "US straight-wall tote 15.75 x 11.75 x 8.25 in",
       "family": "straight_wall_container",
       "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips (same builder as the euro containers)",
       "outer_mm": {

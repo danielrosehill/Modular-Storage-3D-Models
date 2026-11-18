@@ -1,0 +1,53 @@
+US attached-lid container 21.5 x 15.25 x 9 in
+US-ALC-2215-09
+
+A US attached-lid container (ALC), also called a distribution tote, 21.5 x 15.25 x
+9 in (546 x 387 x 229 mm), modelled on Akro-Mils 39085 from Akro-Mils sell sheet
+AKM809. The lid travels with the box and cannot be lost, which is why ALCs are the
+workhorse of retail distribution, returnable transit packaging and internal
+transfer in the US.
+
+The geometry differs from a straight-wall tote in ways that matter:
+
+- An integral two-part hinged lid that meets on the centre line, with interlocking
+  tabs along the join and hasp tabs at the front edge for a security seal.
+- A tapered body with horizontal rib bands, which lets these nest when empty with
+  the lid open and stack squarely when closed and loaded.
+
+The US distribution footprint is 21.5 x 15.25 in (Uline Round Trip Totes are 21.8
+x 15.2 in, the same to within a few mm), so it is not the 600 x 400 euro module.
+The lid is modelled closed and fused to the body.
+
+DIMENSIONS (external)
+  Length    546 mm
+  Width     387 mm
+  Height    229 mm
+
+STANDARD
+  No formal standard. The 21.5 x 15.25 in footprint is the common US distribution-container size (Uline Round Trip Totes are 21.8 x 15.2 in, Quantum and Hudson Exchange similar).
+
+TYPICAL USE
+Built as a set-dressing and layout asset for US distribution, retail logistics and
+returnable packaging: pallet and roll-cage builds, returnable packaging flows, WMS
+and inventory-system visualisation, facility and architectural walkthroughs,
+training and simulation environments, and product configurators.
+
+Modelled at true real-world scale with clean low-poly topology and a single flat
+base colour, so it instances cheaply across a pallet or aisle view and can be
+recoloured without touching the mesh.
+
+ASSET NOTES
+  Format      GLB (glTF 2.0 binary), single file, no external textures
+  Scale       metres, real world - a 600 mm crate is 0.600 units long
+  Origin      centre of the base, +Z up
+  Geometry    4,676 triangles, 5,227 vertices
+  Materials   flat PBR base colours, no image maps
+  File size   192.9 KB
+
+LICENCE
+  CC Attribution 4.0 (CC BY 4.0)
+
+TAGS
+  attached lid container, ALC, US tote, Akro-Mils, 39085, distribution tote,
+returnable packaging, hinged lid tote, crate, warehouse, logistics, storage bin,
+industrial, inventory, supply chain, lowpoly, pbr, gltf, glb
