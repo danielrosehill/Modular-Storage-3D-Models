@@ -1,11 +1,15 @@
-# Industrial Storage Unit 3D Models (GLB)
+# Modular Storage 3D Models (GLB)
 
-<img src="docs/model-gallery.jpg" width="100%" alt="All eight generated models in the browser preview">
+<img src="docs/model-gallery.jpg" width="100%" alt="The original eight generated models in the browser preview">
 
 Parametric **GLB** (glTF 2.0 binary) models of the standard industrial storage
-units you find in any warehouse, stockroom or workshop: euro stacking containers
-on the 600 × 400 mm module, an attached-lid container, open-front picking bins,
-and the boltless shelving bay they sit on.
+units you find in any warehouse, stockroom or workshop: industrial totes (euro
+stacking containers on the 600 × 400 mm module and their US straight-wall
+equivalents), attached-lid containers, open-front picking bins, tilt-out bin units,
+and the boltless shelving bay they sit on. Metric (Israel/EU) and US catalogue sizes
+are both covered; US units carry their inch dimensions in `outer_in` alongside mm.
+
+Formerly `storage-box-3d-models` (renamed 2026-11-18 when the scope widened).
 
 Every model is generated from [`specs/units.json`](specs/units.json) by headless
 Blender scripts. There is no hand-modelling anywhere in this repo, so correcting a
@@ -61,11 +65,30 @@ are not modelled.
 | `EU6423` | 600 × 400 × 230 | The common general-purpose size |
 | `EU6434` | 600 × 400 × 340 | Deep variant for bulk storage |
 
-### Attached-lid container
+**US straight-wall containers** use the same builder (family
+`straight_wall_container`). Source: Akro-Mils straight-wall listing.
 
-| Code | External L × W × H (mm) |
-|---|---|
-| `ALC6441` | 600 × 400 × 415 |
+| Code | Reference | in | mm |
+|---|---|---|---|
+| `US-SW-2416-08` | Akro-Mils 37688 | 23.75 × 15.75 × 8.25 | 603 × 400 × 210 |
+| `US-SW-2416-12` | Akro-Mils 37682 | 23.75 × 15.75 × 12.25 | 603 × 400 × 311 |
+| `US-SW-2416-16` | Akro-Mils 37686 | 23.75 × 15.75 × 16.125 | 603 × 400 × 410 |
+| `US-SW-1612-08` | Akro-Mils 37288 | 15.75 × 11.75 × 8.25 | 400 × 298 × 210 |
+
+Nominal "24 × 16 in" is the euro 600 × 400 module in practice.
+
+### Attached-lid containers
+
+| Code | Reference | External L × W × H |
+|---|---|---|
+| `ALC6441` | Israeli/EU euro-module ALC | 600 × 400 × 415 mm |
+| `US-ALC-2215-09` | Akro-Mils 39085 | 21.5 × 15.25 × 9 in (546 × 387 × 229 mm) |
+| `US-ALC-2215-12` | Akro-Mils 39120 | 21.5 × 15.25 × 12.5 in (546 × 387 × 318 mm) |
+| `US-ALC-2215-17` | Akro-Mils 39170 | 21.5 × 15.25 × 17 in (546 × 387 × 432 mm) |
+| `US-ALC-2717-12` | Akro-Mils 39160 | 27 × 17 × 12.5 in (686 × 432 × 318 mm) |
+
+US sizes from Akro-Mils sell sheet AKM809. Uline's Round Trip Totes (21.8 × 15.2 in)
+are the same footprint to within a few mm.
 
 Same 600 × 400 footprint, but a different moulding in ways that matter:
 
@@ -89,10 +112,54 @@ empties nest; inset base plinth so loaded bins stack.
 | `PB1` | 450 × 300 × 210 |
 | `PB2` | 295 × 205 × 160 |
 | `PB3` | 200 × 145 × 130 |
+| `PB4` | 145 × 100 × 80 |
+
+PB1–PB4 are the Israeli range (ארקליות / אחסוניות), confirmed against
+[madafim.co.il](https://www.madafim.co.il/product-category/%d7%90%d7%97%d7%a1%d7%95%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%9c%d7%a1%d7%98%d7%99%d7%a7/)
+on 2026-11-18. That site prints H × W × D in cm; PB4 is new from it.
+
+**US AkroBins** (Akro-Mils sheet AKM505; Quantum QUS and Uline match the ladder).
+Code `US-PB-<part>`, same builder:
+
+| Part | Depth × Width × Height, in | mm |
+|---|---|---|
+| 30210 | 5⅜ × 4⅛ × 3 | 137 × 105 × 76 |
+| 30220 | 7⅜ × 4⅛ × 3 | 187 × 105 × 76 |
+| 30230 | 10⅞ × 5½ × 5 | 276 × 140 × 127 |
+| 30235 | 10⅞ × 11 × 5 | 276 × 279 × 127 |
+| 30240 | 14¾ × 8¼ × 7 | 375 × 210 × 178 |
+| 30250 | 14¾ × 16½ × 7 | 375 × 419 × 178 |
+| 30260 | 18 × 11 × 10 | 457 × 279 × 254 |
+| 30270 | 18 × 16½ × 11 | 457 × 419 × 279 |
 
 All three are the same moulding in three sizes, so one generator is parametric
 over depth/width/height. Note the axis order is **not** the L×W×H used for the
 crates above — a trap when transcribing.
+
+### Tilt-out bin units
+
+Hebrew **רב-תא** ("multi-cell"). A fixed open-front housing with N bins side by
+side, each pivoting forward on its bottom edge. Every unit in the range is the
+same **600 mm (23⅝ in) width**, so different bin counts stack into one wall; only
+height and depth change. Generator: `scripts/build_tilt_bins.py` (family
+`tilt_bin_unit`, `cells` = bin count). Bins are modelled closed.
+
+| Code | Bins | Depth × Width × Height (mm) | US equivalent |
+|---|---|---|---|
+| `TB609` | 9 | 62 × 600 × 77 | Akro-Mils TiltView 06709 |
+| `TB606` | 6 | 91 × 600 × 113 | 06706 |
+| `TB605` | 5 | 133 × 600 × 164 | 06705 |
+| `TB604` | 4 | 168 × 600 × 207 | 06704 |
+| `TB603` | 3 | 197 × 600 × 240 | 06703 |
+| `TB602` | 2 | 322 × 600 × 353 | 06702 |
+
+Sources: the manufacturer's carton (photographed 2026-11-18, printed H × W × D cm
+with inch equivalents), checked against
+[madafim.co.il](https://www.madafim.co.il/product-category/%d7%a8%d7%91-%d7%aa%d7%90/)
+(60.1 cm wide, every other figure within ~2 mm) and the Akro-Mils TiltView spec
+sheet, whose inch figures are identical. It is one moulding sold under both names,
+so there are no separate US tilt-bin models. Uline lists its tip-out bins as 24 in
+wide; that is the same 23⅝ in rounded up.
 
 ### Shelving
 
@@ -112,6 +179,7 @@ blender --background --python scripts/build_euroboxes.py    -- --out build
 blender --background --python scripts/build_picking_bins.py -- --out build
 blender --background --python scripts/build_shelving.py     -- --out build
 blender --background --python scripts/build_alc.py          -- --out build
+blender --background --python scripts/build_tilt_bins.py    -- --out build   # --only TB603 for one
 
 # renders for review; an export can succeed with broken geometry
 blender --background --python scripts/render_previews.py    -- --in build --out build/previews

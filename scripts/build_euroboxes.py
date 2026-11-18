@@ -114,7 +114,7 @@ def main():
 
     results = []
     for unit in spec["units"]:
-        if unit["family"] != "euro_stacking_container":
+        if unit["family"] not in ("euro_stacking_container", "straight_wall_container"):
             continue
         clear_scene()
         d = unit["outer_mm"]

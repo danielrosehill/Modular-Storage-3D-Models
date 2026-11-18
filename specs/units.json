@@ -45,6 +45,14 @@
         0.56
       ],
       "note": "generic galvanised/powder-coated grey"
+    },
+    "tilt_housing_grey": {
+      "note": "mid grey housing; working value",
+      "gltf_base_color_factor_linear": [
+        0.38,
+        0.4,
+        0.43
+      ]
     }
   },
   "units": [
@@ -140,7 +148,8 @@
       "material": "PP",
       "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
       "dimension_confidence": "confirmed",
-      "label": "PICKING BOX 1"
+      "label": "PICKING BOX 1",
+      "corroboration": "madafim.co.il 'אחסונית מספר 1' (fetched 2026-11-18) prints the same H x W x D"
     },
     {
       "id": "picking-bin-2",
@@ -157,7 +166,8 @@
       "material": "PP",
       "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
       "dimension_confidence": "confirmed",
-      "label": "PICKING BOX 2"
+      "label": "PICKING BOX 2",
+      "corroboration": "madafim.co.il 'אחסונית מספר 2' (fetched 2026-11-18) prints the same H x W x D"
     },
     {
       "id": "picking-bin-3",
@@ -174,7 +184,26 @@
       "material": "PP",
       "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
       "dimension_confidence": "confirmed",
-      "label": "PICKING BOX 3"
+      "label": "PICKING BOX 3",
+      "corroboration": "madafim.co.il 'אחסונית מספר 3' (fetched 2026-11-18) prints the same H x W x D"
+    },
+    {
+      "id": "picking-bin-4",
+      "code": "PB4",
+      "name": "Open-front picking bin 145 x 100 x 80 mm",
+      "family": "open_front_picking_bin",
+      "geometry": "open front, tapered nesting body, rolled front lip",
+      "outer_mm": {
+        "depth": 145,
+        "width": 100,
+        "height": 80
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
+      "dimension_confidence": "from madafim.co.il 'אחסונית מספר 4' (fetched 2026-11-18), printed H 8 x W 10 x D 14.5 cm; internal vs external not stated, treated as external",
+      "label": "PB4",
+      "region": "Israel"
     },
     {
       "id": "shelving-1600x600x2300",
@@ -192,6 +221,535 @@
       "colour_ref": "steel_grey",
       "dimension_confidence": "Width/height assignment inferred: 1600 takes exactly four 400mm euro containers per level where 2300 divides into nothing sensible, and 2300 is a standard bay height. Shelf count and spacing are estimated, not from a spec sheet.",
       "modularity": "600mm depth matches the euro container long side exactly; 1600mm width takes four 400mm-wide containers per level, so 20 per bay across five levels"
+    },
+    {
+      "id": "tilt-bin-unit-600-9",
+      "code": "TB609",
+      "name": "Tilt-out bin unit, 9 bins, 600 mm wide",
+      "family": "tilt_bin_unit",
+      "cells": 9,
+      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "outer_mm": {
+        "depth": 62,
+        "width": 600,
+        "height": 77
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB609",
+      "us_equivalent": "Akro-Mils TiltView 06709; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "corroboration": "madafim.co.il 'רב תא 9 תאים' (fetched 2026-11-18): W 601 x H 76.5 x D 64.5 mm, within ~2 mm of the carton figures"
+    },
+    {
+      "id": "tilt-bin-unit-600-6",
+      "code": "TB606",
+      "name": "Tilt-out bin unit, 6 bins, 600 mm wide",
+      "family": "tilt_bin_unit",
+      "cells": 6,
+      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "outer_mm": {
+        "depth": 91,
+        "width": 600,
+        "height": 113
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB606",
+      "us_equivalent": "Akro-Mils TiltView 06706; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "corroboration": "madafim.co.il 'רב תא 6 תאים' (fetched 2026-11-18): W 601 x H 112.5 x D 94 mm, within ~2 mm of the carton figures"
+    },
+    {
+      "id": "tilt-bin-unit-600-5",
+      "code": "TB605",
+      "name": "Tilt-out bin unit, 5 bins, 600 mm wide",
+      "family": "tilt_bin_unit",
+      "cells": 5,
+      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "outer_mm": {
+        "depth": 133,
+        "width": 600,
+        "height": 164
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB605",
+      "us_equivalent": "Akro-Mils TiltView 06705; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "corroboration": "madafim.co.il 'רב תא 5 תאים' (fetched 2026-11-18): W 601 x H 163 x D 136 mm, within ~2 mm of the carton figures"
+    },
+    {
+      "id": "tilt-bin-unit-600-4",
+      "code": "TB604",
+      "name": "Tilt-out bin unit, 4 bins, 600 mm wide",
+      "family": "tilt_bin_unit",
+      "cells": 4,
+      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "outer_mm": {
+        "depth": 168,
+        "width": 600,
+        "height": 207
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB604",
+      "us_equivalent": "Akro-Mils TiltView 06704; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "corroboration": "madafim.co.il 'רב תא 4 תאים' (fetched 2026-11-18): W 601 x H 206 x D 171.5 mm, within ~2 mm of the carton figures"
+    },
+    {
+      "id": "tilt-bin-unit-600-3",
+      "code": "TB603",
+      "name": "Tilt-out bin unit, 3 bins, 600 mm wide",
+      "family": "tilt_bin_unit",
+      "cells": 3,
+      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "outer_mm": {
+        "depth": 197,
+        "width": 600,
+        "height": 240
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB603",
+      "us_equivalent": "Akro-Mils TiltView 06703; Uline tip-out bins 24 in wide (rounded 23 5/8)",
+      "corroboration": "madafim.co.il 'רב תא 3 תאים' (fetched 2026-11-18): W 601 x H 238 x D 198 mm, within ~2 mm of the carton figures"
+    },
+    {
+      "id": "tilt-bin-unit-600-2",
+      "code": "TB602",
+      "name": "Tilt-out bin unit, 2 bins, 600 mm wide",
+      "family": "tilt_bin_unit",
+      "cells": 2,
+      "geometry": "fixed open-front housing, bins pivot forward on the bottom edge; modelled closed",
+      "outer_mm": {
+        "depth": 322,
+        "width": 600,
+        "height": 353
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PS/PP (housing), clear or tinted PS (bins)",
+      "standard_context": "No formal standard. Metric and US ranges share one 600 mm (23 5/8 in) width with 2/3/4/5/6/9-bin units, so units of different bin counts stack into one wall. Matches Akro-Mils TiltView 0670N.",
+      "dimension_confidence": "confirmed from the manufacturer's carton (photo, 2026-11-18): cm figures printed as H x W x D; inch figures agree with Akro-Mils TiltView spec sheet",
+      "region": "metric (Israel / EU); same moulding sold in the US as Akro-Mils TiltView",
+      "label": "TB602",
+      "us_equivalent": "Akro-Mils TiltView 06702; Uline tip-out bins 24 in wide (rounded 23 5/8)"
+    },
+    {
+      "id": "us-straight-wall-603x400x210",
+      "code": "US-SW-2416-08",
+      "name": "US straight-wall container 23.75 x 15.75 x 8.25 in",
+      "family": "straight_wall_container",
+      "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips (same builder as the euro containers)",
+      "outer_mm": {
+        "length": 603,
+        "width": 400,
+        "height": 210
+      },
+      "outer_in": {
+        "length": 23.75,
+        "width": 15.75,
+        "height": 8.25
+      },
+      "colour_ref": "eurobox_blue",
+      "material": "PP",
+      "standard_context": "US catalogue equivalent of the 600 x 400 euro module: nominal 24 x 16 in (and its 16 x 12 half), which is 600 x 400 mm in practice.",
+      "reference_product": "Akro-Mils 37688 (solid wall)",
+      "source": "akro-mils.com straight-wall container listing; US Plastic item 29332",
+      "dimension_confidence": "confirmed from manufacturer listing (inches); mm converted",
+      "region": "US",
+      "label": "US-SW-2416-08"
+    },
+    {
+      "id": "us-straight-wall-603x400x311",
+      "code": "US-SW-2416-12",
+      "name": "US straight-wall container 23.75 x 15.75 x 12.25 in",
+      "family": "straight_wall_container",
+      "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips (same builder as the euro containers)",
+      "outer_mm": {
+        "length": 603,
+        "width": 400,
+        "height": 311
+      },
+      "outer_in": {
+        "length": 23.75,
+        "width": 15.75,
+        "height": 12.25
+      },
+      "colour_ref": "eurobox_blue",
+      "material": "PP",
+      "standard_context": "US catalogue equivalent of the 600 x 400 euro module: nominal 24 x 16 in (and its 16 x 12 half), which is 600 x 400 mm in practice.",
+      "reference_product": "Akro-Mils 37682 (solid wall)",
+      "source": "akro-mils.com straight-wall container listing; US Plastic item 29332",
+      "dimension_confidence": "confirmed from manufacturer listing (inches); mm converted",
+      "region": "US",
+      "label": "US-SW-2416-12"
+    },
+    {
+      "id": "us-straight-wall-603x400x410",
+      "code": "US-SW-2416-16",
+      "name": "US straight-wall container 23.75 x 15.75 x 16.125 in",
+      "family": "straight_wall_container",
+      "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips (same builder as the euro containers)",
+      "outer_mm": {
+        "length": 603,
+        "width": 400,
+        "height": 410
+      },
+      "outer_in": {
+        "length": 23.75,
+        "width": 15.75,
+        "height": 16.125
+      },
+      "colour_ref": "eurobox_blue",
+      "material": "PP",
+      "standard_context": "US catalogue equivalent of the 600 x 400 euro module: nominal 24 x 16 in (and its 16 x 12 half), which is 600 x 400 mm in practice.",
+      "reference_product": "Akro-Mils 37686 (solid wall)",
+      "source": "akro-mils.com straight-wall container listing; US Plastic item 29332",
+      "dimension_confidence": "confirmed from manufacturer listing (inches); mm converted",
+      "region": "US",
+      "label": "US-SW-2416-16"
+    },
+    {
+      "id": "us-straight-wall-400x298x210",
+      "code": "US-SW-1612-08",
+      "name": "US straight-wall container 15.75 x 11.75 x 8.25 in",
+      "family": "straight_wall_container",
+      "geometry": "straight-wall, solid, stacking lip and foot, hand-hole grips (same builder as the euro containers)",
+      "outer_mm": {
+        "length": 400,
+        "width": 298,
+        "height": 210
+      },
+      "outer_in": {
+        "length": 15.75,
+        "width": 11.75,
+        "height": 8.25
+      },
+      "colour_ref": "eurobox_blue",
+      "material": "PP",
+      "standard_context": "US catalogue equivalent of the 600 x 400 euro module: nominal 24 x 16 in (and its 16 x 12 half), which is 600 x 400 mm in practice.",
+      "reference_product": "Akro-Mils 37288 (solid wall)",
+      "source": "akro-mils.com straight-wall container listing; US Plastic item 29332",
+      "dimension_confidence": "confirmed from manufacturer listing (inches); mm converted",
+      "region": "US",
+      "label": "US-SW-1612-08"
+    },
+    {
+      "id": "us-alc-546x387x229",
+      "code": "US-ALC-2215-09",
+      "name": "US attached-lid container 21.5 x 15.25 x 9 in",
+      "family": "attached_lid_container",
+      "geometry": "tapered body; nests when the lid is open, stacks when closed",
+      "outer_mm": {
+        "length": 546,
+        "width": 387,
+        "height": 229
+      },
+      "outer_in": {
+        "length": 21.5,
+        "width": 15.25,
+        "height": 9
+      },
+      "colour_ref": "alc_blue",
+      "material": "HDPE",
+      "lid": "integral, hinged, two-part meeting on the centre line",
+      "standard_context": "No formal standard. The 21.5 x 15.25 in footprint is the common US distribution-container size (Uline Round Trip Totes are 21.8 x 15.2 in, Quantum and Hudson Exchange similar).",
+      "reference_product": "Akro-Mils 39085",
+      "source": "Akro-Mils sell sheet AKM809",
+      "dimension_confidence": "confirmed from manufacturer sell sheet (inches); hinge on the long side inferred",
+      "region": "US",
+      "label": "US-ALC-2215-09"
+    },
+    {
+      "id": "us-alc-546x387x318",
+      "code": "US-ALC-2215-12",
+      "name": "US attached-lid container 21.5 x 15.25 x 12.5 in",
+      "family": "attached_lid_container",
+      "geometry": "tapered body; nests when the lid is open, stacks when closed",
+      "outer_mm": {
+        "length": 546,
+        "width": 387,
+        "height": 318
+      },
+      "outer_in": {
+        "length": 21.5,
+        "width": 15.25,
+        "height": 12.5
+      },
+      "colour_ref": "alc_blue",
+      "material": "HDPE",
+      "lid": "integral, hinged, two-part meeting on the centre line",
+      "standard_context": "No formal standard. The 21.5 x 15.25 in footprint is the common US distribution-container size (Uline Round Trip Totes are 21.8 x 15.2 in, Quantum and Hudson Exchange similar).",
+      "reference_product": "Akro-Mils 39120",
+      "source": "Akro-Mils sell sheet AKM809",
+      "dimension_confidence": "confirmed from manufacturer sell sheet (inches); hinge on the long side inferred",
+      "region": "US",
+      "label": "US-ALC-2215-12"
+    },
+    {
+      "id": "us-alc-546x387x432",
+      "code": "US-ALC-2215-17",
+      "name": "US attached-lid container 21.5 x 15.25 x 17 in",
+      "family": "attached_lid_container",
+      "geometry": "tapered body; nests when the lid is open, stacks when closed",
+      "outer_mm": {
+        "length": 546,
+        "width": 387,
+        "height": 432
+      },
+      "outer_in": {
+        "length": 21.5,
+        "width": 15.25,
+        "height": 17
+      },
+      "colour_ref": "alc_blue",
+      "material": "HDPE",
+      "lid": "integral, hinged, two-part meeting on the centre line",
+      "standard_context": "No formal standard. The 21.5 x 15.25 in footprint is the common US distribution-container size (Uline Round Trip Totes are 21.8 x 15.2 in, Quantum and Hudson Exchange similar).",
+      "reference_product": "Akro-Mils 39170",
+      "source": "Akro-Mils sell sheet AKM809",
+      "dimension_confidence": "confirmed from manufacturer sell sheet (inches); hinge on the long side inferred",
+      "region": "US",
+      "label": "US-ALC-2215-17"
+    },
+    {
+      "id": "us-alc-686x432x318",
+      "code": "US-ALC-2717-12",
+      "name": "US attached-lid container 27 x 17 x 12.5 in",
+      "family": "attached_lid_container",
+      "geometry": "tapered body; nests when the lid is open, stacks when closed",
+      "outer_mm": {
+        "length": 686,
+        "width": 432,
+        "height": 318
+      },
+      "outer_in": {
+        "length": 27,
+        "width": 17,
+        "height": 12.5
+      },
+      "colour_ref": "alc_blue",
+      "material": "HDPE",
+      "lid": "integral, hinged, two-part meeting on the centre line",
+      "standard_context": "No formal standard. The 21.5 x 15.25 in footprint is the common US distribution-container size (Uline Round Trip Totes are 21.8 x 15.2 in, Quantum and Hudson Exchange similar).",
+      "reference_product": "Akro-Mils 39160",
+      "source": "Akro-Mils sell sheet AKM809",
+      "dimension_confidence": "confirmed from manufacturer sell sheet (inches); hinge on the long side inferred",
+      "region": "US",
+      "label": "US-ALC-2717-12"
+    },
+    {
+      "id": "us-picking-bin-30210",
+      "code": "US-PB-30210",
+      "name": "US open-front picking bin 5.375 x 4.125 x 3 in",
+      "family": "open_front_picking_bin",
+      "geometry": "tapered, open front, nesting",
+      "outer_mm": {
+        "depth": 137,
+        "width": 105,
+        "height": 76
+      },
+      "outer_in": {
+        "depth": 5.375,
+        "width": 4.125,
+        "height": 3
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No formal standard; the Akro-Mils AkroBin part-number ladder is the de facto US reference, matched by Quantum QUS and Uline.",
+      "reference_product": "Akro-Mils AkroBin 30210",
+      "source": "Akro-Mils sheet AKM505 (akrobins.net/AkroBin.pdf)",
+      "dimension_confidence": "confirmed from manufacturer sheet (inches); mm converted",
+      "region": "US",
+      "label": "30210"
+    },
+    {
+      "id": "us-picking-bin-30220",
+      "code": "US-PB-30220",
+      "name": "US open-front picking bin 7.375 x 4.125 x 3 in",
+      "family": "open_front_picking_bin",
+      "geometry": "tapered, open front, nesting",
+      "outer_mm": {
+        "depth": 187,
+        "width": 105,
+        "height": 76
+      },
+      "outer_in": {
+        "depth": 7.375,
+        "width": 4.125,
+        "height": 3
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No formal standard; the Akro-Mils AkroBin part-number ladder is the de facto US reference, matched by Quantum QUS and Uline.",
+      "reference_product": "Akro-Mils AkroBin 30220",
+      "source": "Akro-Mils sheet AKM505 (akrobins.net/AkroBin.pdf)",
+      "dimension_confidence": "confirmed from manufacturer sheet (inches); mm converted",
+      "region": "US",
+      "label": "30220"
+    },
+    {
+      "id": "us-picking-bin-30230",
+      "code": "US-PB-30230",
+      "name": "US open-front picking bin 10.875 x 5.5 x 5 in",
+      "family": "open_front_picking_bin",
+      "geometry": "tapered, open front, nesting",
+      "outer_mm": {
+        "depth": 276,
+        "width": 140,
+        "height": 127
+      },
+      "outer_in": {
+        "depth": 10.875,
+        "width": 5.5,
+        "height": 5
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No formal standard; the Akro-Mils AkroBin part-number ladder is the de facto US reference, matched by Quantum QUS and Uline.",
+      "reference_product": "Akro-Mils AkroBin 30230",
+      "source": "Akro-Mils sheet AKM505 (akrobins.net/AkroBin.pdf)",
+      "dimension_confidence": "confirmed from manufacturer sheet (inches); mm converted",
+      "region": "US",
+      "label": "30230"
+    },
+    {
+      "id": "us-picking-bin-30235",
+      "code": "US-PB-30235",
+      "name": "US open-front picking bin 10.875 x 11 x 5 in",
+      "family": "open_front_picking_bin",
+      "geometry": "tapered, open front, nesting",
+      "outer_mm": {
+        "depth": 276,
+        "width": 279,
+        "height": 127
+      },
+      "outer_in": {
+        "depth": 10.875,
+        "width": 11,
+        "height": 5
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No formal standard; the Akro-Mils AkroBin part-number ladder is the de facto US reference, matched by Quantum QUS and Uline.",
+      "reference_product": "Akro-Mils AkroBin 30235",
+      "source": "Akro-Mils sheet AKM505 (akrobins.net/AkroBin.pdf)",
+      "dimension_confidence": "confirmed from manufacturer sheet (inches); mm converted",
+      "region": "US",
+      "label": "30235"
+    },
+    {
+      "id": "us-picking-bin-30240",
+      "code": "US-PB-30240",
+      "name": "US open-front picking bin 14.75 x 8.25 x 7 in",
+      "family": "open_front_picking_bin",
+      "geometry": "tapered, open front, nesting",
+      "outer_mm": {
+        "depth": 375,
+        "width": 210,
+        "height": 178
+      },
+      "outer_in": {
+        "depth": 14.75,
+        "width": 8.25,
+        "height": 7
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No formal standard; the Akro-Mils AkroBin part-number ladder is the de facto US reference, matched by Quantum QUS and Uline.",
+      "reference_product": "Akro-Mils AkroBin 30240",
+      "source": "Akro-Mils sheet AKM505 (akrobins.net/AkroBin.pdf)",
+      "dimension_confidence": "confirmed from manufacturer sheet (inches); mm converted",
+      "region": "US",
+      "label": "30240"
+    },
+    {
+      "id": "us-picking-bin-30250",
+      "code": "US-PB-30250",
+      "name": "US open-front picking bin 14.75 x 16.5 x 7 in",
+      "family": "open_front_picking_bin",
+      "geometry": "tapered, open front, nesting",
+      "outer_mm": {
+        "depth": 375,
+        "width": 419,
+        "height": 178
+      },
+      "outer_in": {
+        "depth": 14.75,
+        "width": 16.5,
+        "height": 7
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No formal standard; the Akro-Mils AkroBin part-number ladder is the de facto US reference, matched by Quantum QUS and Uline.",
+      "reference_product": "Akro-Mils AkroBin 30250",
+      "source": "Akro-Mils sheet AKM505 (akrobins.net/AkroBin.pdf)",
+      "dimension_confidence": "confirmed from manufacturer sheet (inches); mm converted",
+      "region": "US",
+      "label": "30250"
+    },
+    {
+      "id": "us-picking-bin-30260",
+      "code": "US-PB-30260",
+      "name": "US open-front picking bin 18 x 11 x 10 in",
+      "family": "open_front_picking_bin",
+      "geometry": "tapered, open front, nesting",
+      "outer_mm": {
+        "depth": 457,
+        "width": 279,
+        "height": 254
+      },
+      "outer_in": {
+        "depth": 18,
+        "width": 11,
+        "height": 10
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No formal standard; the Akro-Mils AkroBin part-number ladder is the de facto US reference, matched by Quantum QUS and Uline.",
+      "reference_product": "Akro-Mils AkroBin 30260",
+      "source": "Akro-Mils sheet AKM505 (akrobins.net/AkroBin.pdf)",
+      "dimension_confidence": "confirmed from manufacturer sheet (inches); mm converted",
+      "region": "US",
+      "label": "30260"
+    },
+    {
+      "id": "us-picking-bin-30270",
+      "code": "US-PB-30270",
+      "name": "US open-front picking bin 18 x 16.5 x 11 in",
+      "family": "open_front_picking_bin",
+      "geometry": "tapered, open front, nesting",
+      "outer_mm": {
+        "depth": 457,
+        "width": 419,
+        "height": 279
+      },
+      "outer_in": {
+        "depth": 18,
+        "width": 16.5,
+        "height": 11
+      },
+      "colour_ref": "picking_bin_blue",
+      "material": "PP",
+      "standard_context": "No formal standard; the Akro-Mils AkroBin part-number ladder is the de facto US reference, matched by Quantum QUS and Uline.",
+      "reference_product": "Akro-Mils AkroBin 30270",
+      "source": "Akro-Mils sheet AKM505 (akrobins.net/AkroBin.pdf)",
+      "dimension_confidence": "confirmed from manufacturer sheet (inches); mm converted",
+      "region": "US",
+      "label": "30270"
     }
   ],
   "reference_photos": "docs/reference-photos.md",

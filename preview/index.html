@@ -37,16 +37,9 @@
 <div class="grid" id="grid"></div>
 
 <script type="module">
-const units = [
-  { file: 'eurobox-400x300x150.glb',    name: 'Euro stacking container 400×300×150', code: 'EU4315' },
-  { file: 'eurobox-600x400x230.glb',    name: 'Euro stacking container 600×400×230', code: 'EU6423' },
-  { file: 'eurobox-600x400x340.glb',    name: 'Euro stacking container 600×400×340', code: 'EU6434' },
-  { file: 'alc-600x400x415.glb',        name: 'Attached-lid container 600×400×415',  code: 'ALC6441' },
-  { file: 'shelving-1600x600x2300.glb', name: 'Boltless shelving bay 1600×600×2300', code: 'SB1' },
-  { file: 'picking-bin-1.glb',          name: 'Open-front picking bin 450×300×210',  code: 'PB1' },
-  { file: 'picking-bin-2.glb',          name: 'Open-front picking bin 295×205×160',  code: 'PB2' },
-  { file: 'picking-bin-3.glb',          name: 'Open-front picking bin 200×145×130',  code: 'PB3' },
-];
+// Driven by specs/units.json, so new units appear without editing this page.
+const spec = await (await fetch('../specs/units.json')).json();
+const units = spec.units.map(u => ({ file: `${u.id}.glb`, name: u.name, code: u.code }));
 
 const grid = document.getElementById('grid');
 for (const u of units) {
