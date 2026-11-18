@@ -62,6 +62,20 @@
     "uid": "8cb05f6d9c6a4089b2ef184b02715c7a",
     "url": "https://sketchfab.com/3d-models/8cb05f6d9c6a4089b2ef184b02715c7a"
   },
+  "PT7247": {
+    "embed": "https://sketchfab.com/models/6a941aecefd042d2bba5faf2bdf26a7b/embed",
+    "name": "Folding platform truck 720 x 470 mm",
+    "status": "SUCCEEDED",
+    "uid": "6a941aecefd042d2bba5faf2bdf26a7b",
+    "url": "https://sketchfab.com/3d-models/6a941aecefd042d2bba5faf2bdf26a7b"
+  },
+  "PT7247F": {
+    "embed": "https://sketchfab.com/models/7fc075c936f9455c89d531aba02d75b9/embed",
+    "name": "Folding platform truck 720 x 470 mm, folded",
+    "status": "SUCCEEDED",
+    "uid": "7fc075c936f9455c89d531aba02d75b9",
+    "url": "https://sketchfab.com/3d-models/7fc075c936f9455c89d531aba02d75b9"
+  },
   "SB1": {
     "embed": "https://sketchfab.com/models/c4032636399c43f39146660be9a90c4b/embed",
     "name": "Boltless shelving bay 1600 x 600 x 2300 mm",
