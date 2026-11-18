@@ -5,6 +5,10 @@ tags:
   - 3d
   - glb
   - gltf
+  - obj
+  - dxf
+  - cad
+  - revit
   - warehouse
   - logistics
   - storage
@@ -64,7 +68,7 @@ dimensions are the spec, not an eyeballed mesh.
 | `external_volume_l` | External bounding volume in litres. **Not** usable capacity |
 | `reference_product`, `source`, `dimension_confidence` | Where the dimensions come from and how sure they are |
 | `triangles`, `vertices`, `file_bytes` | Read from the GLB |
-| `glb`, `file_name` | Paths to the model and its preview image |
+| `glb`, `obj`, `dxf`, `file_name` | Paths to the model in each format and its preview image |
 | `sketchfab_url`, `license` | 3D web view; licence per row |
 
 ## Layout
@@ -72,6 +76,8 @@ dimensions are the spec, not an eyeballed mesh.
 | Path | Contents |
 |---|---|
 | `models/<CODE>/<CODE>.glb` | The asset, at true scale in metres |
+| `models/<CODE>/<CODE>.obj` + `.mtl` | OBJ, metres, Y-up: Rhino, SketchUp, Blender and most 3D tools |
+| `models/<CODE>/<CODE>.dxf` | DXF (R2018) polyface mesh, **millimetres**, Z-up: Revit / Revit LT (Insert → Import CAD) and AutoCAD, which cannot open GLB |
 | `models/<CODE>/<CODE>.jpg` | Preview render |
 | `models/<CODE>/description.txt` | Description, dimensions and sources |
 | `metadata.jsonl` | One row per unit: code, family, region, `outer_mm`, `outer_in`, cells, reference product, GLB path, Sketchfab URL |

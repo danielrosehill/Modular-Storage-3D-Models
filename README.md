@@ -219,7 +219,7 @@ collection): `models/<CODE>/<CODE>.glb` + preview + description, `metadata.jsonl
 (the viewer shows previews with specs as columns) and `units.json`. Rebuild and push:
 
 ```bash
-python3 scripts/build_hf_dataset.py      # -> hf-dataset/ (gitignored)
+python3 scripts/build_hf_dataset.py      # -> hf-dataset/ (gitignored); also writes OBJ + DXF per model via scripts/export_cad.py (uv)
 hf upload danielrosehill/Modular-Storage-3D-Models hf-dataset . --repo-type dataset
 ```
 

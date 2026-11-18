@@ -13,6 +13,8 @@ Layout written to hf-dataset/ (gitignored, regenerable):
     models/<CODE>/<CODE>.glb      the asset
     models/<CODE>/<CODE>.jpg      preview render
     models/<CODE>/description.txt listing copy
+    models/<CODE>/<CODE>.obj/.mtl OBJ, metres (scripts/export_cad.py)
+    models/<CODE>/<CODE>.dxf      DXF polyface, millimetres, Z-up - Revit/AutoCAD
 
 The viewer cannot render GLB, so the preview JPG is the row's image and `glb` is
 a plain path column. No third-party dependencies; JPGs are taken from models/
@@ -112,6 +114,8 @@ def row_for(u, code, ledger, spec):
         "vertices": verts,
         "file_bytes": size,
         "glb": f"models/{code}/{code}.glb",
+        "obj": f"models/{code}/{code}.obj",
+        "dxf": f"models/{code}/{code}.dxf",
         "sketchfab_url": ledger.get(code, {}).get("url"),
         "license": "cc-by-4.0",
     }
@@ -138,6 +142,10 @@ def main():
         shutil.copy2(src / "description.txt", dst / "description.txt")
         preview_jpg(u, dst / f"{code}.jpg")
         rows.append(row_for(u, code, ledger, spec))
+
+    # CAD formats next to every GLB (OBJ for 3D tools, DXF in mm for Revit/AutoCAD)
+    subprocess.run(["uv", "run", "-q", str(REPO / "scripts" / "export_cad.py"),
+                    str(OUT / "models")], check=True)
 
     with (OUT / "metadata.jsonl").open("w", encoding="utf-8") as fh:
         for r in rows:
