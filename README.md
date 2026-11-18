@@ -132,7 +132,14 @@ Code `US-PB-<part>`, same builder:
 | 30260 | 18 × 11 × 10 | 457 × 279 × 254 |
 | 30270 | 18 × 16½ × 11 | 457 × 419 × 279 |
 
-All three are the same moulding in three sizes, so one generator is parametric
+Moulding detail (added 2026-11-18 from a reference photo): vertical ribs on the
+side and back walls with matching channels inside, a rim flange round the top, a
+recessed label panel and grip ledge on the front wall, and a steel bar across the
+opening on the Israeli range only (`front_bar: true` on PB1–PB4; US AkroBins have
+none). Logistiplast sells a differently styled range (embossed side panels,
+divider slots) that is not modelled.
+
+All the sizes are the same moulding, so one generator is parametric
 over depth/width/height. Note the axis order is **not** the L×W×H used for the
 crates above — a trap when transcribing.
 
