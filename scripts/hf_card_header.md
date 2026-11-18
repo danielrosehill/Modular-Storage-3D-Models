@@ -11,6 +11,11 @@ tags:
   - eurobox
   - industrial
   - low-poly
+  - 3d-assets
+  - storage-planning
+  - picking-bins
+  - tilt-bins
+  - totes
 size_categories:
   - n<1K
 configs:
@@ -35,6 +40,32 @@ dimensions are the spec, not an eyeballed mesh.
 - **Source, generators and specs:** <https://github.com/danielrosehill/Modular-Storage-3D-Models>
 - **Also on Sketchfab** (in-browser 3D viewer): the
   [Industrial Storage](https://sketchfab.com/danielrosehill/collections/industrial-storage) collection
+
+## Metadata (`metadata.jsonl`, one row per model)
+
+| Column | Meaning |
+|---|---|
+| `id` | Unique, stable slug (also the generator's build name) |
+| `code` | Short unique code used in folder names (`EU6423`, `TB603O` ...) |
+| `name`, `description` | Display name; one-paragraph description |
+| `category` | `modular-storage` or `shelving` |
+| `subcategory` | `open-top-totes`, `closed-totes`, `picking-bins`, `tilt-bin-units`, `boltless-shelving` |
+| `family` | Generator family (finer than subcategory) |
+| `colour`, `colour_hex` | Colour as modelled; sampled sRGB hex of the real moulding where known |
+| `material` | Plastic / steel / acrylic as modelled |
+| `lid` | Lid arrangement (`none`, attached hinged ...) |
+| `access` | `open-top`, `open-front`, `tilt-out`, `lidded`, `open` |
+| `state` | `open` / `closed` for models with a moving part, else `n/a` |
+| `open_deg` | Tilt angle of open variants (assumed 35°, not measured) |
+| `cells` | Bins per tilt-bin unit |
+| `stackable`, `nestable` | Booleans |
+| `region` | `metric` (Israel/EU sizes) or `US` (inch catalogue sizes) |
+| `footprint_mm`, `outer_mm`, `outer_in` | External dimensions; inches for US units as published |
+| `external_volume_l` | External bounding volume in litres. **Not** usable capacity |
+| `reference_product`, `source`, `dimension_confidence` | Where the dimensions come from and how sure they are |
+| `triangles`, `vertices`, `file_bytes` | Read from the GLB |
+| `glb`, `file_name` | Paths to the model and its preview image |
+| `sketchfab_url`, `license` | 3D web view; licence per row |
 
 ## Layout
 

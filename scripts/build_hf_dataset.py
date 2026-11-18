@@ -41,6 +41,82 @@ def preview_jpg(unit, dest):
     subprocess.run(["convert", str(png), "-quality", "88", str(dest)], check=True)
 
 
+def summary_of(code):
+    """First `== summary ==` block of specs/descriptions/<CODE>.md."""
+    p = REPO / "specs" / "descriptions" / f"{code}.md"
+    if not p.exists():
+        return None
+    text = p.read_text(encoding="utf-8")
+    if "== summary ==" not in text:
+        return None
+    block = text.split("== summary ==", 1)[1].split("==", 1)[0]
+    return " ".join(block.split())
+
+
+def glb_counts(path):
+    import struct
+    data = path.read_bytes()
+    total = struct.unpack("<I", data[8:12])[0]
+    off = 12
+    while off < total:
+        clen, ctype = struct.unpack("<II", data[off:off + 8])
+        if ctype == 0x4E4F534A:
+            doc = json.loads(data[off + 8:off + 8 + clen])
+            break
+        off += 8 + clen
+    acc = doc.get("accessors", [])
+    tris = verts = 0
+    for m in doc.get("meshes", []):
+        for prim in m.get("primitives", []):
+            at = prim.get("attributes", {})
+            if "POSITION" in at:
+                verts += acc[at["POSITION"]]["count"]
+            if "indices" in prim:
+                tris += acc[prim["indices"]]["count"] // 3
+    return tris, verts, len(data)
+
+
+# Column order of metadata.jsonl - documented in scripts/hf_card_header.md.
+def row_for(u, code, ledger, spec):
+    glb = REPO / "models" / code / f"{code}.glb"
+    tris, verts, size = glb_counts(glb)
+    colour_hex = (spec["colours"].get(u.get("colour_ref", ""), {}) or {}).get("sampled_srgb_hex")
+    return {
+        "file_name": f"models/{code}/{code}.jpg",
+        "id": u["id"],
+        "code": code,
+        "name": u["name"],
+        "description": summary_of(code),
+        "category": u["category"],
+        "subcategory": u["subcategory"],
+        "family": u["family"],
+        "colour": u.get("colour"),
+        "colour_hex": colour_hex[0] if colour_hex else None,
+        "material": u.get("material"),
+        "lid": u.get("lid"),
+        "access": u.get("access"),
+        "state": u.get("state"),
+        "open_deg": u.get("open_deg"),
+        "cells": u.get("cells"),
+        "stackable": u.get("stackable"),
+        "nestable": u.get("nestable"),
+        "region": u["region"],
+        "footprint_mm": u.get("footprint_mm"),
+        "outer_mm": u["outer_mm"],
+        "outer_in": u.get("outer_in"),
+        "external_volume_l": u.get("external_volume_l"),
+        "reference_product": u.get("reference_product"),
+        "source": u.get("source"),
+        "dimension_confidence": u.get("dimension_confidence"),
+        "triangles": tris,
+        "vertices": verts,
+        "file_bytes": size,
+        "glb": f"models/{code}/{code}.glb",
+        "sketchfab_url": ledger.get(code, {}).get("url"),
+        "license": "cc-by-4.0",
+    }
+
+
 def main():
     spec = json.loads((REPO / "specs" / "units.json").read_text(encoding="utf-8"))
     ledger = json.loads((REPO / "models" / "uploads.json").read_text(encoding="utf-8"))
@@ -48,6 +124,10 @@ def main():
         shutil.rmtree(OUT)
     (OUT / "models").mkdir(parents=True)
 
+    ids = [u["id"] for u in spec["units"]]
+    codes = [u["code"] for u in spec["units"]]
+    if len(set(ids)) != len(ids) or len(set(codes)) != len(codes):
+        raise SystemExit("duplicate id or code in specs/units.json")
     rows = []
     for u in spec["units"]:
         code = u["code"]
@@ -57,21 +137,7 @@ def main():
         shutil.copy2(src / f"{code}.glb", dst / f"{code}.glb")
         shutil.copy2(src / "description.txt", dst / "description.txt")
         preview_jpg(u, dst / f"{code}.jpg")
-        rows.append({
-            "file_name": f"models/{code}/{code}.jpg",
-            "code": code,
-            "name": u["name"],
-            "family": u["family"],
-            "region": u.get("region", "metric"),
-            "outer_mm": u["outer_mm"],
-            "outer_in": u.get("outer_in"),
-            "cells": u.get("cells"),
-            "open_deg": u.get("open_deg"),
-            "reference_product": u.get("reference_product"),
-            "glb": f"models/{code}/{code}.glb",
-            "sketchfab_url": ledger.get(code, {}).get("url"),
-            "dimension_confidence": u.get("dimension_confidence"),
-        })
+        rows.append(row_for(u, code, ledger, spec))
 
     with (OUT / "metadata.jsonl").open("w", encoding="utf-8") as fh:
         for r in rows:
@@ -82,9 +148,9 @@ def main():
         d = r["outer_mm"]
         return " × ".join(str(v) for v in d.values()) + " mm (" + " × ".join(d) + ")"
 
-    table = ["| Code | Unit | External | GLB |", "|---|---|---|---|"]
+    table = ["| Code | Unit | Subcategory | External | GLB |", "|---|---|---|---|---|"]
     for r in rows:
-        table.append(f"| `{r['code']}` | {r['name']} | {dims(r)} | "
+        table.append(f"| `{r['code']}` | {r['name']} | {r['subcategory']} | {dims(r)} | "
                      f"[glb](https://huggingface.co/datasets/{HF_ID}/resolve/main/{r['glb']}) |")
     header = (REPO / "scripts" / "hf_card_header.md").read_text(encoding="utf-8")
     (OUT / "README.md").write_text(header.rstrip() + "\n\n## Units\n\n"
