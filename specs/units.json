@@ -1274,6 +1274,78 @@
       "state": "n/a",
       "footprint_mm": "457 x 419",
       "external_volume_l": 53.4
+    },
+    {
+      "family": "platform_truck",
+      "category": "material-handling",
+      "subcategory": "platform-trucks",
+      "outer_mm": {
+        "length": 730,
+        "width": 470,
+        "height": 820
+      },
+      "deck_mm": {
+        "length": 720,
+        "width": 470
+      },
+      "wheel_d_mm": 100,
+      "deck_top_mm": 150,
+      "capacity_kg": 150,
+      "weight_kg": 7,
+      "material": "steel deck and tubular handle, rubber mat, PP/TPR wheels",
+      "colour": "grey frame, black mat (neutral; unbranded)",
+      "lid": "n/a",
+      "access": "open",
+      "stackable": false,
+      "nestable": false,
+      "region": "metric",
+      "footprint_mm": "730 x 470",
+      "standard_context": "Generic folding platform truck (flatbed trolley) of the common 150 kg class: 720 x 470 mm deck, 100 mm casters, handle folds flat over the deck. Takes one 600 x 400 euro container with room to spare.",
+      "dimension_confidence": "overall, deck, folded height, wheel size, capacity and weight from a retailer spec of a common 150 kg folding platform truck (2026-11-18); deck height 150 mm and hinge/handle detail inferred from the product photo, not published",
+      "source": "retailer product page (spec captured 2026-11-18; source kept privately)",
+      "id": "platform-truck-720x470",
+      "code": "PT7247",
+      "name": "Folding platform truck 720 x 470 mm",
+      "state": "open",
+      "label": "PT7247",
+      "external_volume_l": 281.3,
+      "open_height_mm": 820
+    },
+    {
+      "family": "platform_truck",
+      "category": "material-handling",
+      "subcategory": "platform-trucks",
+      "outer_mm": {
+        "length": 730,
+        "width": 470,
+        "height": 230
+      },
+      "deck_mm": {
+        "length": 720,
+        "width": 470
+      },
+      "wheel_d_mm": 100,
+      "deck_top_mm": 150,
+      "capacity_kg": 150,
+      "weight_kg": 7,
+      "material": "steel deck and tubular handle, rubber mat, PP/TPR wheels",
+      "colour": "grey frame, black mat (neutral; unbranded)",
+      "lid": "n/a",
+      "access": "open",
+      "stackable": false,
+      "nestable": false,
+      "region": "metric",
+      "footprint_mm": "730 x 470",
+      "standard_context": "Generic folding platform truck (flatbed trolley) of the common 150 kg class: 720 x 470 mm deck, 100 mm casters, handle folds flat over the deck. Takes one 600 x 400 euro container with room to spare.",
+      "dimension_confidence": "overall, deck, folded height, wheel size, capacity and weight from a retailer spec of a common 150 kg folding platform truck (2026-11-18); deck height 150 mm and hinge/handle detail inferred from the product photo, not published",
+      "source": "retailer product page (spec captured 2026-11-18; source kept privately)",
+      "id": "platform-truck-720x470-folded",
+      "code": "PT7247F",
+      "name": "Folding platform truck 720 x 470 mm, folded",
+      "state": "folded",
+      "label": "PT7247F",
+      "external_volume_l": 78.9,
+      "open_height_mm": 820
     }
   ],
   "reference_photos": "docs/reference-photos.md",

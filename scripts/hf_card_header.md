@@ -20,6 +20,8 @@ tags:
   - picking-bins
   - tilt-bins
   - totes
+  - platform-truck
+  - material-handling
 size_categories:
   - n<1K
 configs:
@@ -52,14 +54,14 @@ dimensions are the spec, not an eyeballed mesh.
 | `id` | Unique, stable slug (also the generator's build name) |
 | `code` | Short unique code used in folder names (`EU6423`, `TB603O` ...) |
 | `name`, `description` | Display name; one-paragraph description |
-| `category` | `modular-storage` or `shelving` |
-| `subcategory` | `open-top-totes`, `closed-totes`, `picking-bins`, `tilt-bin-units`, `boltless-shelving` |
+| `category` | `modular-storage`, `shelving` or `material-handling` |
+| `subcategory` | `open-top-totes`, `closed-totes`, `picking-bins`, `tilt-bin-units`, `boltless-shelving`, `platform-trucks` |
 | `family` | Generator family (finer than subcategory) |
 | `colour`, `colour_hex` | Colour as modelled; sampled sRGB hex of the real moulding where known |
 | `material` | Plastic / steel / acrylic as modelled |
 | `lid` | Lid arrangement (`none`, attached hinged ...) |
 | `access` | `open-top`, `open-front`, `tilt-out`, `lidded`, `open` |
-| `state` | `open` / `closed` for models with a moving part, else `n/a` |
+| `state` | `open` / `closed` / `folded` for models with a moving part, else `n/a` |
 | `open_deg` | Tilt angle of open variants (assumed 35°, not measured) |
 | `cells` | Bins per tilt-bin unit |
 | `stackable`, `nestable` | Booleans |

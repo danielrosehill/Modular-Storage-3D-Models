@@ -177,6 +177,17 @@ sheet, whose inch figures are identical. It is one moulding sold under both name
 so there are no separate US tilt-bin models. Uline lists its tip-out bins as 24 in
 wide; that is the same 23⅝ in rounded up.
 
+### Platform trucks (material handling)
+
+| Code | State | Overall L × W × H (mm) | Deck |
+|---|---|---|---|
+| `PT7247` | handle up | 730 × 470 × 820 | 720 × 470, 100 mm casters, 150 kg class |
+| `PT7247F` | folded | 730 × 470 × ~230 | handle laid over the deck |
+
+Generic, unbranded folding platform truck (`scripts/build_platform_trucks.py`, family
+`platform_truck`). Dimensions from a retailer spec of a common 150 kg model; deck height
+(150 mm) and hinge detail inferred from photos. Grey frame, black mat by design.
+
 ### Shelving
 
 | Code | W × D × H (mm) | Levels |

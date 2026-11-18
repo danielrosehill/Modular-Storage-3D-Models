@@ -1,0 +1,33 @@
+Folding platform truck 720 x 470 mm, folded
+PT7247F
+
+The same folding platform truck as PT7247 with the handle folded forward over the deck, the way it is stored: about 730 x 470 x 230 mm. Useful for planning where the trolley lives when it is not in use - under a shelf, behind a door, on top of a stack.
+
+Unbranded on purpose: neutral colours, blank crossbar panel. Dimensions from a retailer specification; deck height and hinge details inferred from product photos.
+
+DIMENSIONS (external)
+  Length    730 mm
+  Width     470 mm
+  Height    230 mm
+
+STANDARD
+  Generic folding platform truck (flatbed trolley) of the common 150 kg class: 720 x 470 mm deck, 100 mm casters, handle folds flat over the deck. Takes one 600 x 400 euro container with room to spare.
+
+TYPICAL USE
+Built for storage and moving planning: checking what fits on the deck, how a stack of euro containers moves between rooms, and where the trolley is stored when folded. Also usable as a set-dressing asset for warehouse, workshop and home-move scenes.
+
+Modelled at true real-world scale with low-poly geometry and flat materials (grey frame, black mat, dark tyres).
+
+ASSET NOTES
+  Format      GLB (glTF 2.0 binary), single file, no external textures
+  Scale       metres, real world - a 600 mm crate is 0.600 units long
+  Origin      centre of the base, +Z up
+  Geometry    1,692 triangles, 3,066 vertices
+  Materials   flat PBR base colours, no image maps
+  File size   109.2 KB
+
+LICENCE
+  CC Attribution 4.0 (CC BY 4.0)
+
+TAGS
+  platform truck, flatbed trolley, trolley, dolly, cart, material handling, moving, logistics, warehouse, workshop, folding, casters, storage planning, lowpoly, pbr, gltf, glb
