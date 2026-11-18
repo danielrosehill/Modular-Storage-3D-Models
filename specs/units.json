@@ -158,7 +158,9 @@
       "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
       "dimension_confidence": "confirmed",
       "label": "PICKING BOX 1",
-      "corroboration": "madafim.co.il 'אחסונית מספר 1' (fetched 2026-11-18) prints the same H x W x D"
+      "corroboration": "madafim.co.il 'אחסונית מספר 1' (fetched 2026-11-18) prints the same H x W x D",
+      "front_bar": true,
+      "front_bar_note": "steel bar across the opening above the front wall, per reference photo of the Israeli range (2026-11-18); US AkroBins have none"
     },
     {
       "id": "picking-bin-2",
@@ -176,7 +178,9 @@
       "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
       "dimension_confidence": "confirmed",
       "label": "PICKING BOX 2",
-      "corroboration": "madafim.co.il 'אחסונית מספר 2' (fetched 2026-11-18) prints the same H x W x D"
+      "corroboration": "madafim.co.il 'אחסונית מספר 2' (fetched 2026-11-18) prints the same H x W x D",
+      "front_bar": true,
+      "front_bar_note": "steel bar across the opening above the front wall, per reference photo of the Israeli range (2026-11-18); US AkroBins have none"
     },
     {
       "id": "picking-bin-3",
@@ -194,7 +198,9 @@
       "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
       "dimension_confidence": "confirmed",
       "label": "PICKING BOX 3",
-      "corroboration": "madafim.co.il 'אחסונית מספר 3' (fetched 2026-11-18) prints the same H x W x D"
+      "corroboration": "madafim.co.il 'אחסונית מספר 3' (fetched 2026-11-18) prints the same H x W x D",
+      "front_bar": true,
+      "front_bar_note": "steel bar across the opening above the front wall, per reference photo of the Israeli range (2026-11-18); US AkroBins have none"
     },
     {
       "id": "picking-bin-4",
@@ -212,7 +218,9 @@
       "standard_context": "No dimensional standard governs this family; sizes are manufacturer-specific. These three are typical of the commonly stocked small/medium/large range.",
       "dimension_confidence": "from madafim.co.il 'אחסונית מספר 4' (fetched 2026-11-18), printed H 8 x W 10 x D 14.5 cm; internal vs external not stated, treated as external",
       "label": "PB4",
-      "region": "Israel"
+      "region": "Israel",
+      "front_bar": true,
+      "front_bar_note": "steel bar across the opening above the front wall, per reference photo of the Israeli range (2026-11-18); US AkroBins have none"
     },
     {
       "id": "shelving-1600x600x2300",

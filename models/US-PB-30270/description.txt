@@ -38,9 +38,9 @@ ASSET NOTES
   Format      GLB (glTF 2.0 binary), single file, no external textures
   Scale       metres, real world - a 600 mm crate is 0.600 units long
   Origin      centre of the base, +Z up
-  Geometry    1,668 triangles, 2,161 vertices
+  Geometry    1,156 triangles, 1,744 vertices
   Materials   flat PBR base colours, no image maps
-  File size   79.5 KB
+  File size   63.5 KB
 
 LICENCE
   CC Attribution 4.0 (CC BY 4.0)

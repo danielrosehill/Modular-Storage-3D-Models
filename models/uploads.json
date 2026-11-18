@@ -91,12 +91,26 @@
     "uid": "858cdd682d0d49c1ace25a7a8604410a",
     "url": "https://sketchfab.com/3d-models/858cdd682d0d49c1ace25a7a8604410a"
   },
+  "TB603O": {
+    "embed": "https://sketchfab.com/models/2ff8bf90472e43a2ab889da0ae9ff981/embed",
+    "name": "Tilt-out bin unit, 3 bins, 600 mm, open",
+    "status": "SUCCEEDED",
+    "uid": "2ff8bf90472e43a2ab889da0ae9ff981",
+    "url": "https://sketchfab.com/3d-models/2ff8bf90472e43a2ab889da0ae9ff981"
+  },
   "TB604": {
     "embed": "https://sketchfab.com/models/cc25efd1c1874d818da45c22846c44a6/embed",
     "name": "Tilt-out bin unit, 4 bins, 600 mm wide",
     "status": "SUCCEEDED",
     "uid": "cc25efd1c1874d818da45c22846c44a6",
     "url": "https://sketchfab.com/3d-models/cc25efd1c1874d818da45c22846c44a6"
+  },
+  "TB604O": {
+    "embed": "https://sketchfab.com/models/86f69a304c194d13844233b4bfcfc9a4/embed",
+    "name": "Tilt-out bin unit, 4 bins, 600 mm, open",
+    "status": "SUCCEEDED",
+    "uid": "86f69a304c194d13844233b4bfcfc9a4",
+    "url": "https://sketchfab.com/3d-models/86f69a304c194d13844233b4bfcfc9a4"
   },
   "TB605": {
     "embed": "https://sketchfab.com/models/863e7ad63df44a90a54286105d11a517/embed",
@@ -105,6 +119,13 @@
     "uid": "863e7ad63df44a90a54286105d11a517",
     "url": "https://sketchfab.com/3d-models/863e7ad63df44a90a54286105d11a517"
   },
+  "TB605O": {
+    "embed": "https://sketchfab.com/models/40165800705446b7a21c67d550a89ed5/embed",
+    "name": "Tilt-out bin unit, 5 bins, 600 mm, open",
+    "status": "SUCCEEDED",
+    "uid": "40165800705446b7a21c67d550a89ed5",
+    "url": "https://sketchfab.com/3d-models/40165800705446b7a21c67d550a89ed5"
+  },
   "TB606": {
     "embed": "https://sketchfab.com/models/292bfadded684fe1b265dc98f987bcb6/embed",
     "name": "Tilt-out bin unit, 6 bins, 600 mm wide",
@@ -112,12 +133,26 @@
     "uid": "292bfadded684fe1b265dc98f987bcb6",
     "url": "https://sketchfab.com/3d-models/292bfadded684fe1b265dc98f987bcb6"
   },
+  "TB606O": {
+    "embed": "https://sketchfab.com/models/1bcb064e9df5488c8dd2c9a9024b5640/embed",
+    "name": "Tilt-out bin unit, 6 bins, 600 mm, open",
+    "status": "SUCCEEDED",
+    "uid": "1bcb064e9df5488c8dd2c9a9024b5640",
+    "url": "https://sketchfab.com/3d-models/1bcb064e9df5488c8dd2c9a9024b5640"
+  },
   "TB609": {
     "embed": "https://sketchfab.com/models/499d6da6dc014f49b996556db6af1b33/embed",
     "name": "Tilt-out bin unit, 9 bins, 600 mm wide",
     "status": "SUCCEEDED",
     "uid": "499d6da6dc014f49b996556db6af1b33",
     "url": "https://sketchfab.com/3d-models/499d6da6dc014f49b996556db6af1b33"
+  },
+  "TB609O": {
+    "embed": "https://sketchfab.com/models/e38175638e9d4134aca4ff7f92c5bd2b/embed",
+    "name": "Tilt-out bin unit, 9 bins, 600 mm, open",
+    "status": "SUCCEEDED",
+    "uid": "e38175638e9d4134aca4ff7f92c5bd2b",
+    "url": "https://sketchfab.com/3d-models/e38175638e9d4134aca4ff7f92c5bd2b"
   },
   "US-ALC-2215-09": {
     "embed": "https://sketchfab.com/models/4f34a0007f174fd2a52dd34462b39e03/embed",
