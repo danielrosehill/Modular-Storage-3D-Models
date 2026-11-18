@@ -31,6 +31,7 @@ and a boltless shelving bay. Metric (Israel/EU) and US catalogue sizes. Every
 model is generated from a dimension spec by headless Blender scripts, so the
 dimensions are the spec, not an eyeballed mesh.
 
+- **Interactive 3D viewer:** [3D Assets Viewer](https://huggingface.co/spaces/danielrosehill/3D-Assets-Viewer) (search, filter, orbit any model, download)
 - **Source, generators and specs:** <https://github.com/danielrosehill/Modular-Storage-3D-Models>
 - **Also on Sketchfab** (in-browser 3D viewer): the
   [Industrial Storage](https://sketchfab.com/danielrosehill/collections/industrial-storage) collection

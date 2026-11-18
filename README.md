@@ -195,7 +195,8 @@ python3 -m http.server 8731        # then open localhost:8731/preview/
 
 ## Where these are published
 
-**Hugging Face (canonical download)** — all units as a public dataset,
+**Hugging Face (canonical download)** — browse them in the
+[3D Assets Viewer](https://huggingface.co/spaces/danielrosehill/3D-Assets-Viewer) Space; all units as a public dataset,
 [`danielrosehill/Modular-Storage-3D-Models`](https://huggingface.co/datasets/danielrosehill/Modular-Storage-3D-Models)
 (in the [3D Assets](https://huggingface.co/collections/danielrosehill/3d-assets-6afdbb70ba252f1519600d41)
 collection): `models/<CODE>/<CODE>.glb` + preview + description, `metadata.jsonl`
